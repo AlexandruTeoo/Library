@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.CompilerServices;
 
 namespace EndPointAPI.Controllers
 {
@@ -20,25 +21,25 @@ namespace EndPointAPI.Controllers
 
         private static List<Book> _books = new List<Book>
         {
-            new Book { Id = 1, Title = "The Great Gatsby", Author = "F. Scott Fitzgerald", ISBN = "9780142437419" },
-            new Book { Id = 2, Title = "To Kill a Mockingbird", Author = "Harper Lee", ISBN = "9780446310789" },
-            new Book { Id = 3, Title = "1984", Author = "George Orwell", ISBN = "9780451524935" },
-            new Book { Id = 4, Title = "Pride and Prejudice", Author = "Jane Austen", ISBN = "9780141439518" },
-            new Book { Id = 5, Title = "The Catcher in the Rye", Author = "J.D. Salinger", ISBN = "9780316769174" },
-            new Book { Id = 6, Title = "Amintiri din copilarie", Author = "Ion Creanga", ISBN = "9780316769175" },
-            new Book { Id = 7, Title = "Ion", Author = "Liviu Rebreanu", ISBN = "9780316769188" },
-            new Book { Id = 8, Title = "Fluturi de noapte", Author = "Otilia Cazimir", ISBN = "9780316769199" },
-            new Book { Id = 9, Title = "Enigma Otiliei", Author = "George Calinescu", ISBN = "9780316769100" }
+            new Book { Title = "The Great Gatsby", Author = "F. Scott Fitzgerald", Category = "Fiction", ISBN = "9780142437419", Stock = 2, Total = 3},
+            new Book { Title = "To Kill a Mockingbird", Author = "Harper Lee", Category = "Fiction", ISBN = "9780446310789", Stock = 2, Total = 3 },
+            new Book { Title = "1984", Author = "George Orwell", Category = "Fiction", ISBN = "9780451524935" , Stock = 2, Total = 3},
+            new Book { Title = "Pride and Prejudice", Author = "Jane Austen", Category = "Romance ", ISBN = "9780141439518" , Stock = 2, Total = 3},
+            new Book { Title = "The Catcher in the Rye", Author = "J.D. Salinger", Category = "Fiction", ISBN = "9780316769174" , Stock = 2, Total = 3},
+            new Book { Title = "Amintiri din copilarie", Author = "Ion Creanga", Category = "Biography", ISBN = "9780316769175" , Stock = 0, Total = 3},
+            new Book { Title = "Ion", Author = "Liviu Rebreanu", Category = "Fiction", ISBN = "9780316769188" , Stock = 2, Total = 3},
+            new Book { Title = "Fluturi de noapte", Author = "Otilia Cazimir", Category = "Romance ", ISBN = "9780316769199" , Stock = 2, Total = 3},
+            new Book { Title = "Enigma Otiliei", Author = "George Calinescu", Category = "Mystery", ISBN = "9780316769100", Stock = 2, Total = 3 }
         };
 
         [HttpGet("books")]
-        public IActionResult GetBooks(string query = null)
+        public IActionResult GetBooks(string contains = null)
         {
-            if (!string.IsNullOrEmpty(query))
+            if (!string.IsNullOrEmpty(contains))
             {
                 var books = _books.Where(b =>
-                    b.Author.ToLower().Contains(query.ToLower()) ||
-                    b.Title.ToLower().Contains(query.ToLower())
+                    b.Author.ToLower().Contains(contains.ToLower()) ||
+                    b.Title.ToLower().Contains(contains.ToLower())
                 );
                 return Ok(books);
             }
@@ -49,7 +50,7 @@ namespace EndPointAPI.Controllers
         }
 
         [HttpGet("book/{isbn}")]
-        public IActionResult GetBookByISBN(string isbn)
+        public IActionResult GetBook(string isbn)
         {
             var book = _books.FirstOrDefault(b => b.ISBN == isbn);
             if (book != null)
@@ -60,6 +61,42 @@ namespace EndPointAPI.Controllers
             {
                 return NotFound();
             }
+        }
+
+        [HttpGet("categorybooks/{category}")]
+        public IActionResult GetCategoryBooks(string category)
+        {
+            var book = _books.Where(b => b.Category == category);
+            if (book != null)
+            {
+                return Ok(book);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpGet("checkstock/{isbn}")]
+        public IActionResult CheckStock(string isbn)
+        {
+            Book book = _books.FirstOrDefault(b => b.ISBN == isbn);
+            if (book != null && book.Stock > 0)
+            {
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpPost("addbooks")]
+        public IActionResult AddBook([FromBody] Book _book)
+        {
+            // Code to add the book to the database or list of books goes here
+
+            return CreatedAtRoute("GetBook", new { isbn = _book.ISBN }, _book);
         }
     }
 }
