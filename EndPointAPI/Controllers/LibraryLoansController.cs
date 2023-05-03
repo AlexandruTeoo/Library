@@ -5,13 +5,13 @@ namespace EndPointAPI.Controllers
 {
     public class LibraryLoansController : ControllerBase
     {
-        private static List<Loan> _loans = new List<Loan>
+        private static List<LibraryLoans> _loans = new List<LibraryLoans>
         {
-            new Loan{ LoanId = 1, Username = "matei.rares", ISBN = "9780142437419" },
-            new Loan{ LoanId = 2, Username = "matei.rares", ISBN = "9780451524935" },
-            new Loan{ LoanId = 3, Username = "mihai.nejneriu", ISBN = "9780316769175" },
-            new Loan{ LoanId = 4, Username = "ovi.catarama", ISBN = "9780316769175" },
-            new Loan{ LoanId = 5, Username = "ovi.catarama", ISBN = "9780316769100" }
+            new LibraryLoans{ LoanId = 1, Username = "matei.rares", ISBN = "9780142437419" },
+            new LibraryLoans{ LoanId = 2, Username = "matei.rares", ISBN = "9780451524935" },
+            new LibraryLoans{ LoanId = 3, Username = "mihai.nejneriu", ISBN = "9780316769175" },
+            new LibraryLoans{ LoanId = 4, Username = "ovi.catarama", ISBN = "9780316769175" },
+            new LibraryLoans{ LoanId = 5, Username = "ovi.catarama", ISBN = "9780316769100" }
         };
 
         [HttpGet("loans")]

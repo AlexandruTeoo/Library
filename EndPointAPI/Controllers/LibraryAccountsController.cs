@@ -6,20 +6,20 @@ namespace EndPointAPI.Controllers
 {
     public class LibraryAccountsController : ControllerBase
     {
-        private static List<Account> _accounts = new List<Account>
+        private static List<LibraryAccounts> _accounts = new List<LibraryAccounts>
         {
-            new Account{ Id = 1, Username = "matei.rares", Password = "qweasdzxc", AccountType = "User"},
-            new Account{ Id = 2, Username = "radu.dumitriu", Password = "qweasdzxc", AccountType = "Admin"},
-            new Account{ Id = 3, Username = "mihai.nejneriu", Password = "qweasdzxc", AccountType = "User"},
-            new Account{ Id = 4, Username = "ovi.catarama", Password = "qweasdzxc", AccountType = "User"},
-            new Account{ Id = 5, Username = "teodor.alexandru", Password = "qweasdzxc", AccountType = "Admin"}
+            new LibraryAccounts{ Id = 1, Username = "matei.rares", Password = "qweasdzxc", AccountType = "User"},
+            new LibraryAccounts{ Id = 2, Username = "radu.dumitriu", Password = "qweasdzxc", AccountType = "Admin"},
+            new LibraryAccounts{ Id = 3, Username = "mihai.nejneriu", Password = "qweasdzxc", AccountType = "User"},
+            new LibraryAccounts{ Id = 4, Username = "ovi.catarama", Password = "qweasdzxc", AccountType = "User"},
+            new LibraryAccounts{ Id = 5, Username = "teodor.alexandru", Password = "qweasdzxc", AccountType = "Admin"}
         };
 
         [HttpPost("login")]
-        public IActionResult LogIn([FromBody] Account account)
+        public IActionResult LogIn([FromBody] LibraryAccounts account)
         {
             // Find the user by username and password
-            Account acc = _accounts.FirstOrDefault(a => 
+            LibraryAccounts acc = _accounts.FirstOrDefault(a => 
             a.Username == account.Username &&
             a.Password == account.Password); // email ??
 
@@ -36,7 +36,7 @@ namespace EndPointAPI.Controllers
         }
 
         [HttpPost("register")]
-        public IActionResult Register([FromBody] Account account)
+        public IActionResult Register([FromBody] LibraryAccounts account)
         {
 
             // Check if the username already exists
@@ -46,7 +46,7 @@ namespace EndPointAPI.Controllers
             }
 
             // Create a new user object
-            Account acc = new Account
+            LibraryAccounts acc = new LibraryAccounts
             {
                 Id = _accounts.Count + 1,
                 Username = account.Username,
@@ -79,10 +79,10 @@ namespace EndPointAPI.Controllers
         }
 
         [HttpPut("updateuser/{id}/user")]
-        public IActionResult UpdateUser(int id, [FromBody] Account newUserData)
+        public IActionResult UpdateUser(int id, [FromBody] LibraryAccounts newUserData)
         {
             // Find the user by Id
-            Account acc = _accounts.FirstOrDefault(u => u.Id == id);
+            LibraryAccounts acc = _accounts.FirstOrDefault(u => u.Id == id);
 
             // Check if the user exists
             if (acc == null)
