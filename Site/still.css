@@ -1,0 +1,238 @@
+/*--------------------------------------------------Acasa-------------------------------------------------------------*/
+
+*{
+    margin:0;
+    padding: 0;
+}
+
+.grid-container-acasa {
+    display: grid;
+    grid-template-columns:  250px 1fr 1fr ;
+    grid-template-rows: 100px 120px 1fr 1fr;
+    grid-template-areas:
+    " header header header "
+    " aside main main "
+    " aside main main "
+    " aside main main "
+    " footer footer footer ";
+}
+
+.grid-container-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+    "book1 book2 book3"
+    "book1 book2 book3"
+    "book1 book2 book3";
+}
+
+.grid-container-header {
+    display: grid;
+    grid-template-columns: 100px auto;
+    grid-template-areas:
+    "imgnav nav";
+}
+
+.grid-item {
+    background-color: wheat;
+    border: 3px solid orange;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    grid-area: item;
+
+}
+
+.header{
+    grid-area: header;
+}
+
+.aside{
+    grid-area: aside;
+    text-align: left;
+}
+
+.main{
+    grid-area: main;
+}
+
+.footer{
+    grid-area: footer;
+}
+
+.book1{
+    grid-area: book1;
+}
+
+.book2{
+    grid-area: book2;
+}
+
+.book3{
+    grid-area: book3;
+}
+
+a:hover{
+    opacity: 0.8;
+}
+
+.wrapper{
+    padding-top: 20px;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding-bottom: 20px;
+}
+
+img{
+    border-radius: 25px;
+}
+
+.nav{
+    grid-area: nav;
+}
+
+.imgnav{
+    grid-area: imgnav;
+}
+
+/*Log In*/
+
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: auto;
+    border-radius: 25px;
+}
+
+.open-button:hover{
+    font-size: 0;
+}
+
+.open-button:hover:after{
+    content: "Bine ati venit!";
+    font-size: 13px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+    width: 300px;
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    border-radius: 25px;
+}
+
+/* Add styles to the form container */
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+    width: 250px;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    border-radius: 25px;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+    border-radius: 25px;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+    background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+}
+
+/*Menu*/
+
+
+/*---------------------------------------------Inregistrare-----------------------------------------------------------*/
+
+.grid-container-inregistrare {
+    display: grid;
+    grid-template-columns: 1fr 400px 1fr ;
+    grid-template-rows: 100px 1fr 100px ;
+    grid-template-areas:
+    "header header header"
+    ". inregistrare ."
+    ". inregistrare ."
+    "footer footer footer";
+}
+
+.grid-inregistrare{
+    grid-area: inregistrare;
+}
+
+.wrapper-inregistrare{
+    padding-top: 20px;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding-bottom: 20px;
+    width: auto;
+}
+
+.containter-inregistrare{
+    border: 2px solid gray;
+    text-align: center;
+}
+
+.containter-inregistrare input{
+    height: 30px;
+    border-radius: 10px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.label-input-label{
+    text-align: left;
+    border: 2px solid red;
+}
+
+.containter-inregistrare button{
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+}
+
+
+
+
+
