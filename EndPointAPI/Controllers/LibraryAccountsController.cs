@@ -6,22 +6,14 @@ namespace EndPointAPI.Controllers
 {
     public class LibraryAccountsController : ControllerBase
     {
-        private static List<LibraryAccounts> _accounts = new List<LibraryAccounts>
-        {
-            new LibraryAccounts{ Id = 1, Username = "matei.rares", Password = "qweasdzxc", AccountType = "User"},
-            new LibraryAccounts{ Id = 2, Username = "radu.dumitriu", Password = "qweasdzxc", AccountType = "Admin"},
-            new LibraryAccounts{ Id = 3, Username = "mihai.nejneriu", Password = "qweasdzxc", AccountType = "User"},
-            new LibraryAccounts{ Id = 4, Username = "ovi.catarama", Password = "qweasdzxc", AccountType = "User"},
-            new LibraryAccounts{ Id = 5, Username = "teodor.alexandru", Password = "qweasdzxc", AccountType = "Admin"}
-        };
-
         [HttpPost("login")]
-        public IActionResult LogIn([FromBody] LibraryAccounts account)
+        public IActionResult LogIn([FromBody] Account account)
         {
+            List<Account> _accounts = AccountDAO.GetAccounts();
             // Find the user by username and password
-            LibraryAccounts acc = _accounts.FirstOrDefault(a => 
-            a.Username == account.Username &&
-            a.Password == account.Password); // email ??
+            Account acc = _accounts.FirstOrDefault(a => 
+            a.getUsername() == account.getUsername() &&
+            a.getPassword() == account.getPassword()); // email ??
 
             // Check if the user exists
             if (acc == null)
@@ -36,41 +28,36 @@ namespace EndPointAPI.Controllers
         }
 
         [HttpPost("register")]
-        public IActionResult Register([FromBody] LibraryAccounts account)
+        public IActionResult Register([FromBody] Account account)
         {
+            List<Account> _accounts = AccountDAO.GetAccounts();
 
             // Check if the username already exists
-            if (_accounts.Any(u => u.Username == account.Username))
+            if (_accounts.Any(u => u.getUsername() == account.getUsername()))
             {
                 return Conflict();
             }
 
             // Create a new user object
-            LibraryAccounts acc = new LibraryAccounts
-            {
-                Id = _accounts.Count + 1,
-                Username = account.Username,
-                Password = account.Password,
-                Nume = account.Nume,
-                Prenume = account.Prenume,
-                Email = account.Email,
-                AccountType = "User",
-            };
+            Account newAcc = new Account (account);
+            
 
             // Add the user to the list of users
-            _accounts.Add(acc);
+            _accounts.Add(newAcc);
 
             // Return the newly created user object
-            return CreatedAtAction(nameof(LogIn), new { id = acc.Id }, acc);
+            return CreatedAtAction(nameof(LogIn), new { id = newAcc.getId() }, newAcc);
         }
 
         [HttpGet("accounttype")]
         public IActionResult GetAccount(string username, string passwd)
         {
-            var acc = _accounts.FirstOrDefault(a => a.Username == username && a.Password == passwd);
+
+            List<Account> _accounts = AccountDAO.GetAccounts();
+            var acc = _accounts.FirstOrDefault(a => a.getUsername() == username && a.getPassword() == passwd);
             if (acc != null)
             {
-                return Ok(acc.AccountType);
+                return Ok(acc.getAccountType());
             }
             else
             {
@@ -79,10 +66,13 @@ namespace EndPointAPI.Controllers
         }
 
         [HttpPut("updateuser/{id}/user")]
-        public IActionResult UpdateUser(int id, [FromBody] LibraryAccounts newUserData)
+        public IActionResult UpdateUser(int id, [FromBody] Account newUserData)
         {
+
+            List<Account> _accounts = AccountDAO.GetAccounts();
+
             // Find the user by Id
-            LibraryAccounts acc = _accounts.FirstOrDefault(u => u.Id == id);
+            Account acc = _accounts.FirstOrDefault(u => u.getId() == id);
 
             // Check if the user exists
             if (acc == null)

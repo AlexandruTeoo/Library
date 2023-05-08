@@ -5,19 +5,11 @@ namespace EndPointAPI.Controllers
 {
     public class LibraryLoansController : ControllerBase
     {
-        private static List<LibraryLoans> _loans = new List<LibraryLoans>
-        {
-            new LibraryLoans{ LoanId = 1, Username = "matei.rares", ISBN = "9780142437419" },
-            new LibraryLoans{ LoanId = 2, Username = "matei.rares", ISBN = "9780451524935" },
-            new LibraryLoans{ LoanId = 3, Username = "mihai.nejneriu", ISBN = "9780316769175" },
-            new LibraryLoans{ LoanId = 4, Username = "ovi.catarama", ISBN = "9780316769175" },
-            new LibraryLoans{ LoanId = 5, Username = "ovi.catarama", ISBN = "9780316769100" }
-        };
-
         [HttpGet("loans")]
-        public IActionResult GetLoans(string user)
+        public IActionResult GetLoans(int accountId)
         {
-            var loans = _loans.Where(l => l.Username == user);
+            List <Loan> _loans = LoanDAO.GetLoans();
+            var loans = _loans.Where(l => l.getAccountId() == accountId);
             if (loans != null)
             {
                 return Ok(loans);
@@ -29,12 +21,13 @@ namespace EndPointAPI.Controllers
         }
 
         [HttpGet("loans/{id}")]
-        public IActionResult GetLoan(int id)
+        public IActionResult GetLoan(string id)
         {
-            var loan = _loans.FirstOrDefault(l => l.LoanId == id);
-            if (loan != null)
+            List<Loan> _loans = LoanDAO.GetLoans();
+            
+            if (_loans != null)
             {
-                return Ok(loan);
+                return Ok(_loans);
             }
             else
             {
@@ -42,41 +35,41 @@ namespace EndPointAPI.Controllers
             }
         }
 
-        /*[HttpPost("loans/add")]
+        [HttpPost("loans/add")]
         public IActionResult AddLoan([FromBody] Loan loan)
         {
             // Check if the book is available
-            if (!IsBookAvailable(loan.ISBN)) // ?? sql
+            if (!LoanDAO.IsBookAvailable(loan.getISBN())) // ?? sql
             {
                 return Conflict("Book is not available for loan.");
             }
 
             // Check if the user exists
-            if (!UserExists(loan.Username)) // ?? sql
+            if (!LoanDAO.UserExists(loan.getAccountId())) // ?? sql
             {
                 return NotFound("User not found.");
             }
 
             // Create a new loan object
-            loan.LoanId = _loans.Count + 1;
-            loan.IssuedDate = DateOnly.FromDateTime(DateTime.UtcNow.Date);
-            loan.ReturnedDate = loan.IssuedDate.AddDays(14);
+            loan.setLoanID(_loans.Count + 1);
+            loan.setIssuedDate(DateOnly.FromDateTime(DateTime.UtcNow.Date);
+            loan.setReturnedDate(loan.getIssuedDate().AddDays(14));
 
             // Add the loan to the list of loans
             _loans.Add(loan);
 
             // Update the book availability status
-            UpdateBookAvailability(loan.LoanId, false); // ? sql
+            LoanDAO.UpdateBookAvailability(loan.getLoanID(), false); // ? sql
 
             // Return the newly created loan object
-            return CreatedAtAction(nameof(GetLoan), new { id = loan.Id }, loan);
+            return CreatedAtAction(nameof(GetLoan), new { id = loan.getLoanID() }, loan);
         }
 
         [HttpPut("loans/approve")]
-        public IActionResult ApproveLoan([FromBody] int loanId)
+        public IActionResult ApproveLoan([FromBody] string loanId)
         {
             // Approve the loan with the given ID
-            Loan approvedLoan = ApproveLoan(loanId);
+            Loan approvedLoan = LoanDAO.ApproveLoan(loanId);
 
             if (approvedLoan == null)
             {
@@ -84,10 +77,10 @@ namespace EndPointAPI.Controllers
             }
 
             // Update the book availability status
-            UpdateBookAvailability(approvedLoan.BookId, false);
+            LoanDAO.UpdateBookAvailability(approvedLoan.getISBN(), false);
 
             return Ok("Loan approved successfully");
-        }*/
+        }
 
     }
 }
