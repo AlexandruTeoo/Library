@@ -4,7 +4,7 @@
     {
         private string _loanId;
         private int _accountId;
-        private string _isbn;
+        private int _isbn;
         private DateOnly _issuedDate;
         private DateOnly _returnedDate;
 
@@ -17,14 +17,23 @@
             _returnedDate = l._returnedDate;
         }
 
+        public Loan (string loanId, int accountId, int isbn, DateOnly issuedDate, DateOnly returnedDate)
+        {
+            _loanId = loanId;
+            _accountId = accountId;
+            _isbn = isbn;
+            _issuedDate = issuedDate;
+            _returnedDate = returnedDate;
+        }
+
         public string getLoanID() { return _loanId; }
         public void setLoanID(string loanId) { this._loanId = loanId; }
         
         public int getAccountId() { return _accountId; }
         public void setAccountId(int accountId) { this._accountId = accountId; }
         
-        public string getISBN() { return _isbn; }
-        public void setISBN(string isbn) { this._isbn = isbn; }
+        public int getISBN() { return _isbn; }
+        public void setISBN(int isbn) { this._isbn = isbn; }
 
         public DateOnly getIssuedDate() { return _issuedDate; }
         public void setIssuedDate(DateOnly issuedDate) { this._issuedDate = issuedDate; }

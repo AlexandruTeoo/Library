@@ -30,3 +30,5 @@ D:\AC\IP\Project\EndPointAPI\obj\Debug\net6.0\refint\EndPointAPI.dll
 D:\AC\IP\Project\EndPointAPI\obj\Debug\net6.0\EndPointAPI.pdb
 D:\AC\IP\Project\EndPointAPI\obj\Debug\net6.0\EndPointAPI.genruntimeconfig.cache
 D:\AC\IP\Project\EndPointAPI\obj\Debug\net6.0\ref\EndPointAPI.dll
+D:\AC\IP\Project\EndPointAPI\bin\Debug\net6.0\Oracle.ManagedDataAccess.dll
+D:\AC\IP\Project\EndPointAPI\bin\Debug\net6.0\System.Text.Json.dll

@@ -27,7 +27,7 @@ namespace EndPointAPI.Controllers
         }
 
         [HttpGet("book/{isbn}")]
-        public IActionResult GetBook(string isbn)
+        public IActionResult GetBook(int isbn)
         {
             List<Book> _books = BookDAO.GetBooks();
             var book = _books.FirstOrDefault(b => b.getISBN() == isbn);
@@ -57,7 +57,7 @@ namespace EndPointAPI.Controllers
         }
 
         [HttpGet("checkstock/{isbn}")]
-        public IActionResult CheckStock(string isbn)
+        public IActionResult CheckStock(int isbn)
         {
             List<Book> _books = BookDAO.GetBooks();
             Book book = _books.FirstOrDefault(b => b.getISBN() == isbn);

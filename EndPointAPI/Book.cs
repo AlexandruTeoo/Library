@@ -9,7 +9,7 @@ namespace EndPointAPI
         private string _category;
         private int _stock;
         private int _total;
-        private string _isbn;
+        private int _isbn;
 
         public Book(Book b)
         {
@@ -19,6 +19,16 @@ namespace EndPointAPI
             _stock = b._stock;
             _total = b._total;
             _isbn = b._isbn;
+        }
+
+        public Book (string title, string author, string category, int stock, int total, int isbn)
+        {
+            _title = title;
+            _author = author;
+            _category = category;
+            _stock = stock;
+            _total = total;
+            _isbn = isbn;
         }
 
         public string getTitle() { return _title; }
@@ -34,8 +44,8 @@ namespace EndPointAPI
         public int getTotal() { return _total; }
         public void setTotal(int total) { this._total = total; }
 
-        public string getISBN() { return _isbn; }
-        public void setISBN(string isbn) { this._isbn = isbn; }
+        public int getISBN() { return _isbn; }
+        public void setISBN(int isbn) { this._isbn = isbn; }
 
         public override string ToString()
         {

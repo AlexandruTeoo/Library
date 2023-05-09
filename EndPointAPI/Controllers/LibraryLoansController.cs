@@ -51,15 +51,10 @@ namespace EndPointAPI.Controllers
             }
 
             // Create a new loan object
-            loan.setLoanID(_loans.Count + 1);
-            loan.setIssuedDate(DateOnly.FromDateTime(DateTime.UtcNow.Date);
-            loan.setReturnedDate(loan.getIssuedDate().AddDays(14));
-
-            // Add the loan to the list of loans
-            _loans.Add(loan);
-
-            // Update the book availability status
-            LoanDAO.UpdateBookAvailability(loan.getLoanID(), false); // ? sql
+            /*loan.setLoanID(_loans.Count + 1);
+            loan.setIssuedDate(DateOnly.FromDateTime(DateTime.UtcNow.Date));
+            loan.setReturnedDate(loan.getIssuedDate().AddDays(14));*/
+            LoanDAO.AddLoan(loan);
 
             // Return the newly created loan object
             return CreatedAtAction(nameof(GetLoan), new { id = loan.getLoanID() }, loan);
