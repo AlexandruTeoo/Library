@@ -17,7 +17,6 @@ namespace EndPointAPI
 
         public Account (Account a)
         {
-            _id = a._id;
             _username = a._username;
             _password = a._password;
             _nume = a._nume;
