@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Title</title>
-  <link rel="stylesheet" href="still.css">
-  <script src="script.js"></script>
+  <title>Inregistrare</title>
+  <link rel="stylesheet" href="Stil/inregistrare.css">
+  <script src="Script/inregistrare.js"></script>
 </head>
 
 <body style="background-color: wheat">
@@ -17,7 +17,7 @@
         <a href="inregistrare.html">Inregistrare</a>
         <a href="#">Despre noi</a>
       </nav>
-      <img class="imgnav" src="carti/book1.jpg" width="50px" height="50px">
+      <img class="imgnav" src="carti/book1.jpg" width="50px" height="50px" alt="The logo">
     </div>
 
 
@@ -34,12 +34,15 @@
             <div class="label-input-label">
               <label for="psw"><b>Parola</b></label><br>
             </div>
-            <input type="password" id="psw" placeholder="Parola" name="psw" required><br>
+            <input type="password" id="psw" placeholder="Parola" name="psw" onkeyup=evaluatePasswordStrength() onchange="onChange()" required><br>
 
             <div class="label-input-label">
               <label for="rpsw"><b>Reintroduceti Parola</b></label><br>
             </div>
-            <input type="password" id="rpsw" placeholder="Parola" name="rpsw" required><br>
+            <input type="password" id="rpsw" placeholder="Parola" name="rpsw" onkeyup=evaluatePasswordStrength() onchange="onChange()" ><br>
+            <span id='message'></span>
+            <meter id="strength-meter" min="0" low="75" optimum="100" high="25" max="100"></meter>
+            <p id="strength-text"></p>
 
             <div class="label-input-label">
               <label for="nume"><b>Nume</b></label><br>
@@ -52,6 +55,11 @@
             <input type="text" id="prenume" placeholder="Prenume" name="prenume" required><br>
 
             <div class="label-input-label">
+              <label for="cnp"><b>CNP</b></label><br>
+            </div>
+            <input type="text" id="cnp" placeholder="CNP" name="cnp" required><br>
+
+            <div class="label-input-label">
               <label for="email"><b>Email</b></label><br>
             </div>
             <input type="email" id="email" placeholder="Email" name="email" required><br>
@@ -60,6 +68,11 @@
               <label for="adresa"><b>Adresa</b></label><br>
             </div>
             <input type="text" id="adresa" placeholder="Adresa" name="adresa" required><br>
+
+            <div class="label-input-label">
+              <label for="oras"><b>Oras</b></label><br>
+            </div>
+            <input type="text" id="oras" placeholder="Oras" name="oras" required><br>
 
             <div class="label-input-label">
               <label for="telefon"><b>Telefon</b></label><br>
