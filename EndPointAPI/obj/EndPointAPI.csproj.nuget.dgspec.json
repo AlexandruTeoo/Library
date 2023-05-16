@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\AC\\IP\\Project\\EndPointAPI\\EndPointAPI.csproj": {}
+    "C:\\Users\\User\\Documents\\GitHub\\IP-Project\\EndPointAPI\\EndPointAPI.csproj": {}
   },
   "projects": {
-    "D:\\AC\\IP\\Project\\EndPointAPI\\EndPointAPI.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\IP-Project\\EndPointAPI\\EndPointAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\AC\\IP\\Project\\EndPointAPI\\EndPointAPI.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\IP-Project\\EndPointAPI\\EndPointAPI.csproj",
         "projectName": "EndPointAPI",
-        "projectPath": "D:\\AC\\IP\\Project\\EndPointAPI\\EndPointAPI.csproj",
-        "packagesPath": "C:\\Users\\Alexandru-Teodor\\.nuget\\packages\\",
-        "outputPath": "D:\\AC\\IP\\Project\\EndPointAPI\\obj\\",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\IP-Project\\EndPointAPI\\EndPointAPI.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\IP-Project\\EndPointAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Alexandru-Teodor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,9 +40,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Oracle.ManagedDataAccess": {
+            "Oracle.ManagedDataAccess.Core": {
               "target": "Package",
-              "version": "[21.10.0, )"
+              "version": "[3.21.100, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -72,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

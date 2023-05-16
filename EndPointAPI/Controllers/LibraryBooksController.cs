@@ -11,21 +11,12 @@ namespace EndPointAPI.Controllers
         [HttpGet("books")]
         public IActionResult GetBooks(string contains = null)
         {
-            List<Book> _books = BookDAO.GetBooks();
-            if (!string.IsNullOrEmpty(contains))
-            {
-                var books = _books.Where(b =>
-                    b.getAuthor().ToLower().Contains(contains.ToLower()) ||
-                    b.getTitle().ToLower().Contains(contains.ToLower())
-                );
-                return Ok(books);
-            }
-            else
-            {
+            String _books = BookDAO.GetBooks();
+           
                 return Ok(_books);
-            }
+            
         }
-
+        /*
         [HttpGet("book/{isbn}")]
         public IActionResult GetBook(int isbn)
         {
@@ -78,5 +69,6 @@ namespace EndPointAPI.Controllers
 
             return CreatedAtRoute("GetBook", new { isbn = _book.getISBN() }, _book);
         }
+        */
     }
 }

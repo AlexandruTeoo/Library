@@ -32,29 +32,8 @@ public class LoanDAO
 
         return _loans;
     }
-
-    public static bool IsBookAvailable(int isbn)
-    {
-        // Find the book with the given ID
-        List<Book> _books = BookDAO.GetBooks();
-        //List<Book> _books = new List<Book>(BookDAO.GetBooks());
-        //_books = BookDAO.GetBooks();
-
-        List<Loan> _loans = LoanDAO.GetLoans();
-        //List <Loan> _loans = new List<Loan>(GetLoans());
-        //_loans = GetLoans();
-
-        Book book = _books.FirstOrDefault(b => b.getISBN() == isbn);
-
-        // If the book is not found, it is not available
-        if (book == null)
-        {
-            return false;
-        }
-
-        // Check if the book is currently on loan
-        return _loans.Any(loan => loan.getISBN() == isbn && loan.getReturnedDate() == null);
-    }
+    
+    
 
     public static bool UserExists(int accountId)
     {
@@ -71,25 +50,7 @@ public class LoanDAO
         return false;
     }
 
-    public static void UpdateBookAvailability(int isbn, bool availability)
-    {
-        List<Book> _books = BookDAO.GetBooks();
-
-        foreach (Book b in _books)
-        {
-            if (b.getISBN() == isbn)
-            {
-                if (availability == true)
-                {
-                    b.setStock(b.getStock() - 1);
-                }
-                else
-                {
-                    b.setStock(b.getStock() + 1);
-                }
-            }
-        }
-    }
+    
 
     public static Loan ApproveLoan (string loanId) // de terminat
     {
@@ -135,4 +96,5 @@ public class LoanDAO
 
         return _loan;
     }
+    
 }

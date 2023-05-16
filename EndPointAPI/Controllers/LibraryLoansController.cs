@@ -39,10 +39,7 @@ namespace EndPointAPI.Controllers
         public IActionResult AddLoan([FromBody] Loan loan)
         {
             // Check if the book is available
-            if (!LoanDAO.IsBookAvailable(loan.getISBN())) // ?? sql
-            {
-                return Conflict("Book is not available for loan.");
-            }
+            
 
             // Check if the user exists
             if (!LoanDAO.UserExists(loan.getAccountId())) // ?? sql
@@ -72,7 +69,7 @@ namespace EndPointAPI.Controllers
             }
 
             // Update the book availability status
-            LoanDAO.UpdateBookAvailability(approvedLoan.getISBN(), false);
+            
 
             return Ok("Loan approved successfully");
         }
