@@ -58,7 +58,8 @@ namespace EndPointAPI.Controllers
                     return NotFound("[AddLoan]Internal Err");
             }
         }
-
+        //Asa ar trebui sa arate toate api-urile pana cand faceti unul sa mearga complet ca sa fie ca exemplu
+        //Daca nu merge cv, nu trebuie facut totul sa mearga la fel de prost ca ala
         [HttpPut("loans/approve")]
         public IActionResult ApproveLoan([FromBody] string loanId)
         {
