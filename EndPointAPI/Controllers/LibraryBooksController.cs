@@ -66,8 +66,14 @@ namespace EndPointAPI.Controllers
         public IActionResult AddBook([FromBody] Book _book)
         {
             // Code to add the book to the database or list of books goes here
-
-            return CreatedAtRoute("GetBook", new { isbn = _book.getISBN() }, _book);
+            int status = BookDAO.AddBook(_book);
+            if (status == 0)
+            {
+                return Ok();
+            }
+            return NotFound();
+            
+            //return CreatedAtRoute("GetBook", new { isbn = _book.getISBN() }, _book);
         }
         */
     }

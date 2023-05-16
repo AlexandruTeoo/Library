@@ -14,7 +14,7 @@ namespace EndPointAPI.System
             OracleDataReader dataReader;
             String sql, Output = "";
 
-            sql = "Select * from WHISHLIST";
+            sql = "Select * from WHISHLIST;";
             command = new OracleCommand(sql, con);
             dataReader = command.ExecuteReader();
 

@@ -28,6 +28,20 @@ namespace EndPointAPI
             _accountType = a._accountType;
         }
 
+        public Account (int id, string username, string password, string nume, string prenume, string email, string address, string city, string phoneNumber, string accountType)
+        {
+            _id = id;
+            _username = username;
+            _password = password;
+            _nume = nume;
+            _prenume = prenume;
+            _email = email;
+            _address = address;
+            _city = city;
+            _phoneNumber = phoneNumber;
+            _accountType = accountType;
+        }
+
         public int getId() { return _id; }
         public void setId(int id) { this._id = id; }
 

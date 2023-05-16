@@ -5,39 +5,46 @@ namespace EndPointAPI.Controllers
 {
     public class LibraryLoansController : ControllerBase
     {
-        [HttpGet("loans")]
+        [HttpGet("loans/{accountId}")]
         public IActionResult GetLoans(int accountId)
         {
-            List <Loan> _loans = LoanDAO.GetLoans();
+            List <Loan> _loans = LoanDAO.GetLoans(accountId);
             var loans = _loans.Where(l => l.getAccountId() == accountId);
             if (loans != null)
             {
                 return Ok(loans);
             }
-            else
-            {
-                return NotFound();
-            }
+            return NotFound();
         }
 
-        [HttpGet("loans/{id}")]
-        public IActionResult GetLoan(string id)
+        [HttpGet("all_loans")]
+        public IActionResult GetAllLoans(int accountId)
         {
-            List<Loan> _loans = LoanDAO.GetLoans();
+            List<Loan> _loans = LoanDAO.GetAllLoans();
+            var loans = _loans.Where(l => l.getAccountId() == accountId);
+            if (loans != null)
+            {
+                return Ok(loans);
+            }
+            return NotFound();
+        }
+
+        [HttpGet("loan/{loanId}")]
+        public IActionResult GetLoan(int loanId)
+        {
+            Loan _loan = LoanDAO.GetLoan(loanId);
             
-            if (_loans != null)
+            if (_loan != null)
             {
-                return Ok(_loans);
+                return Ok(_loan);
             }
-            else
-            {
-                return NotFound();
-            }
+            return NotFound();
         }
 
         [HttpPost("loans/add")]
         public IActionResult AddLoan([FromBody] Loan loan)
         {
+<<<<<<< Updated upstream
             // Check if the book is available
             
 
@@ -55,12 +62,28 @@ namespace EndPointAPI.Controllers
 
             // Return the newly created loan object
             return CreatedAtAction(nameof(GetLoan), new { id = loan.getLoanID() }, loan);
+=======
+            int status = LoanDAO.AddLoan(loan);
+
+            switch(status)
+            {
+                case -1:
+                    return Conflict("Book is not available for loan.");
+                case -2: 
+                    return NotFound("User not found.");
+                case 0:
+                    return Ok(loan);
+                default:
+                    return NotFound("[AddLoan]Internal Err");
+            }
+>>>>>>> Stashed changes
         }
 
         [HttpPut("loans/approve")]
         public IActionResult ApproveLoan([FromBody] string loanId)
         {
             // Approve the loan with the given ID
+<<<<<<< Updated upstream
             Loan approvedLoan = LoanDAO.ApproveLoan(loanId);
 
             if (approvedLoan == null)
@@ -70,6 +93,9 @@ namespace EndPointAPI.Controllers
 
             // Update the book availability status
             
+=======
+            LoanDAO.ApproveLoan(loanId);
+>>>>>>> Stashed changes
 
             return Ok("Loan approved successfully");
         }
