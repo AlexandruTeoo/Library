@@ -4,7 +4,7 @@ using System;
 
 public class LoanDAO
 {
-	public static List<Loan> GetLoans()
+	public static List<Loan> GetLoans(int accId)
 	{
         List<Loan> _loans = new List<Loan>();
 
@@ -14,7 +14,7 @@ public class LoanDAO
         OracleDataReader dataReader;
         String sql, Output = "";
 
-        sql = "Select * from LOAN";
+        sql = "Select * from LOAN WHERE account_id = " + accId + ";";
         command = new OracleCommand(sql, con);
         dataReader = command.ExecuteReader();
 
@@ -32,12 +32,90 @@ public class LoanDAO
 
         return _loans;
     }
+
+    public static Loan GetLoan (int loanId)
+    {
+        OracleConnection con = Database.GetConnection();
+
+        OracleCommand command;
+        OracleDataReader dataReader;
+        String sql, Output = "";
+
+        sql = "Select * from LOAN WHERE loan_id = " + loanId + ";";
+        command = new OracleCommand(sql, con);
+        dataReader = command.ExecuteReader();
+
+        Loan loan = new Loan(dataReader.GetValue(0).ToString(),
+                                Convert.ToInt32(dataReader.GetValue(1)),
+                                Convert.ToInt32(dataReader.GetValue(2)),
+                                DateOnly.FromDateTime(Convert.ToDateTime(dataReader.GetValue(3))),
+                                DateOnly.FromDateTime(Convert.ToDateTime(dataReader.GetValue(4))));
+
+        Database.ClosedConnection();
+
+        return loan;
+    }
+
+    public static List<Loan> GetAllLoans()
+    {
+        List<Loan> _loans = new List<Loan>();
+
+        OracleConnection con = Database.GetConnection();
+
+        OracleCommand command;
+        OracleDataReader dataReader;
+        String sql, Output = "";
+
+        sql = "Select * from LOAN;";
+        command = new OracleCommand(sql, con);
+        dataReader = command.ExecuteReader();
+
+        while (dataReader.Read())
+        {
+            Loan loan = new Loan(dataReader.GetValue(0).ToString(),
+                                Convert.ToInt32(dataReader.GetValue(1)),
+                                Convert.ToInt32(dataReader.GetValue(2)),
+                                DateOnly.FromDateTime(Convert.ToDateTime(dataReader.GetValue(3))),
+                                DateOnly.FromDateTime(Convert.ToDateTime(dataReader.GetValue(4))));
+            _loans.Add(loan);
+        }
+
+        Database.ClosedConnection();
+
+        return _loans;
+    }
+<<<<<<< Updated upstream
     
     
+=======
+
+    public static bool IsBookAvailable(int isbn)
+    {
+        // Find the book with the given ID
+        List<Book> _books = BookDAO.GetBooks();
+        //List<Book> _books = new List<Book>(BookDAO.GetBooks());
+        //_books = BookDAO.GetBooks();
+
+        List<Loan> _loans = LoanDAO.GetAllLoans();
+        //List <Loan> _loans = new List<Loan>(GetLoans());
+        //_loans = GetLoans();
+
+        Book book = _books.FirstOrDefault(b => b.getISBN() == isbn);
+
+        // If the book is not found, it is not available
+        if (book == null)
+        {
+            return false;
+        }
+
+        // Check if the book is currently on loan
+        return _loans.Any(loan => loan.getISBN() == isbn && loan.getReturnedDate() == null);
+    }
+>>>>>>> Stashed changes
 
     public static bool UserExists(int accountId)
     {
-        List<Loan> _loans = LoanDAO.GetLoans();
+        List<Loan> _loans = LoanDAO.GetAllLoans();
         //List<Loan> _loans = new List<Loan>(GetLoans());
         // Loop through the accounts list and check if there's an account with the provided username
         foreach (Loan l in _loans)
@@ -51,31 +129,45 @@ public class LoanDAO
     }
 
     
+<<<<<<< Updated upstream
+=======
 
-    public static Loan ApproveLoan (string loanId) // de terminat
+    public static void ApproveLoan (string loanId) // de terminat
     {
-        List<Loan> _loans = LoanDAO.GetLoans();
-        //List<Loan> _loans = new List<Loan>(GetLoans());
+        List<Loan> _loans = LoanDAO.GetAllLoans();
+        OracleConnection con = Database.GetConnection();
 
-        bool approved = false;
+        OracleCommand command;
+        OracleDataReader dataReader;
+        String sql, Output = "";
 
-        foreach (Loan l in _loans) 
-        {
-            if (l.getLoanID() == loanId)
-            {
-                return null;
-            }
-        }
-        return null;
+         sql = "BEGIN accept_loan(" +
+            loanId  +
+            ") END;";
+
+        command = new OracleCommand(sql, con);
     }
+>>>>>>> Stashed changes
 
-    public static Loan AddLoan (Loan loan)
+    public static int AddLoan (Loan loan)
     {
         OracleConnection con = Database.GetConnection();
 
         OracleCommand command;
         OracleDataReader dataReader;
         String sql, Output = "";
+
+        Book book = BookDAO.GetBook(loan.getISBN());
+        if (book.getStock() == 0) 
+        {
+            return -1;
+        }
+
+        Account acc = AccountDAO.GetAccount(loan.getAccountId());
+        if (acc == null) 
+        {
+            return -2;
+        }
 
         sql = "CREATE OR REPLACE PROCEDURE insert_loan(" + 
             loan.getAccountId() + "," + 
@@ -84,17 +176,9 @@ public class LoanDAO
             loan.getReturnedDate() +")";
 
         command = new OracleCommand(sql, con);
-        dataReader = command.ExecuteReader();
 
-        Loan _loan = new Loan(dataReader.GetValue(0).ToString(),
-                                Convert.ToInt32(dataReader.GetValue(1)),
-                                Convert.ToInt32(dataReader.GetValue(2)),
-                                DateOnly.FromDateTime(Convert.ToDateTime(dataReader.GetValue(3))),
-                                DateOnly.FromDateTime(Convert.ToDateTime(dataReader.GetValue(4))));
-
-        Database.ClosedConnection();
-
-        return _loan;
+        return 0;
+        //if err -1, -2, -3
     }
     
 }
