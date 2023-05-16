@@ -7,7 +7,7 @@ public class LoanDAO
 	public static List<Loan> GetLoans(int accId)
 	{
         List<Loan> _loans = new List<Loan>();
-
+        /*
         OracleConnection con = Database.GetConnection();
 
         OracleCommand command;
@@ -29,12 +29,14 @@ public class LoanDAO
         }
 
         Database.ClosedConnection();
-
+        */
         return _loans;
     }
     //trebuie refacut cum e ala din bookdao. e usor de facut
     public static Loan GetLoan (int loanId)
     {
+        Loan loan = null;
+        /*
         OracleConnection con = Database.GetConnection();
 
         OracleCommand command;
@@ -52,14 +54,14 @@ public class LoanDAO
                                 DateOnly.FromDateTime(Convert.ToDateTime(dataReader.GetValue(4))));
 
         Database.ClosedConnection();
-
+        */
         return loan;
     }
 
     public static List<Loan> GetAllLoans()
     {
-        List<Loan> _loans = new List<Loan>();
-
+        List<Loan> loans = new List<Loan>();
+        /*
         OracleConnection con = Database.GetConnection();
 
         OracleCommand command;
@@ -81,8 +83,8 @@ public class LoanDAO
         }
 
         Database.ClosedConnection();
-
-        return _loans;
+        */
+        return loans;
     }
     /*
     public static bool IsBookAvailable(int isbn)
@@ -127,7 +129,9 @@ public class LoanDAO
 
     public static void ApproveLoan (string loanId) // de terminat
     {
+        /*
         List<Loan> _loans = LoanDAO.GetAllLoans();
+        
         OracleConnection con = Database.GetConnection();
 
         OracleCommand command;
@@ -139,10 +143,12 @@ public class LoanDAO
             ") END;";
 
         command = new OracleCommand(sql, con);
+        */
     }
     
     public static int AddLoan (Loan loan)
     {
+        /*
         OracleConnection con = Database.GetConnection();
 
         OracleCommand command;
@@ -156,7 +162,7 @@ public class LoanDAO
             loan.getReturnedDate() +")";
 
         command = new OracleCommand(sql, con);
-
+        */
         return 0;
         //if err -1, -2, -3
     }

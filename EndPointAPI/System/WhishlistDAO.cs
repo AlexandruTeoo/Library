@@ -6,8 +6,8 @@ namespace EndPointAPI.System
     {
         public static List<Whishlist> GetWhishlists ()
         {
-            List<Whishlist> _whishlist = new List<Whishlist>();
-
+            List<Whishlist> whishlist = new List<Whishlist>();
+            /*
             OracleConnection con = Database.GetConnection();
 
             OracleCommand command;
@@ -26,8 +26,8 @@ namespace EndPointAPI.System
             }
 
             Database.ClosedConnection();
-
-            return _whishlist;
+            */
+            return whishlist;
         }
     }
 }

@@ -15,46 +15,9 @@ namespace EndPointAPI
     {
         //AICI SE STERGE EFECTIV TOT
         //TREBUIE MUTATA FUNCTIA DIN BOOKDAO AICI (GetConnectionString())
-        public static OracleConnection con = null;
-
-
-        private static string GetConnectionString()
+        public static string GetConnectionString()
         {
-            //String connString = "host=localhost:1521;database=XE;uid=STUDENT;pwd=STUDENT";
-            //"User Id=<username>;Password=<password>;Data Source=<datasource>"
-
-            OracleConnectionStringBuilder ocsb = new OracleConnectionStringBuilder();
-            ocsb.Password = "STUDENT";
-            ocsb.ConnectionTimeout = 1000;
-            ocsb.UserID = "STUDENT";
-            ocsb.DataSource = "localhost:1521/XE";
-            //return ocsb.ConnectionString;
-            return ocsb.ConnectionString;
-        }
-
-        private static void CreateConnection()
-        {
-            con = new OracleConnection();
-
-            // connect
-            con.ConnectionString = GetConnectionString();
-            con.Open();
-            Console.WriteLine("Connection established (" + con.ServerVersion + ")");
-        }
-
-        public static OracleConnection GetConnection()
-        {
-            if (con == null)
-            {
-                CreateConnection();
-            }
-            return con;
-        }
-
-        public static void ClosedConnection()
-        {
-            con.Close();
-            con = null;
+            return "User Id=STUDENT;Password=STUDENT;Data Source=localhost:1521/XE";
         }
     }
 }

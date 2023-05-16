@@ -11,15 +11,9 @@ using System.Threading.Tasks;
 
 public class BookDAO
 {
-    public static string GetConnectionString()
+    public static List<Book> GetBooks()
     {
-        return "User Id=STUDENT;Password=STUDENT;Data Source=localhost:1521/XE";
-    }
-    //DE MODIFICAT DE RETURNAT O LISTA DE CARTI, SI NU UN STRING
-    public static string GetBooks()
-    {
-        using (OracleConnection connection = new OracleConnection(GetConnectionString()))
-
+        using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
         {
             String sql, Output = "";
             sql = "Select * from CARTI";
@@ -28,19 +22,21 @@ public class BookDAO
             command.Connection.Open();
             OracleDataReader dataReader = command.ExecuteReader();
 
+            List<Book> books = new List<Book>();
+
             while (dataReader.Read())
             {
-                //AICI FACI O CARTE NOUA
-                Output = Output + dataReader.GetValue(0)
-                    + " - " + dataReader.GetValue(1)
-                    + " - " + dataReader.GetValue(2)
-                    + " - " + dataReader.GetValue(3)
-                    + " - " + dataReader.GetValue(4)
-                    + " - " + dataReader.GetValue(5) + "\n";
-                // _books.Add(book);
+                Book book = new Book(dataReader.GetInt32(0), 
+                    dataReader.GetString(1),
+                    dataReader.GetString(2),
+                    dataReader.GetString(3),
+                    dataReader.GetInt32(4),
+                    dataReader.GetInt32(5));
+                
+                books.Add(book);   
             }
-            // return _books.
-            return Output;
+            Console.WriteLine(books);
+            return books;
         }
     }
 }

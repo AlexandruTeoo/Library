@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Runtime.CompilerServices;
 using System.Security.Principal;
+using System.Text.Json;
 
 namespace EndPointAPI.Controllers
 {
@@ -13,10 +14,10 @@ namespace EndPointAPI.Controllers
         [HttpGet("books")]
         public IActionResult GetBooks(string contains = null)
         {
-            String _books = BookDAO.GetBooks();
+            List<Book> books = BookDAO.GetBooks();
            //_books va trebuie sa fie o lista de carti. Trebuie facut ceva cu JSON.stringify() ca sa transformi
            // lista in string si pe asta o returnezi in caz de ok. Daca lista e goala returnezi cu notfound sau cv
-            return Ok(_books);
+            return Ok(books);
          
         }
         //toate astea o sa mearga cand o sa fie facut bookdao api sa returneze carti in loc de string.
