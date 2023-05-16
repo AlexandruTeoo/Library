@@ -32,7 +32,7 @@ public class LoanDAO
 
         return _loans;
     }
-
+    //trebuie refacut cum e ala din bookdao. e usor de facut
     public static Loan GetLoan (int loanId)
     {
         OracleConnection con = Database.GetConnection();
@@ -84,11 +84,7 @@ public class LoanDAO
 
         return _loans;
     }
-<<<<<<< Updated upstream
-    
-    
-=======
-
+    /*
     public static bool IsBookAvailable(int isbn)
     {
         // Find the book with the given ID
@@ -110,8 +106,7 @@ public class LoanDAO
 
         // Check if the book is currently on loan
         return _loans.Any(loan => loan.getISBN() == isbn && loan.getReturnedDate() == null);
-    }
->>>>>>> Stashed changes
+    }*/
 
     public static bool UserExists(int accountId)
     {
@@ -129,8 +124,6 @@ public class LoanDAO
     }
 
     
-<<<<<<< Updated upstream
-=======
 
     public static void ApproveLoan (string loanId) // de terminat
     {
@@ -147,8 +140,7 @@ public class LoanDAO
 
         command = new OracleCommand(sql, con);
     }
->>>>>>> Stashed changes
-
+    
     public static int AddLoan (Loan loan)
     {
         OracleConnection con = Database.GetConnection();
@@ -156,18 +148,6 @@ public class LoanDAO
         OracleCommand command;
         OracleDataReader dataReader;
         String sql, Output = "";
-
-        Book book = BookDAO.GetBook(loan.getISBN());
-        if (book.getStock() == 0) 
-        {
-            return -1;
-        }
-
-        Account acc = AccountDAO.GetAccount(loan.getAccountId());
-        if (acc == null) 
-        {
-            return -2;
-        }
 
         sql = "CREATE OR REPLACE PROCEDURE insert_loan(" + 
             loan.getAccountId() + "," + 

@@ -11,40 +11,15 @@ using System.Threading.Tasks;
 
 public class BookDAO
 {
-<<<<<<< Updated upstream
     public static string GetConnectionString()
     {
         return "User Id=STUDENT;Password=STUDENT;Data Source=localhost:1521/XE";
     }
+    //DE MODIFICAT DE RETURNAT O LISTA DE CARTI, SI NU UN STRING
     public static string GetBooks()
     {
         using (OracleConnection connection = new OracleConnection(GetConnectionString()))
-=======
-	public static List<Book> GetBooks() 
-	{
-		/*
-		 1 se ia conexiunea cu bd
-		2 se face select pe tabela cu carti
-		3 se parcurge fiecare linie din raspuns
-		4 pentru fiecare linie se creaza o carte
-		5 se adauga cartea in lista 
-		6 return lista
-		 */
 
-		List<Book> _books = new List<Book>();
-
-        OracleConnection con = Database.GetConnection();
-
-        OracleCommand command;
-        OracleDataReader dataReader;
-        String sql, Output = "";
-
-        sql = "Select * from CARTI;"; // retusat in Books
-        command = new OracleCommand(sql, con);
-        dataReader = command.ExecuteReader();
-
-        while (dataReader.Read())
->>>>>>> Stashed changes
         {
             String sql, Output = "";
             sql = "Select * from CARTI";
@@ -55,54 +30,17 @@ public class BookDAO
 
             while (dataReader.Read())
             {
+                //AICI FACI O CARTE NOUA
                 Output = Output + dataReader.GetValue(0)
                     + " - " + dataReader.GetValue(1)
                     + " - " + dataReader.GetValue(2)
                     + " - " + dataReader.GetValue(3)
                     + " - " + dataReader.GetValue(4)
                     + " - " + dataReader.GetValue(5) + "\n";
+                // _books.Add(book);
             }
+            // return _books.
             return Output;
         }
-<<<<<<< Updated upstream
-=======
-
-
-        return "Nu a mers";
-    }
-
-    public static Book GetBook(int isbn)
-    {
-        OracleConnection con = Database.GetConnection();
-
-        OracleCommand command;
-        OracleDataReader dataReader;
-        String sql, Output = "";
-
-        sql = "Select * from CARTI WHERE ISBN = " + isbn + ";"; // retusat in Books
-        command = new OracleCommand(sql, con);
-        dataReader = command.ExecuteReader();
-
-        Book book = new Book(dataReader.GetValue(0).ToString(),
-                                dataReader.GetValue(1).ToString(),
-                                dataReader.GetValue(2).ToString(),
-                                Convert.ToInt32(dataReader.GetValue(3)),
-                                Convert.ToInt32(dataReader.GetValue(4)),
-                                Convert.ToInt32(dataReader.GetValue(5)));
->>>>>>> Stashed changes
-
-
-<<<<<<< Updated upstream
-        return "Nu a mers";
-=======
-        return book;
-    }
-
-    public static int AddBook (Book book)
-    {
-
-        return 0; // ok
-        return -1; // not found
->>>>>>> Stashed changes
     }
 }

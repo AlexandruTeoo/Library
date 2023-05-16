@@ -14,8 +14,8 @@ namespace EndPointAPI.Controllers
             Account acc = _accounts.FirstOrDefault(a => 
             a.getUsername() == account.getUsername() &&
             a.getPassword() == account.getPassword()); // email ??
-
-            // Check if the user exists
+            
+            // Check if the user exists -> nu. Asta se verifica deja in functia insertaccount.
             if (acc == null)
             {
                 return NotFound();

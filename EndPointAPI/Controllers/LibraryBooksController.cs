@@ -8,14 +8,18 @@ namespace EndPointAPI.Controllers
     [Route("[controller]")]
     public class LibraryBooksController : ControllerBase
     {
+        // AICI TREBUIE FACUTE MAI MULTE API-URI IN LOC DE UNUL SINGUR CARE FILTREAZA.
+        // AICI VB CU RADU, CA EL VREA SA FILTREZE PE MAI MULTE CATEGORII.
         [HttpGet("books")]
         public IActionResult GetBooks(string contains = null)
         {
             String _books = BookDAO.GetBooks();
-           
-                return Ok(_books);
-            
+           //_books va trebuie sa fie o lista de carti. Trebuie facut ceva cu JSON.stringify() ca sa transformi
+           // lista in string si pe asta o returnezi in caz de ok. Daca lista e goala returnezi cu notfound sau cv
+            return Ok(_books);
+         
         }
+        //toate astea o sa mearga cand o sa fie facut bookdao api sa returneze carti in loc de string.
         /*
         [HttpGet("book/{isbn}")]
         public IActionResult GetBook(int isbn)

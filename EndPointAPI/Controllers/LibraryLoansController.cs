@@ -44,25 +44,6 @@ namespace EndPointAPI.Controllers
         [HttpPost("loans/add")]
         public IActionResult AddLoan([FromBody] Loan loan)
         {
-<<<<<<< Updated upstream
-            // Check if the book is available
-            
-
-            // Check if the user exists
-            if (!LoanDAO.UserExists(loan.getAccountId())) // ?? sql
-            {
-                return NotFound("User not found.");
-            }
-
-            // Create a new loan object
-            /*loan.setLoanID(_loans.Count + 1);
-            loan.setIssuedDate(DateOnly.FromDateTime(DateTime.UtcNow.Date));
-            loan.setReturnedDate(loan.getIssuedDate().AddDays(14));*/
-            LoanDAO.AddLoan(loan);
-
-            // Return the newly created loan object
-            return CreatedAtAction(nameof(GetLoan), new { id = loan.getLoanID() }, loan);
-=======
             int status = LoanDAO.AddLoan(loan);
 
             switch(status)
@@ -76,26 +57,11 @@ namespace EndPointAPI.Controllers
                 default:
                     return NotFound("[AddLoan]Internal Err");
             }
->>>>>>> Stashed changes
         }
 
         [HttpPut("loans/approve")]
         public IActionResult ApproveLoan([FromBody] string loanId)
         {
-            // Approve the loan with the given ID
-<<<<<<< Updated upstream
-            Loan approvedLoan = LoanDAO.ApproveLoan(loanId);
-
-            if (approvedLoan == null)
-            {
-                return BadRequest("Loan not found or already approved");
-            }
-
-            // Update the book availability status
-            
-=======
-            LoanDAO.ApproveLoan(loanId);
->>>>>>> Stashed changes
 
             return Ok("Loan approved successfully");
         }

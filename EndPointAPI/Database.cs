@@ -13,6 +13,8 @@ namespace EndPointAPI
 {
     public class Database
     {
+        //AICI SE STERGE EFECTIV TOT
+        //TREBUIE MUTATA FUNCTIA DIN BOOKDAO AICI (GetConnectionString())
         public static OracleConnection con = null;
 
 
