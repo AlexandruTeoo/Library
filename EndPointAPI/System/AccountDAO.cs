@@ -45,7 +45,6 @@ public class AccountDAO
             }
             return null;
         }
-        return null;
         /*
         OracleConnection con = Database.GetConnection();
 
