@@ -19,8 +19,7 @@ public class AccountDAO
         {
             String sql;
 
-            sql = "SELECT * FROM ACCOUNTS WHERE username='" + username + "' AND parola='" + parola + "' ";
-            Console.WriteLine(sql);
+            sql = "SELECT * FROM ACCOUNTS WHERE username='" + username + "' AND parola='" + parola + "'";
             OracleCommand command = new OracleCommand(sql, connection);
 
             command.Connection.Open();
