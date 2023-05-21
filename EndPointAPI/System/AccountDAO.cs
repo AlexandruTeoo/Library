@@ -70,7 +70,7 @@ public class AccountDAO
         */
     }
 
-    public int lastId ()
+    public int lastId()
     {
         //"SELECT MAX(ACCOUNT_ID) FROM ACCOUNT"
         return 2; // return nr de conturi din db

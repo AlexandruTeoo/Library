@@ -27,11 +27,11 @@ public class BookDAO
             while (dataReader.Read())
             {
                 Book book = new Book(dataReader.GetInt32(0), 
-                    dataReader.GetString(1),
-                    dataReader.GetString(2),
-                    dataReader.GetString(3),
-                    dataReader.GetInt32(4),
-                    dataReader.GetInt32(5));
+                                    dataReader.GetString(1),
+                                    dataReader.GetString(2),
+                                    dataReader.GetString(3),
+                                    dataReader.GetInt32(4),
+                                    dataReader.GetInt32(5));
                 
                 books.Add(book);   
             }

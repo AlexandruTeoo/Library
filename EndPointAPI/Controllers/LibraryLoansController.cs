@@ -9,10 +9,10 @@ namespace EndPointAPI.Controllers
         public IActionResult GetLoans(int accountId)
         {
             List <Loan> _loans = LoanDAO.GetLoans(accountId);
-            var loans = _loans.Where(l => l.getAccountId() == accountId);
-            if (loans != null)
+            //var loans = _loans.Where(l => l._accountId == accountId);
+            if (_loans != null)
             {
-                return Ok(loans);
+                return Ok(_loans);
             }
             return NotFound();
         }
@@ -21,7 +21,7 @@ namespace EndPointAPI.Controllers
         public IActionResult GetAllLoans(int accountId)
         {
             List<Loan> _loans = LoanDAO.GetAllLoans();
-            var loans = _loans.Where(l => l.getAccountId() == accountId);
+            var loans = _loans.Where(l => l._accountId == accountId);
             if (loans != null)
             {
                 return Ok(loans);
@@ -63,7 +63,6 @@ namespace EndPointAPI.Controllers
         [HttpPut("loans/approve")]
         public IActionResult ApproveLoan([FromBody] string loanId)
         {
-
             return Ok("Loan approved successfully");
         }
 
