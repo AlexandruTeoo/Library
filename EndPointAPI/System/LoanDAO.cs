@@ -36,7 +36,6 @@ public class LoanDAO
                 return loans;
             }
             return null;
-
         }
     }
     //trebuie refacut cum e ala din bookdao. e usor de facut
@@ -139,7 +138,7 @@ public class LoanDAO
         return false;
     }*/
 
-    public static void ApproveLoan (string loanId) // de terminat
+    public static int ApproveLoan (string loanId) // de terminat
     {
         try
         {
@@ -149,8 +148,10 @@ public class LoanDAO
                 sql = "BEGIN accept_loan(" + loanId + ") END;";
                 OracleCommand command = new OracleCommand(sql, connection);
 
-                command.Connection.Open();
-                OracleDataReader dataReader = command.ExecuteReader();
+                /*command.Connection.Open();
+                OracleDataReader dataReader = command.ExecuteReader();*/
+
+                return 0;
             }
         }
         catch (OracleException ex)
@@ -160,11 +161,11 @@ public class LoanDAO
 
             if (errorCode == -20003)
             {
-                //return -1;
+                return -1;
             }
             else if (errorCode == -21001)
             {
-                
+                return -2;
             }
         }
     }

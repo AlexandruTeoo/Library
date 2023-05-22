@@ -51,7 +51,7 @@ namespace EndPointAPI.Controllers
                 case -1:
                     return Conflict("Book is not available for loan.");
                 case -2: 
-                    return NotFound("User not found.");
+                    return NotFound("User not found."); // ca sa imprumuti cartea trebuie sa fi logat, deci user ul deja exista
                 case 0:
                     return Ok(loan);
                 default:
@@ -63,8 +63,19 @@ namespace EndPointAPI.Controllers
         [HttpPut("loans/approve")]
         public IActionResult ApproveLoan([FromBody] string loanId)
         {
-            return Ok("Loan approved successfully");
-        }
+            int status = LoanDAO.ApproveLoan(loanId);
 
+            switch (status)
+            {
+                case -1:
+                    return Conflict("Book is not available for loan.");
+                case -2:
+                    return NotFound("User not found."); // ca sa imprumuti cartea trebuie sa fi logat, deci user ul deja exista
+                case 0:
+                    return Ok("Loan approved successfully");
+                default:
+                    return NotFound("[AddLoan]Internal Err");
+            }
+        }
     }
 }
