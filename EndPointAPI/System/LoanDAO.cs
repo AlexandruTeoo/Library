@@ -138,7 +138,7 @@ public class LoanDAO
         return false;
     }*/
 
-    public static int ApproveLoan (string loanId) // de terminat
+    public static int ApproveLoan(string loanId) // de terminat
     {
         try
         {
@@ -163,10 +163,11 @@ public class LoanDAO
             {
                 return -1;
             }
-            else if (errorCode == -21001)
+            if (errorCode == -21001)
             {
                 return -2;
             }
+            return -3;
         }
     }
     
