@@ -58,7 +58,7 @@ namespace ProiectIP
                 }
                 else
                 {
-                    v bibliotecarForm = new v();
+                    BibliotecarForms bibliotecarForm = new BibliotecarForms();
                     bibliotecarForm.Show();
                     this.Hide();
                 }

@@ -1,6 +1,6 @@
 ﻿namespace ProiectIP
 {
-    partial class v
+    partial class BibliotecarForms
     {
         /// <summary>
         /// Required designer variable.
@@ -45,7 +45,7 @@
             this.Modifica.TabIndex = 1;
             this.Modifica.Text = "Modifica";
             this.Modifica.UseVisualStyleBackColor = true;
-            this.Modifica.Click += new System.EventHandler(this.Wishlist_Click);
+            this.Modifica.Click += new System.EventHandler(this.buttonModifyDetailsBook_Click);
             // 
             // Sterge
             // 
@@ -55,6 +55,7 @@
             this.Sterge.TabIndex = 2;
             this.Sterge.Text = "Sterge";
             this.Sterge.UseVisualStyleBackColor = true;
+            this.Sterge.Click += new System.EventHandler(this.buttonDeleteBook_click);
             // 
             // listBox1
             // 
@@ -73,6 +74,7 @@
             this.Carti.TabIndex = 5;
             this.Carti.Text = "Carti";
             this.Carti.UseVisualStyleBackColor = true;
+            this.Carti.Click += new System.EventHandler(this.buttonShowBooks_click);
             // 
             // Imprumuturi
             // 
@@ -91,6 +93,7 @@
             this.Conturi.TabIndex = 7;
             this.Conturi.Text = "Conturi";
             this.Conturi.UseVisualStyleBackColor = true;
+            this.Conturi.Click += new System.EventHandler(this.buttonShowAllAccounts_click);
             // 
             // Deconectare
             // 
@@ -100,7 +103,7 @@
             this.Deconectare.TabIndex = 8;
             this.Deconectare.Text = "Deconectare";
             this.Deconectare.UseVisualStyleBackColor = true;
-            this.Deconectare.Click += new System.EventHandler(this.Deconectare_Click);
+            this.Deconectare.Click += new System.EventHandler(this.buttonDeconectare_Click);
             // 
             // v
             // 

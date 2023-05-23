@@ -86,7 +86,9 @@
     <Compile Include="BibliotecarForm.Designer.cs">
       <DependentUpon>BibliotecarForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Book.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="Loan.cs" />
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +103,7 @@
     <Compile Include="UtilizatorForm.Designer.cs">
       <DependentUpon>UtilizatorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Wishlist.cs" />
     <EmbeddedResource Include="BibliotecarForm.resx">
       <DependentUpon>BibliotecarForm.cs</DependentUpon>
     </EmbeddedResource>

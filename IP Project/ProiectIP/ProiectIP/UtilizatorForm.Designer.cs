@@ -31,7 +31,7 @@
             this.Wishlist = new System.Windows.Forms.Button();
             this.Deconectare = new System.Windows.Forms.Button();
             this.AddToWishlist = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxUtilizatorForm = new System.Windows.Forms.ListBox();
             this.Carti = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.Imprumuta = new System.Windows.Forms.Button();
@@ -45,6 +45,7 @@
             this.Wishlist.TabIndex = 0;
             this.Wishlist.Text = "Wishlist";
             this.Wishlist.UseVisualStyleBackColor = true;
+            this.Wishlist.Click += new System.EventHandler(this.buttonShowWishlist_click);
             // 
             // Deconectare
             // 
@@ -54,7 +55,7 @@
             this.Deconectare.TabIndex = 1;
             this.Deconectare.Text = "Deconectare";
             this.Deconectare.UseVisualStyleBackColor = true;
-            this.Deconectare.Click += new System.EventHandler(this.Deconectare_Click);
+            this.Deconectare.Click += new System.EventHandler(this.buttonDeconectare_Click);
             // 
             // AddToWishlist
             // 
@@ -66,14 +67,14 @@
             this.AddToWishlist.UseVisualStyleBackColor = true;
             this.AddToWishlist.Click += new System.EventHandler(this.AddtoWishlist_Click);
             // 
-            // listBox1
+            // listBoxUtilizatorForm
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(106, 102);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(467, 372);
-            this.listBox1.TabIndex = 3;
+            this.listBoxUtilizatorForm.FormattingEnabled = true;
+            this.listBoxUtilizatorForm.ItemHeight = 16;
+            this.listBoxUtilizatorForm.Location = new System.Drawing.Point(106, 102);
+            this.listBoxUtilizatorForm.Name = "listBoxUtilizatorForm";
+            this.listBoxUtilizatorForm.Size = new System.Drawing.Size(467, 372);
+            this.listBoxUtilizatorForm.TabIndex = 3;
             // 
             // Carti
             // 
@@ -83,6 +84,7 @@
             this.Carti.TabIndex = 4;
             this.Carti.Text = "Carti";
             this.Carti.UseVisualStyleBackColor = true;
+            this.Carti.Click += new System.EventHandler(this.buttonShowBooks_click);
             // 
             // label1
             // 
@@ -102,7 +104,7 @@
             this.Imprumuta.TabIndex = 6;
             this.Imprumuta.Text = "Imprumuta";
             this.Imprumuta.UseVisualStyleBackColor = true;
-            this.Imprumuta.Click += new System.EventHandler(this.button1_Click);
+            this.Imprumuta.Click += new System.EventHandler(this.buttonImprumuta_Click);
             // 
             // UtilizatorForm
             // 
@@ -112,7 +114,7 @@
             this.Controls.Add(this.Imprumuta);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Carti);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBoxUtilizatorForm);
             this.Controls.Add(this.AddToWishlist);
             this.Controls.Add(this.Deconectare);
             this.Controls.Add(this.Wishlist);
@@ -128,7 +130,7 @@
         private System.Windows.Forms.Button Wishlist;
         private System.Windows.Forms.Button Deconectare;
         private System.Windows.Forms.Button AddToWishlist;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxUtilizatorForm;
         private System.Windows.Forms.Button Carti;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Imprumuta;
