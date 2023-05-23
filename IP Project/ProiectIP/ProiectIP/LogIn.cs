@@ -19,7 +19,7 @@ namespace ProiectIP
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonConectare_Click(object sender, EventArgs e)
         {
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
             {
@@ -50,7 +50,7 @@ namespace ProiectIP
                         dataReader.GetInt32(11)
                         );
                 }
-                if(dataReader.GetInt32(10) == 0)
+                if (dataReader.GetInt32(10) == 0)
                 {
                     UtilizatorForm utilizatorForm = new UtilizatorForm();
                     utilizatorForm.Show();

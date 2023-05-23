@@ -34,6 +34,7 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.Carti = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.Imprumuta = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Wishlist
@@ -53,6 +54,7 @@
             this.Deconectare.TabIndex = 1;
             this.Deconectare.Text = "Deconectare";
             this.Deconectare.UseVisualStyleBackColor = true;
+            this.Deconectare.Click += new System.EventHandler(this.Deconectare_Click);
             // 
             // AddToWishlist
             // 
@@ -92,11 +94,22 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Bine ai venit, ";
             // 
+            // Imprumuta
+            // 
+            this.Imprumuta.Location = new System.Drawing.Point(696, 267);
+            this.Imprumuta.Name = "Imprumuta";
+            this.Imprumuta.Size = new System.Drawing.Size(142, 51);
+            this.Imprumuta.TabIndex = 6;
+            this.Imprumuta.Text = "Imprumuta";
+            this.Imprumuta.UseVisualStyleBackColor = true;
+            this.Imprumuta.Click += new System.EventHandler(this.button1_Click);
+            // 
             // UtilizatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(876, 533);
+            this.Controls.Add(this.Imprumuta);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Carti);
             this.Controls.Add(this.listBox1);
@@ -118,5 +131,6 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button Carti;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button Imprumuta;
     }
 }

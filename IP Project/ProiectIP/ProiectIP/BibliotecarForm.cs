@@ -21,5 +21,12 @@ namespace ProiectIP
         {
 
         }
+
+        private void Deconectare_Click(object sender, EventArgs e)
+        {
+            LogIn logIn = new LogIn();
+            logIn.Show();
+            this.Hide();
+        }
     }
 }

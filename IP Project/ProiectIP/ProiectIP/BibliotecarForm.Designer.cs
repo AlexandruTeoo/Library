@@ -34,6 +34,7 @@
             this.Carti = new System.Windows.Forms.Button();
             this.Imprumuturi = new System.Windows.Forms.Button();
             this.Conturi = new System.Windows.Forms.Button();
+            this.Deconectare = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Modifica
@@ -91,11 +92,22 @@
             this.Conturi.Text = "Conturi";
             this.Conturi.UseVisualStyleBackColor = true;
             // 
+            // Deconectare
+            // 
+            this.Deconectare.Location = new System.Drawing.Point(644, 478);
+            this.Deconectare.Name = "Deconectare";
+            this.Deconectare.Size = new System.Drawing.Size(142, 51);
+            this.Deconectare.TabIndex = 8;
+            this.Deconectare.Text = "Deconectare";
+            this.Deconectare.UseVisualStyleBackColor = true;
+            this.Deconectare.Click += new System.EventHandler(this.Deconectare_Click);
+            // 
             // v
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(826, 530);
+            this.ClientSize = new System.Drawing.Size(826, 548);
+            this.Controls.Add(this.Deconectare);
             this.Controls.Add(this.Conturi);
             this.Controls.Add(this.Imprumuturi);
             this.Controls.Add(this.Carti);
@@ -116,5 +128,6 @@
         private System.Windows.Forms.Button Carti;
         private System.Windows.Forms.Button Imprumuturi;
         private System.Windows.Forms.Button Conturi;
+        private System.Windows.Forms.Button Deconectare;
     }
 }
