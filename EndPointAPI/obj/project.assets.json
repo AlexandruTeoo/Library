@@ -1575,19 +1575,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Alexandru-Teodor\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\AC\\IP\\Project\\EndPointAPI\\EndPointAPI.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\IP-Project\\EndPointAPI\\EndPointAPI.csproj",
       "projectName": "EndPointAPI",
-      "projectPath": "D:\\AC\\IP\\Project\\EndPointAPI\\EndPointAPI.csproj",
-      "packagesPath": "C:\\Users\\Alexandru-Teodor\\.nuget\\packages\\",
-      "outputPath": "D:\\AC\\IP\\Project\\EndPointAPI\\obj\\",
+      "projectPath": "C:\\Users\\User\\Documents\\GitHub\\IP-Project\\EndPointAPI\\EndPointAPI.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Documents\\GitHub\\IP-Project\\EndPointAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Alexandru-Teodor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1645,7 +1645,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
