@@ -34,5 +34,16 @@ namespace ProiectIP
             _total = total;
             _isbn = isbn;
         }
+
+        public override string ToString()
+        {
+            return "ISBN: " + _isbn +
+                " | Titlu: " + _title +
+                " | Autor " + _author +
+                " | Categorie: " + _category +
+                " | Stoc: " + _stock +
+                " | Total: " + _total;
+        }
+
     }
 }

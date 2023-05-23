@@ -14,9 +14,11 @@ namespace ProiectIP
 {
     public partial class BibliotecarForms : Form
     {
-        public BibliotecarForms()
+        public Account _account;
+        public BibliotecarForms(Account account)
         {
             InitializeComponent();
+            _account = account;
         }
 
         private void buttonShowBooks_click(object sender, EventArgs e) // de editat pt forms

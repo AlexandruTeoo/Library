@@ -33,6 +33,8 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.Inregistrare = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // loginButton
@@ -60,6 +62,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(211, 38);
             this.textBox2.TabIndex = 2;
+            this.textBox2.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -81,11 +84,34 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Parola";
             // 
+            // Inregistrare
+            // 
+            this.Inregistrare.Location = new System.Drawing.Point(704, 448);
+            this.Inregistrare.Name = "Inregistrare";
+            this.Inregistrare.Size = new System.Drawing.Size(185, 62);
+            this.Inregistrare.TabIndex = 5;
+            this.Inregistrare.Text = "Inregistrare";
+            this.Inregistrare.UseVisualStyleBackColor = true;
+            this.Inregistrare.Click += new System.EventHandler(this.Inregistrare_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(716, 401);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(160, 44);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Nu ai un cont? \r\nInregistreza-te aici!";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 532);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.Inregistrare);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
@@ -105,6 +131,8 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Inregistrare;
+        private System.Windows.Forms.Label label3;
     }
 }
 

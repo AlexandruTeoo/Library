@@ -35,11 +35,13 @@
             this.Carti = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.Imprumuta = new System.Windows.Forms.Button();
+            this.removeWishlist = new System.Windows.Forms.Button();
+            this.showLoans = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Wishlist
             // 
-            this.Wishlist.Location = new System.Drawing.Point(696, 31);
+            this.Wishlist.Location = new System.Drawing.Point(1047, 31);
             this.Wishlist.Name = "Wishlist";
             this.Wishlist.Size = new System.Drawing.Size(142, 51);
             this.Wishlist.TabIndex = 0;
@@ -49,7 +51,7 @@
             // 
             // Deconectare
             // 
-            this.Deconectare.Location = new System.Drawing.Point(696, 451);
+            this.Deconectare.Location = new System.Drawing.Point(1047, 467);
             this.Deconectare.Name = "Deconectare";
             this.Deconectare.Size = new System.Drawing.Size(142, 51);
             this.Deconectare.TabIndex = 1;
@@ -59,7 +61,7 @@
             // 
             // AddToWishlist
             // 
-            this.AddToWishlist.Location = new System.Drawing.Point(696, 102);
+            this.AddToWishlist.Location = new System.Drawing.Point(1047, 88);
             this.AddToWishlist.Name = "AddToWishlist";
             this.AddToWishlist.Size = new System.Drawing.Size(142, 51);
             this.AddToWishlist.TabIndex = 2;
@@ -71,14 +73,14 @@
             // 
             this.listBoxUtilizatorForm.FormattingEnabled = true;
             this.listBoxUtilizatorForm.ItemHeight = 16;
-            this.listBoxUtilizatorForm.Location = new System.Drawing.Point(106, 102);
+            this.listBoxUtilizatorForm.Location = new System.Drawing.Point(122, 102);
             this.listBoxUtilizatorForm.Name = "listBoxUtilizatorForm";
-            this.listBoxUtilizatorForm.Size = new System.Drawing.Size(467, 372);
+            this.listBoxUtilizatorForm.Size = new System.Drawing.Size(807, 372);
             this.listBoxUtilizatorForm.TabIndex = 3;
             // 
             // Carti
             // 
-            this.Carti.Location = new System.Drawing.Point(696, 181);
+            this.Carti.Location = new System.Drawing.Point(1047, 259);
             this.Carti.Name = "Carti";
             this.Carti.Size = new System.Drawing.Size(142, 51);
             this.Carti.TabIndex = 4;
@@ -90,7 +92,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(174, 31);
+            this.label1.Location = new System.Drawing.Point(434, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(185, 32);
             this.label1.TabIndex = 5;
@@ -98,7 +100,7 @@
             // 
             // Imprumuta
             // 
-            this.Imprumuta.Location = new System.Drawing.Point(696, 267);
+            this.Imprumuta.Location = new System.Drawing.Point(1047, 316);
             this.Imprumuta.Name = "Imprumuta";
             this.Imprumuta.Size = new System.Drawing.Size(142, 51);
             this.Imprumuta.TabIndex = 6;
@@ -106,11 +108,31 @@
             this.Imprumuta.UseVisualStyleBackColor = true;
             this.Imprumuta.Click += new System.EventHandler(this.buttonImprumuta_Click);
             // 
+            // removeWishlist
+            // 
+            this.removeWishlist.Location = new System.Drawing.Point(1047, 145);
+            this.removeWishlist.Name = "removeWishlist";
+            this.removeWishlist.Size = new System.Drawing.Size(142, 51);
+            this.removeWishlist.TabIndex = 7;
+            this.removeWishlist.Text = "Remove from Wishlist";
+            this.removeWishlist.UseVisualStyleBackColor = true;
+            // 
+            // showLoans
+            // 
+            this.showLoans.Location = new System.Drawing.Point(1047, 202);
+            this.showLoans.Name = "showLoans";
+            this.showLoans.Size = new System.Drawing.Size(142, 51);
+            this.showLoans.TabIndex = 8;
+            this.showLoans.Text = "Show Loans";
+            this.showLoans.UseVisualStyleBackColor = true;
+            // 
             // UtilizatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 533);
+            this.ClientSize = new System.Drawing.Size(1232, 553);
+            this.Controls.Add(this.showLoans);
+            this.Controls.Add(this.removeWishlist);
             this.Controls.Add(this.Imprumuta);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Carti);
@@ -134,5 +156,7 @@
         private System.Windows.Forms.Button Carti;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Imprumuta;
+        private System.Windows.Forms.Button removeWishlist;
+        private System.Windows.Forms.Button showLoans;
     }
 }

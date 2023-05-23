@@ -14,9 +14,12 @@ namespace ProiectIP
 {
     public partial class UtilizatorForm : Form
     {
-        public UtilizatorForm()
+        public Account _account;
+        public UtilizatorForm(Account account)
         {
+            _account = account;
             InitializeComponent();
+            label1.Text = label1.Text + _account._username + "!";
         }
 
         private void AddtoWishlist_Click(object sender, EventArgs e)// de editat pt forms
@@ -42,6 +45,15 @@ namespace ProiectIP
                 if (dataReader.Read())
                 {
                     // ?
+                }
+
+                if (listBoxUtilizatorForm.SelectedItem != null)
+                {
+                    // Obțineți valoarea (titlul cărții) din elementul selectat
+                    string selectedBook = listBoxUtilizatorForm.SelectedItem.ToString();
+
+                    // Adăugați valoarea într-o listă de dorințe (Wishlist)
+                    // wishlist.Add(selectedBook);
                 }
             }
         }
@@ -116,30 +128,10 @@ namespace ProiectIP
 
         private void buttonShowBooks_click(object sender, EventArgs e)// de editat pt forms
         {
-            using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
+            List<Book> books = BookDAO.GetBooks();
+            foreach(Book book in books)
             {
-                String sql;
-                sql = "Select * from CARTI";
-                OracleCommand command = new OracleCommand(sql, connection);
-
-                command.Connection.Open();
-                OracleDataReader dataReader = command.ExecuteReader();
-
-                List<Book> books = new List<Book>();
-
-                while (dataReader.Read())
-                {
-                    Book book = new Book(dataReader.GetInt32(0),
-                                        dataReader.GetString(1),
-                                        dataReader.GetString(2),
-                                        dataReader.GetString(3),
-                                        dataReader.GetInt32(4),
-                                        dataReader.GetInt32(5));
-
-                    books.Add(book);
-                }
-                Console.WriteLine(books);
-                //return books;
+                listBoxUtilizatorForm.Items.Add(book);
             }
         }
 

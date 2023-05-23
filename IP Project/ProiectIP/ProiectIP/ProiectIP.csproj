@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="AccountDAO.cs" />
     <Compile Include="BibliotecarForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,8 +88,16 @@
       <DependentUpon>BibliotecarForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Book.cs" />
+    <Compile Include="BookDAO.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="Inregistrare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inregistrare.Designer.cs">
+      <DependentUpon>Inregistrare.cs</DependentUpon>
+    </Compile>
     <Compile Include="Loan.cs" />
+    <Compile Include="LoanDAO.cs" />
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,8 +113,12 @@
       <DependentUpon>UtilizatorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Wishlist.cs" />
+    <Compile Include="WishlistDAO.cs" />
     <EmbeddedResource Include="BibliotecarForm.resx">
       <DependentUpon>BibliotecarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inregistrare.resx">
+      <DependentUpon>Inregistrare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
