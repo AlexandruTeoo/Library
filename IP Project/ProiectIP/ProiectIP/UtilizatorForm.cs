@@ -9,11 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace ProiectIP
 {
     public partial class UtilizatorForm : Form
     {
+        List<Book> wishlist = new List<Book>();
         public Account _account;
         public UtilizatorForm(Account account)
         {
@@ -21,7 +23,7 @@ namespace ProiectIP
             InitializeComponent();
             label1.Text = label1.Text + _account._username + "!";
         }
-
+        /*
         private void AddtoWishlist_Click(object sender, EventArgs e)// de editat pt forms
         {
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
@@ -33,9 +35,7 @@ namespace ProiectIP
                 int accountId = 1; // de vazut cum se poate accesa id-ul contului odata logat
                 string isbn = "1"; // parsat bookInfo pentru a optine isbn
 
-                sql = "CREATE OR REPLACE PROCEDURE insert_wishlist(" +
-                                               accountId + "," +
-                                               isbn + ")";
+                sql = "BEGIN \n insert_wishlist(" + accountId + "," + isbn + "); \n END;" ;
 
                 OracleCommand command = new OracleCommand(sql, connection);
 
@@ -55,6 +55,32 @@ namespace ProiectIP
                     // Adăugați valoarea într-o listă de dorințe (Wishlist)
                     // wishlist.Add(selectedBook);
                 }
+
+            }
+        }
+        */
+        
+        private void AddtoWishlist_Click(object sender, EventArgs e)
+        {
+
+            if (listBoxUtilizatorForm.SelectedItem != null)
+            {
+                Book selectedBook = (Book)listBoxUtilizatorForm.SelectedItem;
+
+                // Verificați dacă elementul selectat este deja în wishlist
+                if (wishlist.Contains(selectedBook))
+                {
+                    MessageBox.Show("Cartea este deja în Wishlist!");
+                }
+                else
+                {
+                    wishlist.Add(selectedBook);
+                    MessageBox.Show("Carte adăugata în Wishlist!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selectați o carte din lista pentru a o adăuga în Wishlist!");
             }
         }
 
@@ -94,6 +120,7 @@ namespace ProiectIP
 
         private void buttonShowWishlist_click(object sender, EventArgs e)// de editat pt forms
         {
+            /*
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
             {
                 String sql;
@@ -124,6 +151,24 @@ namespace ProiectIP
                 }
                 //return null;
             }
+            */
+
+            // Ștergeți conținutul din ListBox
+            
+
+            // Afișați conținutul din wishlist într-un MessageBox
+            if (wishlist.Count > 0)
+            {
+                listBoxUtilizatorForm.Items.Clear();
+                foreach (Book book in wishlist)
+                {
+                    listBoxUtilizatorForm.Items.Add(book);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Wishlist-ul este gol!");
+            }
         }
 
         private void buttonShowBooks_click(object sender, EventArgs e)// de editat pt forms
@@ -140,6 +185,36 @@ namespace ProiectIP
             LogIn logIn = new LogIn();
             logIn.Show();
             this.Hide();
+        }
+
+        private void removeWishlist_Click(object sender, EventArgs e)
+        {
+            if (listBoxUtilizatorForm.SelectedItem != null)
+            {
+                Book selectedBook = (Book)listBoxUtilizatorForm.SelectedItem;
+
+                wishlist.Remove(selectedBook);
+                MessageBox.Show("Carte eliminată din Wishlist!");
+
+                // Actualizare afișare Wishlist
+                RefreshWishlist();
+            }
+            else
+            {
+                MessageBox.Show("Selectați o carte din Wishlist pentru a o elimina!");
+            }
+        }
+
+        private void RefreshWishlist()
+        {
+            // Ștergeți conținutul din ListBox-ul de Wishlist
+            listBoxUtilizatorForm.Items.Clear();
+
+            // Adăugați cărțile din wishlist în ListBox-ul de Wishlist
+            foreach (Book book in wishlist)
+            {
+                listBoxUtilizatorForm.Items.Add(book);
+            }
         }
     }
 }

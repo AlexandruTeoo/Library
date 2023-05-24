@@ -116,6 +116,7 @@
             this.removeWishlist.TabIndex = 7;
             this.removeWishlist.Text = "Remove from Wishlist";
             this.removeWishlist.UseVisualStyleBackColor = true;
+            this.removeWishlist.Click += new System.EventHandler(this.removeWishlist_Click);
             // 
             // showLoans
             // 
