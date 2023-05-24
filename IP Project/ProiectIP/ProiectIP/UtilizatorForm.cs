@@ -16,6 +16,7 @@ namespace ProiectIP
     public partial class UtilizatorForm : Form
     {
         public Account _account;
+        public bool onLoan = false;
         public UtilizatorForm(Account account)
         {
             _account = account;
@@ -25,6 +26,8 @@ namespace ProiectIP
         
         private void AddtoWishlist_Click(object sender, EventArgs e)
         {
+            if (onLoan)
+                return;
 
             if (listBoxUtilizatorForm.SelectedItem != null)
             {
@@ -60,40 +63,37 @@ namespace ProiectIP
 
         private void buttonImprumuta_Click(object sender, EventArgs e)// de editat pt forms
         {
-            using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
+            if (onLoan)
+                return;
+
+            Loan loan = new Loan();
+            Book selectedBook = (Book)listBoxUtilizatorForm.SelectedItem;
+            loan._accountId = _account._id;
+            loan._isbn = selectedBook._isbn;
+
+            try
             {
-                String sql;
-
-                string bookInfo = listBoxUtilizatorForm.Text;
-                int accountId = 1;
-                string isbn = "1";// parsat bookInfo pentru a optine isbn
-                DateTime issuedDate = DateTime.Now.Date;
-                DateTime returnedDate = DateTime.Now.Date.AddDays(14);
-                sql = "CREATE OR REPLACE PROCEDURE insert_loan(" +
-                                                accountId + "," +
-                                                isbn + "," +
-                                                issuedDate + "," +
-                                                returnedDate + ")";
-
-                OracleCommand command = new OracleCommand(sql, connection);
-
-                command.Connection.Open();
-                OracleDataReader dataReader = command.ExecuteReader();
-
-                if (dataReader.Read())
+                LoanDAO.AddLoan(loan);
+                MessageBox.Show("Cerere de imprumut trimisa cu succes", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (OracleException ex)
+            {
+                //SqlException ex = (SqlException)procedureError.InnerException;
+                if (ex.Number == 20003)
                 {
-                    if (dataReader.GetInt32(1) == null)
-                    {
-                        //return -2; // acc not found -> trebuie verificat cu loan._accountId in sql??
-                    }
-                    //return 0;
+                    MessageBox.Show("Stoc insuficient!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                //return -1;
+                else
+                {
+                    MessageBox.Show(ex.Message, "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    
+                }
             }
         }
 
         private void buttonShowWishlist_click(object sender, EventArgs e)// de editat pt forms
         {
+            onLoan = false;
 
             List<Book> wishlist = WishlistDAO.GetWishlist(_account._id);
             if (wishlist.Count > 0)
@@ -112,6 +112,8 @@ namespace ProiectIP
 
         private void buttonShowBooks_click(object sender, EventArgs e)// de editat pt forms
         {
+            onLoan=false;
+
             listBoxUtilizatorForm.Items.Clear();
             List<Book> books = BookDAO.GetBooks();
             foreach(Book book in books)
@@ -129,6 +131,9 @@ namespace ProiectIP
 
         private void removeWishlist_Click(object sender, EventArgs e)
         {
+            if (onLoan)
+                return;
+
             if (listBoxUtilizatorForm.SelectedItem != null)
             {
                 Book selectedBook = (Book)listBoxUtilizatorForm.SelectedItem;
@@ -150,6 +155,8 @@ namespace ProiectIP
 
         private void RefreshWishlist()
         {
+            onLoan = false;
+
             // Ștergeți conținutul din ListBox-ul de Wishlist
             listBoxUtilizatorForm.Items.Clear();
             List<Book> wishlist = WishlistDAO.GetWishlist(_account._id);
@@ -162,7 +169,14 @@ namespace ProiectIP
 
         private void showLoans_Click(object sender, EventArgs e)
         {
+            onLoan = true;
 
+            listBoxUtilizatorForm.Items.Clear();
+            List<Loan> loans = LoanDAO.GetLoans(_account._id);
+            foreach (Loan loan in loans)
+            {
+                listBoxUtilizatorForm.Items.Add(loan);
+            }
         }
     }
 }

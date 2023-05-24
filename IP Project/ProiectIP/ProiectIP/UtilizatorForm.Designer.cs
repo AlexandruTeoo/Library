@@ -73,14 +73,14 @@
             // 
             this.listBoxUtilizatorForm.FormattingEnabled = true;
             this.listBoxUtilizatorForm.ItemHeight = 16;
-            this.listBoxUtilizatorForm.Location = new System.Drawing.Point(122, 102);
+            this.listBoxUtilizatorForm.Location = new System.Drawing.Point(85, 102);
             this.listBoxUtilizatorForm.Name = "listBoxUtilizatorForm";
-            this.listBoxUtilizatorForm.Size = new System.Drawing.Size(807, 372);
+            this.listBoxUtilizatorForm.Size = new System.Drawing.Size(886, 372);
             this.listBoxUtilizatorForm.TabIndex = 3;
             // 
             // Carti
             // 
-            this.Carti.Location = new System.Drawing.Point(1047, 259);
+            this.Carti.Location = new System.Drawing.Point(1047, 202);
             this.Carti.Name = "Carti";
             this.Carti.Size = new System.Drawing.Size(142, 51);
             this.Carti.TabIndex = 4;
@@ -92,7 +92,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(434, 31);
+            this.label1.Location = new System.Drawing.Point(385, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(185, 32);
             this.label1.TabIndex = 5;
@@ -120,7 +120,7 @@
             // 
             // showLoans
             // 
-            this.showLoans.Location = new System.Drawing.Point(1047, 202);
+            this.showLoans.Location = new System.Drawing.Point(1047, 259);
             this.showLoans.Name = "showLoans";
             this.showLoans.Size = new System.Drawing.Size(142, 51);
             this.showLoans.TabIndex = 8;

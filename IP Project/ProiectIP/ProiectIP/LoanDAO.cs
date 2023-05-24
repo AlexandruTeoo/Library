@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ProiectIP
 {
@@ -25,11 +26,12 @@ namespace ProiectIP
                 while (dataReader.Read())
                 {
                     Loan loan = new Loan(
-                        dataReader.GetString(0),
+                        dataReader.GetInt32(0),
                         dataReader.GetInt32(1),
                         dataReader.GetInt32(2),
                         dataReader.GetDateTime(3).Date,
-                        dataReader.GetDateTime(4).Date
+                        dataReader.GetDateTime(4).Date,
+                        dataReader.GetInt32(5)
                     );
 
                     loans.Add(loan);
@@ -55,11 +57,12 @@ namespace ProiectIP
                 while (dataReader.Read())
                 {
                     Loan loan = new Loan(
-                        dataReader.GetString(0),
+                        dataReader.GetInt32(0),
                         dataReader.GetInt32(1),
                         dataReader.GetInt32(2),
                         dataReader.GetDateTime(3).Date,
-                        dataReader.GetDateTime(4).Date
+                        dataReader.GetDateTime(4).Date,
+                        dataReader.GetInt32(5)
                     );
 
                     loans.Add(loan);
@@ -70,67 +73,32 @@ namespace ProiectIP
             }
         }
 
-        public static void ApproveLoan(string loanId) // de terminat 
-            //Cand apelezi faci try{metoda asta} catch{ce ai facut aici}
+        public static void ApproveLoan(int loanId)
         {
-            //try
-            //{
-                using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
-                {
-                    String sql;
-                    sql = "BEGIN \n accept_loan(" + loanId + "); \n END;";
-                    OracleCommand command = new OracleCommand(sql, connection);
-
-                    command.Connection.Open();
-                    command.ExecuteReader();
-                }
-                /*
-            }
-            
-            catch (OracleException ex)
+            using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
             {
-                int errorCode = ex.Number;
-                string errorMessage = ex.Message;
+                String sql;
+                sql = "BEGIN \n accept_loan(" + loanId + "); \n END;";
+                OracleCommand command = new OracleCommand(sql, connection);
 
-                if (errorCode == -20003)
-                {
-                    return -1;
-                }
-                if (errorCode == -21001)
-                {
-                    return -2;
-                }
-                return -3;
+                command.Connection.Open();
+                command.ExecuteReader();
             }
-                */
         }
 
-        public static int AddLoan(Loan loan)
+        public static void AddLoan(Loan loan)
         {
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
             {
                 String sql;
 
-                sql = "CREATE OR REPLACE PROCEDURE insert_loan(" +
-                                                loan._accountId + "," +
-                                                loan._isbn + "," +
-                                                loan._issuedDate + "," +
-                                                loan._returnedDate + ")";
+                sql = "BEGIN \n insert_loan(" + loan._accountId + "," +
+                        loan._isbn +"); \n END;";
 
                 OracleCommand command = new OracleCommand(sql, connection);
 
                 command.Connection.Open();
-                OracleDataReader dataReader = command.ExecuteReader();
-
-                if (dataReader.Read())
-                {
-                    if (dataReader.GetInt32(1) == null)
-                    {
-                        return -2; // acc not found -> trebuie verificat cu loan._accountId in sql??
-                    }
-                    return 0;
-                }
-                return -1;
+                command.ExecuteReader();
             }
         }
     }
