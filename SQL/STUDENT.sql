@@ -136,11 +136,10 @@ AS
     END;
     /
  
- CREATE OR REPLACE PROCEDURE insert_loan(p_account_id varchar2, p_carte_isbn varchar2, p_data_imprumut date, 
- p_data_restituire date)
+ CREATE OR REPLACE PROCEDURE insert_loan(p_account_id varchar2, p_carte_isbn varchar2)
  AS
     BEGIN
-        INSERT INTO LOAN VALUES(GET_LOAN_ID.nextval, p_account_id, p_carte_isbn, p_data_imprumut, p_data_restituire, 0);
+        INSERT INTO LOAN VALUES(GET_LOAN_ID.nextval, p_account_id, p_carte_isbn, SYSDATE, SYSDATE, 0);
         COMMIT;
     END;
     /
@@ -163,7 +162,7 @@ CREATE OR REPLACE PROCEDURE delete_loan(p_loan_id int)
     SELECT stoc INTO v_stoc FROM CARTI WHERE isbn = v_carte_isbn;  
     
     IF v_stoc >= 1 THEN
-        UPDATE loan SET accepted=1 WHERE loan_id = p_loan_id;
+        UPDATE loan SET accepted=1, data_imprumut=SYSDATE, data_restituire=SYSDATE+14 WHERE loan_id = p_loan_id;
         UPDATE carti SET stoc=v_stoc-1 WHERE isbn = v_carte_isbn;
         v_stoc := v_stoc-1;
     END IF;
@@ -221,6 +220,9 @@ CREATE OR REPLACE PROCEDURE delete_black_listed(p_account_id int)
  BEGIN 
     insert_carte('The Great Gatsby', 'F. Scott Fitzgerald', 'Fiction', 3);
     insert_carte('Amintiri din copilarie', 'Ion Creanga', 'Roman', 2);
+    insert_carte('Din cer au cazut 3 mere', 'Narine Abgarian', 'Literatura Universala', 4);
+    insert_carte('Inocentii', 'Ioana Parvulescu', 'Roman', 1);
+    insert_carte('Totul incepe cu noi', 'Colleen Hoover', 'Roman de dragoste', 2);
  END;
  /
  
@@ -233,8 +235,8 @@ CREATE OR REPLACE PROCEDURE delete_black_listed(p_account_id int)
  /
  
  BEGIN 
-    insert_loan(1,1,'11-FEB-2010','20-FEB-2010');
-    insert_loan(2,2,'12-FEB-2010','15-FEB-2010');
+    insert_loan(1,1);
+    insert_loan(2,2);
  END;
  /
  
