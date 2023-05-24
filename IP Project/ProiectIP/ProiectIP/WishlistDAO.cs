@@ -9,34 +9,32 @@ namespace ProiectIP
 {
     public class WishlistDAO
     {
-        public static List<Wishlist> GetWishlist(int accountId)
+        public static List<Book> GetWishlist(int accountId)
         {
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
             {
                 String sql;
-                sql = "Select * from WISHLIST WHERE account_id = '" + accountId + "'";
+                sql = "SELECT * FROM CARTI c JOIN WISHLIST w ON w.carte_isbn = c.isbn WHERE w.account_id ='" + accountId + "'";
 
                 OracleCommand command = new OracleCommand(sql, connection);
 
                 command.Connection.Open();
                 OracleDataReader dataReader = command.ExecuteReader();
 
-                if (dataReader.Read())
+                List<Book> books = new List<Book>();
+
+                while (dataReader.Read())
                 {
-                    List<Wishlist> wishlist = new List<Wishlist>();
+                    Book book = new Book(dataReader.GetInt32(0),
+                                        dataReader.GetString(1),
+                                        dataReader.GetString(2),
+                                        dataReader.GetString(3),
+                                        dataReader.GetInt32(4),
+                                        dataReader.GetInt32(5));
 
-                    while (dataReader.Read())
-                    {
-                        Wishlist loan = new Wishlist(
-                            dataReader.GetString(0),
-                            dataReader.GetInt32(1)
-                        );
-
-                        wishlist.Add(loan);
-                    }
-                    return wishlist;
+                    books.Add(book);
                 }
-                return null;
+                return books;
             }
         }
 
@@ -63,7 +61,7 @@ namespace ProiectIP
             {
                 String sql;
 
-                sql = "delete_wishlist(" + wishlist._wishlistId + ")";
+                sql = "DELETE FROM WISHLIST WHERE account_id ='" + wishlist._accountId + "' AND carte_isbn = '" + wishlist._isbn + "'";
 
                 OracleCommand command = new OracleCommand(sql, connection);
 

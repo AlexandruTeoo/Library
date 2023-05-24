@@ -9,10 +9,11 @@ namespace ProiectIP
     public class Wishlist
     {
         public int _wishlistId { get; set; }
-        public string _isbn { get; set; }
+        public int _isbn { get; set; }
         public int _accountId { get; set; }
 
-        public Wishlist(string isbn, int id)
+        public Wishlist() { }   
+        public Wishlist(int isbn, int id)
         {
             _isbn = isbn;
             _accountId = id;

@@ -38,34 +38,6 @@ namespace ProiectIP
             }
         }
 
-        /*
-        public static Loan GetLoan(int loanId)
-        {
-            using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
-            {
-                String sql;
-                sql = "Select * from LOAN WHERE loan_id = '" + loanId + "'";
-
-                OracleCommand command = new OracleCommand(sql, connection);
-
-                command.Connection.Open();
-                OracleDataReader dataReader = command.ExecuteReader();
-
-                if (dataReader.Read())
-                {
-                    Loan loan = new Loan(dataReader.GetString(0),
-                                        dataReader.GetInt32(1),
-                                        dataReader.GetInt32(2),
-                                        dataReader.GetDateTime(3).Date,
-                                        dataReader.GetDateTime(4).Date);
-
-                    return loan;
-                }
-                return null;
-            }
-        }
-        */
-
         public static List<Loan> GetAllLoans()
         {
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
@@ -98,22 +70,23 @@ namespace ProiectIP
             }
         }
 
-        public static int ApproveLoan(string loanId) // de terminat
+        public static void ApproveLoan(string loanId) // de terminat 
+            //Cand apelezi faci try{metoda asta} catch{ce ai facut aici}
         {
-            try
-            {
+            //try
+            //{
                 using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
                 {
                     String sql;
-                    sql = "BEGIN accept_loan(" + loanId + ") END;";
+                    sql = "BEGIN \n accept_loan(" + loanId + "); \n END;";
                     OracleCommand command = new OracleCommand(sql, connection);
 
-                    /*command.Connection.Open();
-                    OracleDataReader dataReader = command.ExecuteReader();*/
-
-                    return 0;
+                    command.Connection.Open();
+                    command.ExecuteReader();
                 }
+                /*
             }
+            
             catch (OracleException ex)
             {
                 int errorCode = ex.Number;
@@ -129,6 +102,7 @@ namespace ProiectIP
                 }
                 return -3;
             }
+                */
         }
 
         public static int AddLoan(Loan loan)

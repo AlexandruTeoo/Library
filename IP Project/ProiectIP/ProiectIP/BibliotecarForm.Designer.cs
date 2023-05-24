@@ -33,7 +33,7 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.Carti = new System.Windows.Forms.Button();
             this.Imprumuturi = new System.Windows.Forms.Button();
-            this.Conturi = new System.Windows.Forms.Button();
+            this.adaugaCarte = new System.Windows.Forms.Button();
             this.Deconectare = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -85,15 +85,15 @@
             this.Imprumuturi.Text = "Imprumuturi";
             this.Imprumuturi.UseVisualStyleBackColor = true;
             // 
-            // Conturi
+            // adaugaCarte
             // 
-            this.Conturi.Location = new System.Drawing.Point(644, 392);
-            this.Conturi.Name = "Conturi";
-            this.Conturi.Size = new System.Drawing.Size(142, 51);
-            this.Conturi.TabIndex = 7;
-            this.Conturi.Text = "Conturi";
-            this.Conturi.UseVisualStyleBackColor = true;
-            this.Conturi.Click += new System.EventHandler(this.buttonShowAllAccounts_click);
+            this.adaugaCarte.Location = new System.Drawing.Point(644, 392);
+            this.adaugaCarte.Name = "adaugaCarte";
+            this.adaugaCarte.Size = new System.Drawing.Size(142, 51);
+            this.adaugaCarte.TabIndex = 7;
+            this.adaugaCarte.Text = "Adauga Carte";
+            this.adaugaCarte.UseVisualStyleBackColor = true;
+            this.adaugaCarte.Click += new System.EventHandler(this.buttonAdaugaCarte_click);
             // 
             // Deconectare
             // 
@@ -105,19 +105,19 @@
             this.Deconectare.UseVisualStyleBackColor = true;
             this.Deconectare.Click += new System.EventHandler(this.buttonDeconectare_Click);
             // 
-            // v
+            // BibliotecarForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 548);
             this.Controls.Add(this.Deconectare);
-            this.Controls.Add(this.Conturi);
+            this.Controls.Add(this.adaugaCarte);
             this.Controls.Add(this.Imprumuturi);
             this.Controls.Add(this.Carti);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.Sterge);
             this.Controls.Add(this.Modifica);
-            this.Name = "v";
+            this.Name = "BibliotecarForms";
             this.Text = "BibliotecarForm";
             this.ResumeLayout(false);
 
@@ -130,7 +130,7 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button Carti;
         private System.Windows.Forms.Button Imprumuturi;
-        private System.Windows.Forms.Button Conturi;
+        private System.Windows.Forms.Button adaugaCarte;
         private System.Windows.Forms.Button Deconectare;
     }
 }

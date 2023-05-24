@@ -126,6 +126,7 @@
             this.showLoans.TabIndex = 8;
             this.showLoans.Text = "Show Loans";
             this.showLoans.UseVisualStyleBackColor = true;
+            this.showLoans.Click += new System.EventHandler(this.showLoans_Click);
             // 
             // UtilizatorForm
             // 

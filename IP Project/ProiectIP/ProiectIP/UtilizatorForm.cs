@@ -15,7 +15,6 @@ namespace ProiectIP
 {
     public partial class UtilizatorForm : Form
     {
-        List<Book> wishlist = new List<Book>();
         public Account _account;
         public UtilizatorForm(Account account)
         {
@@ -23,42 +22,6 @@ namespace ProiectIP
             InitializeComponent();
             label1.Text = label1.Text + _account._username + "!";
         }
-        /*
-        private void AddtoWishlist_Click(object sender, EventArgs e)// de editat pt forms
-        {
-            using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
-            {
-                String sql;
-
-                string bookInfo = listBoxUtilizatorForm.Text;
-                
-                int accountId = 1; // de vazut cum se poate accesa id-ul contului odata logat
-                string isbn = "1"; // parsat bookInfo pentru a optine isbn
-
-                sql = "BEGIN \n insert_wishlist(" + accountId + "," + isbn + "); \n END;" ;
-
-                OracleCommand command = new OracleCommand(sql, connection);
-
-                command.Connection.Open();
-                OracleDataReader dataReader = command.ExecuteReader();
-
-                if (dataReader.Read())
-                {
-                    // ?
-                }
-
-                if (listBoxUtilizatorForm.SelectedItem != null)
-                {
-                    // Obțineți valoarea (titlul cărții) din elementul selectat
-                    string selectedBook = listBoxUtilizatorForm.SelectedItem.ToString();
-
-                    // Adăugați valoarea într-o listă de dorințe (Wishlist)
-                    // wishlist.Add(selectedBook);
-                }
-
-            }
-        }
-        */
         
         private void AddtoWishlist_Click(object sender, EventArgs e)
         {
@@ -66,15 +29,26 @@ namespace ProiectIP
             if (listBoxUtilizatorForm.SelectedItem != null)
             {
                 Book selectedBook = (Book)listBoxUtilizatorForm.SelectedItem;
+                Wishlist wishlist = new Wishlist();
+                wishlist._accountId = _account._id;
+                wishlist._isbn = selectedBook._isbn;
 
-                // Verificați dacă elementul selectat este deja în wishlist
-                if (wishlist.Contains(selectedBook))
+                List<Book> wishlistedBooks = WishlistDAO.GetWishlist(_account._id);
+                bool ok = false;
+                foreach(Book book in wishlistedBooks)
+                {
+                    if (book._isbn == selectedBook._isbn)
+                        ok = true;
+                }
+
+                 // Verificați dacă elementul selectat este deja în wishlist
+                if (ok==true)
                 {
                     MessageBox.Show("Cartea este deja în Wishlist!");
                 }
                 else
                 {
-                    wishlist.Add(selectedBook);
+                    WishlistDAO.AddBookWishlist(wishlist);
                     MessageBox.Show("Carte adăugata în Wishlist!");
                 }
             }
@@ -120,43 +94,8 @@ namespace ProiectIP
 
         private void buttonShowWishlist_click(object sender, EventArgs e)// de editat pt forms
         {
-            /*
-            using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
-            {
-                String sql;
 
-                int accountId = 1;
-
-                sql = "Select * from WISHLIST WHERE account_id = '" + accountId + "'";
-
-                OracleCommand command = new OracleCommand(sql, connection);
-
-                command.Connection.Open();
-                OracleDataReader dataReader = command.ExecuteReader();
-
-                if (dataReader.Read())
-                {
-                    List<Wishlist> wishlist = new List<Wishlist>();
-
-                    while (dataReader.Read())
-                    {
-                        Wishlist loan = new Wishlist(
-                            dataReader.GetString(0),
-                            dataReader.GetInt32(1)
-                        );
-
-                        wishlist.Add(loan);
-                    }
-                    //return wishlist;
-                }
-                //return null;
-            }
-            */
-
-            // Ștergeți conținutul din ListBox
-            
-
-            // Afișați conținutul din wishlist într-un MessageBox
+            List<Book> wishlist = WishlistDAO.GetWishlist(_account._id);
             if (wishlist.Count > 0)
             {
                 listBoxUtilizatorForm.Items.Clear();
@@ -173,6 +112,7 @@ namespace ProiectIP
 
         private void buttonShowBooks_click(object sender, EventArgs e)// de editat pt forms
         {
+            listBoxUtilizatorForm.Items.Clear();
             List<Book> books = BookDAO.GetBooks();
             foreach(Book book in books)
             {
@@ -192,8 +132,11 @@ namespace ProiectIP
             if (listBoxUtilizatorForm.SelectedItem != null)
             {
                 Book selectedBook = (Book)listBoxUtilizatorForm.SelectedItem;
-
-                wishlist.Remove(selectedBook);
+                Wishlist wishlist = new Wishlist();
+                wishlist._accountId = _account._id;
+                wishlist._isbn = selectedBook._isbn;
+                WishlistDAO.DeleteBookWishlist(wishlist);
+                //wishlist.Remove(selectedBook);
                 MessageBox.Show("Carte eliminată din Wishlist!");
 
                 // Actualizare afișare Wishlist
@@ -209,12 +152,17 @@ namespace ProiectIP
         {
             // Ștergeți conținutul din ListBox-ul de Wishlist
             listBoxUtilizatorForm.Items.Clear();
-
+            List<Book> wishlist = WishlistDAO.GetWishlist(_account._id);
             // Adăugați cărțile din wishlist în ListBox-ul de Wishlist
             foreach (Book book in wishlist)
             {
                 listBoxUtilizatorForm.Items.Add(book);
             }
+        }
+
+        private void showLoans_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

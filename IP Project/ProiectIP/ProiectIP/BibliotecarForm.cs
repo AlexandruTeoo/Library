@@ -60,44 +60,16 @@ namespace ProiectIP
 
         }
 
-        private void buttonShowAllAccounts_click(object sender, EventArgs e)// de editat pt forms
-        {
-            using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
-            {
-                String sql;
-
-                sql = "SELECT * FROM ACCOUNTS";
-                OracleCommand command = new OracleCommand(sql, connection);
-
-                command.Connection.Open();
-                OracleDataReader dataReader = command.ExecuteReader();
-
-                if (dataReader.Read())
-                {
-                    Account account = new Account(dataReader.GetInt32(0),
-                        dataReader.GetString(1),
-                        dataReader.GetString(2),
-                        dataReader.GetString(3),
-                        dataReader.GetString(4),
-                        dataReader.GetString(5),
-                        dataReader.GetString(6),
-                        dataReader.GetString(7),
-                        dataReader.GetString(8),
-                        dataReader.GetString(9),
-                        dataReader.GetInt32(10),
-                        dataReader.GetInt32(11)
-                        );
-                   // return account;
-                }
-                //return null;
-            }
-        }
-
         private void buttonDeconectare_Click(object sender, EventArgs e)
         {
             LogIn logIn = new LogIn();
             logIn.Show();
             this.Hide();
+        }
+
+        private void buttonAdaugaCarte_click(object sender, EventArgs e)
+        {
+
         }
     }
 }
