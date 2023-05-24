@@ -30,7 +30,7 @@
         {
             this.Modifica = new System.Windows.Forms.Button();
             this.Sterge = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxBibliotecarForm = new System.Windows.Forms.ListBox();
             this.Carti = new System.Windows.Forms.Button();
             this.Imprumuturi = new System.Windows.Forms.Button();
             this.adaugaCarte = new System.Windows.Forms.Button();
@@ -53,18 +53,18 @@
             this.Sterge.Name = "Sterge";
             this.Sterge.Size = new System.Drawing.Size(142, 51);
             this.Sterge.TabIndex = 2;
-            this.Sterge.Text = "Sterge";
+            this.Sterge.Text = "Sterge Carte";
             this.Sterge.UseVisualStyleBackColor = true;
             this.Sterge.Click += new System.EventHandler(this.buttonDeleteBook_click);
             // 
-            // listBox1
+            // listBoxBibliotecarForm
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(81, 71);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(467, 372);
-            this.listBox1.TabIndex = 4;
+            this.listBoxBibliotecarForm.FormattingEnabled = true;
+            this.listBoxBibliotecarForm.ItemHeight = 16;
+            this.listBoxBibliotecarForm.Location = new System.Drawing.Point(81, 71);
+            this.listBoxBibliotecarForm.Name = "listBoxBibliotecarForm";
+            this.listBoxBibliotecarForm.Size = new System.Drawing.Size(467, 372);
+            this.listBoxBibliotecarForm.TabIndex = 4;
             // 
             // Carti
             // 
@@ -114,7 +114,7 @@
             this.Controls.Add(this.adaugaCarte);
             this.Controls.Add(this.Imprumuturi);
             this.Controls.Add(this.Carti);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBoxBibliotecarForm);
             this.Controls.Add(this.Sterge);
             this.Controls.Add(this.Modifica);
             this.Name = "BibliotecarForms";
@@ -127,7 +127,7 @@
 
         private System.Windows.Forms.Button Modifica;
         private System.Windows.Forms.Button Sterge;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxBibliotecarForm;
         private System.Windows.Forms.Button Carti;
         private System.Windows.Forms.Button Imprumuturi;
         private System.Windows.Forms.Button adaugaCarte;

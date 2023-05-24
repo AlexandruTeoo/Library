@@ -37,5 +37,35 @@ namespace ProiectIP
                 return books;
             }
         }
+
+        public static void DeleteBook(Book book)
+        {
+            using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
+            {
+                String sql;
+
+                sql = "DELETE FROM CARTI WHERE carte_isbn = '" + book._isbn + "'";
+
+                OracleCommand command = new OracleCommand(sql, connection);
+
+                command.Connection.Open();
+                command.ExecuteReader();
+            }
+        }
+
+        public static void InsertBook(Book book, int count)
+        {
+            using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
+            {
+                String sql;
+                sql = "BEGIN \n insert_carte('" + book._title + "', '" + book._author + "', '" + book._category + "'," +
+                    " ' " + count +  "'); \n END;";
+
+                OracleCommand command = new OracleCommand(sql, connection);
+                command.Connection.Open();
+
+                command.ExecuteReader();
+            }
+        }
     }
 }

@@ -81,6 +81,12 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="AccountDAO.cs" />
+    <Compile Include="AdaugaCarteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdaugaCarteForm.Designer.cs">
+      <DependentUpon>AdaugaCarteForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BibliotecarForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     </Compile>
     <Compile Include="Wishlist.cs" />
     <Compile Include="WishlistDAO.cs" />
+    <EmbeddedResource Include="AdaugaCarteForm.resx">
+      <DependentUpon>AdaugaCarteForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BibliotecarForm.resx">
       <DependentUpon>BibliotecarForm.cs</DependentUpon>
     </EmbeddedResource>

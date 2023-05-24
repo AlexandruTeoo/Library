@@ -73,7 +73,7 @@
             // 
             this.Username.AutoSize = true;
             this.Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Username.Location = new System.Drawing.Point(192, 86);
+            this.Username.Location = new System.Drawing.Point(192, 90);
             this.Username.Name = "Username";
             this.Username.Size = new System.Drawing.Size(86, 20);
             this.Username.TabIndex = 2;
@@ -84,7 +84,7 @@
             // 
             this.Parola.AutoSize = true;
             this.Parola.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Parola.Location = new System.Drawing.Point(207, 132);
+            this.Parola.Location = new System.Drawing.Point(221, 132);
             this.Parola.Name = "Parola";
             this.Parola.Size = new System.Drawing.Size(57, 20);
             this.Parola.TabIndex = 3;
@@ -95,7 +95,7 @@
             // 
             this.Nume.AutoSize = true;
             this.Nume.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nume.Location = new System.Drawing.Point(211, 174);
+            this.Nume.Location = new System.Drawing.Point(225, 178);
             this.Nume.Name = "Nume";
             this.Nume.Size = new System.Drawing.Size(53, 20);
             this.Nume.TabIndex = 4;
@@ -106,7 +106,7 @@
             // 
             this.Prenume.AutoSize = true;
             this.Prenume.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Prenume.Location = new System.Drawing.Point(202, 218);
+            this.Prenume.Location = new System.Drawing.Point(202, 222);
             this.Prenume.Name = "Prenume";
             this.Prenume.Size = new System.Drawing.Size(76, 20);
             this.Prenume.TabIndex = 5;
@@ -117,7 +117,7 @@
             // 
             this.CNP.AutoSize = true;
             this.CNP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CNP.Location = new System.Drawing.Point(220, 264);
+            this.CNP.Location = new System.Drawing.Point(234, 268);
             this.CNP.Name = "CNP";
             this.CNP.Size = new System.Drawing.Size(44, 20);
             this.CNP.TabIndex = 6;
@@ -128,7 +128,7 @@
             // 
             this.Email.AutoSize = true;
             this.Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Email.Location = new System.Drawing.Point(213, 304);
+            this.Email.Location = new System.Drawing.Point(227, 308);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(51, 20);
             this.Email.TabIndex = 7;
@@ -139,7 +139,7 @@
             // 
             this.Adresa.AutoSize = true;
             this.Adresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Adresa.Location = new System.Drawing.Point(207, 352);
+            this.Adresa.Location = new System.Drawing.Point(216, 356);
             this.Adresa.Name = "Adresa";
             this.Adresa.Size = new System.Drawing.Size(62, 20);
             this.Adresa.TabIndex = 8;
@@ -150,7 +150,7 @@
             // 
             this.Oras.AutoSize = true;
             this.Oras.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Oras.Location = new System.Drawing.Point(223, 401);
+            this.Oras.Location = new System.Drawing.Point(232, 401);
             this.Oras.Name = "Oras";
             this.Oras.Size = new System.Drawing.Size(46, 20);
             this.Oras.TabIndex = 9;
@@ -161,7 +161,7 @@
             // 
             this.Telefon.AutoSize = true;
             this.Telefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Telefon.Location = new System.Drawing.Point(214, 451);
+            this.Telefon.Location = new System.Drawing.Point(214, 452);
             this.Telefon.Name = "Telefon";
             this.Telefon.Size = new System.Drawing.Size(64, 20);
             this.Telefon.TabIndex = 10;
@@ -279,7 +279,7 @@
             this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.label1);
             this.Name = "Inregistrare";
-            this.Text = "Form1";
+            this.Text = "InregistrareUser";
             this.ResumeLayout(false);
             this.PerformLayout();
 

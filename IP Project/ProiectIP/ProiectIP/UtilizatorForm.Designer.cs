@@ -65,7 +65,7 @@
             this.AddToWishlist.Name = "AddToWishlist";
             this.AddToWishlist.Size = new System.Drawing.Size(142, 51);
             this.AddToWishlist.TabIndex = 2;
-            this.AddToWishlist.Text = "Add to Wishlist";
+            this.AddToWishlist.Text = "Adauga in Wishlist";
             this.AddToWishlist.UseVisualStyleBackColor = true;
             this.AddToWishlist.Click += new System.EventHandler(this.AddtoWishlist_Click);
             // 
@@ -114,7 +114,7 @@
             this.removeWishlist.Name = "removeWishlist";
             this.removeWishlist.Size = new System.Drawing.Size(142, 51);
             this.removeWishlist.TabIndex = 7;
-            this.removeWishlist.Text = "Remove from Wishlist";
+            this.removeWishlist.Text = "Sterge din Wishlist";
             this.removeWishlist.UseVisualStyleBackColor = true;
             this.removeWishlist.Click += new System.EventHandler(this.removeWishlist_Click);
             // 
@@ -124,7 +124,7 @@
             this.showLoans.Name = "showLoans";
             this.showLoans.Size = new System.Drawing.Size(142, 51);
             this.showLoans.TabIndex = 8;
-            this.showLoans.Text = "Show Loans";
+            this.showLoans.Text = "Arata Imprumuturile";
             this.showLoans.UseVisualStyleBackColor = true;
             this.showLoans.Click += new System.EventHandler(this.showLoans_Click);
             // 

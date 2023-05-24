@@ -98,3 +98,4 @@ C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\obj\Deb
 C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\obj\Debug\ProiectIP.exe
 C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\obj\Debug\ProiectIP.pdb
 C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\obj\Debug\ProiectIP.Inregistrare.resources
+D:\AC\IP\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\obj\Debug\ProiectIP.Inregistrare.resources

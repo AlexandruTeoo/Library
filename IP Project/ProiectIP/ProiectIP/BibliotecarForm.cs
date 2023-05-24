@@ -15,6 +15,7 @@ namespace ProiectIP
     public partial class BibliotecarForms : Form
     {
         public Account _account;
+        public bool onLoan = false;
         public BibliotecarForms(Account account)
         {
             InitializeComponent();
@@ -23,36 +24,43 @@ namespace ProiectIP
 
         private void buttonShowBooks_click(object sender, EventArgs e) // de editat pt forms
         {
-            using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
+            List<Book> books = BookDAO.GetBooks();
+
+            listBoxBibliotecarForm.Items.Clear();
+            foreach (Book book in books)
             {
-                String sql, Output = "";
-                sql = "Select * from CARTI";
-                OracleCommand command = new OracleCommand(sql, connection);
-
-                command.Connection.Open();
-                OracleDataReader dataReader = command.ExecuteReader();
-
-                List<Book> books = new List<Book>();
-
-                while (dataReader.Read())
-                {
-                    Book book = new Book(dataReader.GetInt32(0),
-                                        dataReader.GetString(1),
-                                        dataReader.GetString(2),
-                                        dataReader.GetString(3),
-                                        dataReader.GetInt32(4),
-                                        dataReader.GetInt32(5));
-
-                    books.Add(book);
-                }
-                Console.WriteLine(books);
-                //return books;
+                listBoxBibliotecarForm.Items.Add(book);
             }
         }
 
         private void buttonDeleteBook_click(object sender, EventArgs e)// de editat pt forms
         {
+            if (listBoxBibliotecarForm.SelectedItem != null)
+            {
+                Book selectedBook = (Book)listBoxBibliotecarForm.SelectedItem;
+                BookDAO.DeleteBook(selectedBook);
+                //wishlist.Remove(selectedBook);
+                MessageBox.Show("Carte eliminată din Wishlist!");
 
+                // Actualizare afișare Wishlist
+                RefreshBooks();
+            }
+            else
+            {
+                MessageBox.Show("Selectați o carte din Wishlist pentru a o elimina!");
+            }
+        }
+
+        private void RefreshBooks()
+        {
+            // Ștergeți conținutul din ListBox-ul de Wishlist
+            listBoxBibliotecarForm.Items.Clear();
+            List<Book> books = BookDAO.GetBooks();
+            // Adăugați cărțile din wishlist în ListBox-ul de Wishlist
+            foreach (Book book in books)
+            {
+                listBoxBibliotecarForm.Items.Add(book);
+            }
         }
 
         private void buttonModifyDetailsBook_Click(object sender, EventArgs e)// de editat pt forms
@@ -69,7 +77,9 @@ namespace ProiectIP
 
         private void buttonAdaugaCarte_click(object sender, EventArgs e)
         {
-
+            Inregistrare inregistare = new Inregistrare();
+            inregistare.Show();
+            this.Hide();
         }
     }
 }
