@@ -19,6 +19,7 @@ namespace ProiectIP
         {
             InitializeComponent();
             _account = account;
+            label1.Text = label1.Text + _account._prenume + "?";
         }
 
         private void buttonAdaugaCartea_click(object sender, EventArgs e)
@@ -28,11 +29,11 @@ namespace ProiectIP
             book._title = textBoxTitle.Text;
             book._author = textBoxAutor.Text;
             book._category = textBoxCategorie.Text;
-
             int cartiAdaugate = 0;
+
             if (int.TryParse(textBoxCartiAdaugate.Text, out cartiAdaugate))
             {
-                
+                MessageBox.Show("Cartea urmeaza sa fie inserata");
             }
             else
             {
@@ -44,12 +45,10 @@ namespace ProiectIP
             {
                 BookDAO.InsertBook(book, cartiAdaugate);
                 MessageBox.Show("Carte inserata cu succes!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                BibliotecarForms bibliotecarForms = new BibliotecarForms(_account);
-                bibliotecarForms.Show();
-                this.Hide();
             }
             catch (OracleException ex)
             {
+                MessageBox.Show(ex.Message, "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 /*//SqlException ex = (SqlException)procedureError.InnerException;
                 if (ex.Number == 20001)
                 {

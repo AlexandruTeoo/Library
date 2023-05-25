@@ -18,8 +18,9 @@ namespace ProiectIP
         public bool onLoan = false;
         public BibliotecarForms(Account account)
         {
-            InitializeComponent();
             _account = account;
+            InitializeComponent();
+            label1.Text = label1.Text + _account._prenume + "!"; 
         }
 
         private void buttonShowBooks_click(object sender, EventArgs e) // de editat pt forms
@@ -40,7 +41,7 @@ namespace ProiectIP
                 Book selectedBook = (Book)listBoxBibliotecarForm.SelectedItem;
                 BookDAO.DeleteBook(selectedBook);
                 //wishlist.Remove(selectedBook);
-                MessageBox.Show("Carte eliminată din Wishlist!");
+                MessageBox.Show("Carte eliminată!");
 
                 // Actualizare afișare Wishlist
                 RefreshBooks();
@@ -65,7 +66,17 @@ namespace ProiectIP
 
         private void buttonModifyDetailsBook_Click(object sender, EventArgs e)// de editat pt forms
         {
-
+            if (listBoxBibliotecarForm.SelectedItem != null)
+            {
+                Book selectedBook = (Book)listBoxBibliotecarForm.SelectedItem;
+                ModificaCarte modifCarte = new ModificaCarte(_account, selectedBook);
+                modifCarte.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Selectați o carte din lista pentru a o modifica!");
+            }
         }
 
         private void buttonDeconectare_Click(object sender, EventArgs e)
@@ -77,9 +88,20 @@ namespace ProiectIP
 
         private void buttonAdaugaCarte_click(object sender, EventArgs e)
         {
-            Inregistrare inregistare = new Inregistrare();
-            inregistare.Show();
+            AdaugaCarteForm adaugaCarte = new AdaugaCarteForm(_account);
+            adaugaCarte.Show();
             this.Hide();
+        }
+
+        private void Imprumuturi_Click(object sender, EventArgs e)
+        {
+            List<Loan> loans = LoanDAO.GetAllLoans();
+
+            listBoxBibliotecarForm.Items.Clear();
+            foreach (Loan loan in loans)
+            {
+                listBoxBibliotecarForm.Items.Add(loan);
+            }
         }
     }
 }

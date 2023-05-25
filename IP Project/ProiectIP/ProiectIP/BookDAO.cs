@@ -44,7 +44,7 @@ namespace ProiectIP
             {
                 String sql;
 
-                sql = "DELETE FROM CARTI WHERE carte_isbn = '" + book._isbn + "'";
+                sql = "DELETE FROM CARTI WHERE isbn = '" + book._isbn + "'";
 
                 OracleCommand command = new OracleCommand(sql, connection);
 
