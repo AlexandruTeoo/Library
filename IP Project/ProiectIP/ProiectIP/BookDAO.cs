@@ -67,5 +67,22 @@ namespace ProiectIP
                 command.ExecuteReader();
             }
         }
+
+        public static void  ModifyBook(Book book)
+        {
+            using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
+            {
+                String sql;
+                sql = "BEGIN \n modificare_carte('" + book._isbn 
+                    + "', '" + book._title 
+                    + "', '" + book._author 
+                    + "','" + book._category + "'); \n END;";
+
+                OracleCommand command = new OracleCommand(sql, connection);
+                command.Connection.Open();
+
+                command.ExecuteReader();
+            }
+        }
     }
 }

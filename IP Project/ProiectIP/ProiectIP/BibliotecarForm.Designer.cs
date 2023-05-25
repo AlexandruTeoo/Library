@@ -84,7 +84,7 @@
             this.Imprumuturi.Name = "Imprumuturi";
             this.Imprumuturi.Size = new System.Drawing.Size(142, 51);
             this.Imprumuturi.TabIndex = 6;
-            this.Imprumuturi.Text = "Imprumuturi";
+            this.Imprumuturi.Text = "Cereri imprumuturi";
             this.Imprumuturi.UseVisualStyleBackColor = true;
             this.Imprumuturi.Click += new System.EventHandler(this.Imprumuturi_Click);
             // 
@@ -126,6 +126,7 @@
             this.buttonAcceptaImprumut.TabIndex = 10;
             this.buttonAcceptaImprumut.Text = "Accepta Imprumut";
             this.buttonAcceptaImprumut.UseVisualStyleBackColor = true;
+            this.buttonAcceptaImprumut.Click += new System.EventHandler(this.buttonAcceptaImprumut_Click);
             // 
             // BibliotecarForms
             // 

@@ -63,21 +63,23 @@ namespace ProiectIP
             }
             catch(OracleException ex) 
             {
-                //SqlException ex = (SqlException)procedureError.InnerException;
-                if (ex.Number == 20001)
+                switch(ex.Number)
                 {
-                    MessageBox.Show("Email deja existent!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else 
-                {
-                    if (ex.Number == 20002)
-                    {
+                    case 20001:
+                        MessageBox.Show("Email deja existent!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                    case 20002:
                         MessageBox.Show("Username deja existent!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else
-                    {
+                        break;
+                    case 20003:
+                        MessageBox.Show("CNP deja existent!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                    case 20004:
+                        MessageBox.Show("Numar de telefon deja existent!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                    default:
                         MessageBox.Show(ex.Message, "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
+                        break;
                 }
             }
         }

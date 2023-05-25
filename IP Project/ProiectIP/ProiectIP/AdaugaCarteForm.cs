@@ -49,22 +49,6 @@ namespace ProiectIP
             catch (OracleException ex)
             {
                 MessageBox.Show(ex.Message, "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                /*//SqlException ex = (SqlException)procedureError.InnerException;
-                if (ex.Number == 20001)
-                {
-                    MessageBox.Show("Email deja existent!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    if (ex.Number == 20002)
-                    {
-                        MessageBox.Show("Username deja existent!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else
-                    {
-                        MessageBox.Show(ex.Message, "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }*/
             }
         }
 
