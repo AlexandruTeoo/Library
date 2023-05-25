@@ -9,6 +9,7 @@ namespace ProiectIP
 {
     public class WishlistDAO
     {
+        #region GetWishlist
         public static List<Book> GetWishlist(int accountId)
         {
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
@@ -37,7 +38,8 @@ namespace ProiectIP
                 return books;
             }
         }
-
+        #endregion
+        #region AddBookWishlist
         public static void AddBookWishlist(Wishlist wishlist)
         {
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
@@ -54,7 +56,8 @@ namespace ProiectIP
                 command.ExecuteReader();
             }
         }
-
+        #endregion
+        #region DeleteBookWishlist
         public static void DeleteBookWishlist(Wishlist wishlist)
         {
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
@@ -69,5 +72,6 @@ namespace ProiectIP
                 command.ExecuteReader();
             }
         }
+        #endregion
     }
 }

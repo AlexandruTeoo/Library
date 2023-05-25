@@ -16,17 +16,17 @@ namespace ProiectIP
     public partial class UtilizatorForm : Form
     {
         public Account _account;
-        public bool onLoan = false;
+        public bool isOnLoan = false;
         public UtilizatorForm(Account account)
         {
             _account = account;
             InitializeComponent();
             label1.Text = label1.Text + _account._username + "!";
         }
-        
+        #region Buttons
         private void AddtoWishlist_Click(object sender, EventArgs e)
         {
-            if (onLoan)
+            if (isOnLoan)
                 return;
 
             if (listBoxUtilizatorForm.SelectedItem != null)
@@ -63,7 +63,7 @@ namespace ProiectIP
 
         private void buttonImprumuta_Click(object sender, EventArgs e)// de editat pt forms
         {
-            if (onLoan)
+            if (isOnLoan)
                 return;
 
             Loan loan = new Loan();
@@ -93,7 +93,7 @@ namespace ProiectIP
 
         private void buttonShowWishlist_click(object sender, EventArgs e)// de editat pt forms
         {
-            onLoan = false;
+            isOnLoan = false;
 
             List<Book> wishlist = WishlistDAO.GetWishlist(_account._id);
             if (wishlist.Count > 0)
@@ -112,7 +112,7 @@ namespace ProiectIP
 
         private void buttonShowBooks_click(object sender, EventArgs e)// de editat pt forms
         {
-            onLoan=false;
+            isOnLoan=false;
 
             listBoxUtilizatorForm.Items.Clear();
             List<Book> books = BookDAO.GetBooks();
@@ -131,7 +131,7 @@ namespace ProiectIP
 
         private void removeWishlist_Click(object sender, EventArgs e)
         {
-            if (onLoan)
+            if (isOnLoan)
                 return;
 
             if (listBoxUtilizatorForm.SelectedItem != null)
@@ -153,9 +153,23 @@ namespace ProiectIP
             }
         }
 
+
+        private void showLoans_Click(object sender, EventArgs e)
+        {
+            isOnLoan = true;
+
+            listBoxUtilizatorForm.Items.Clear();
+            List<Loan> loans = LoanDAO.GetLoans(_account._id);
+            foreach (Loan loan in loans)
+            {
+                listBoxUtilizatorForm.Items.Add(loan);
+            }
+        }
+        #endregion
+        #region RefreshList
         private void RefreshWishlist()
         {
-            onLoan = false;
+            isOnLoan = false;
 
             // Ștergeți conținutul din ListBox-ul de Wishlist
             listBoxUtilizatorForm.Items.Clear();
@@ -166,17 +180,6 @@ namespace ProiectIP
                 listBoxUtilizatorForm.Items.Add(book);
             }
         }
-
-        private void showLoans_Click(object sender, EventArgs e)
-        {
-            onLoan = true;
-
-            listBoxUtilizatorForm.Items.Clear();
-            List<Loan> loans = LoanDAO.GetLoans(_account._id);
-            foreach (Loan loan in loans)
-            {
-                listBoxUtilizatorForm.Items.Add(loan);
-            }
-        }
+        #endregion
     }
 }

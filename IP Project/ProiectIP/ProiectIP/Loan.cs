@@ -9,13 +9,15 @@ namespace ProiectIP
 {
     public class Loan
     {
+        #region Getters and Setters
         public int _loanId { get; set; }
         public int _accountId { get; set; }
         public int _isbn { get; set; }
         public DateTime _issuedDate { get; set; }
         public DateTime _returnedDate { get; set; }
         public int _accepted { get; set; }
-
+        #endregion
+        #region Constructors
         public Loan()
         {
 
@@ -38,9 +40,9 @@ namespace ProiectIP
             _issuedDate = issuedDate;
             _returnedDate = returnedDate;
             _accepted = accepted;
-
         }
-
+        #endregion
+        #region ToString
         public override string ToString()
         {
             return "Loan ID: " + _loanId +
@@ -50,5 +52,6 @@ namespace ProiectIP
                 " | Data Restituire: " + _returnedDate +
                 " | Acceptat: " + _accepted;
         }
+        #endregion
     }
 }

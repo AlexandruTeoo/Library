@@ -9,6 +9,7 @@ namespace ProiectIP
 {
     public class BookDAO
     {
+        #region GetBooks
         public static List<Book> GetBooks()
         {
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
@@ -37,7 +38,8 @@ namespace ProiectIP
                 return books;
             }
         }
-
+        #endregion
+        #region DeleteBook
         public static void DeleteBook(Book book)
         {
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
@@ -52,7 +54,8 @@ namespace ProiectIP
                 command.ExecuteReader();
             }
         }
-
+        #endregion
+        #region InsertBook
         public static void InsertBook(Book book, int count)
         {
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
@@ -67,7 +70,8 @@ namespace ProiectIP
                 command.ExecuteReader();
             }
         }
-
+        #endregion
+        #region ModifyBook
         public static void  ModifyBook(Book book)
         {
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
@@ -84,5 +88,6 @@ namespace ProiectIP
                 command.ExecuteReader();
             }
         }
+        #endregion
     }
 }

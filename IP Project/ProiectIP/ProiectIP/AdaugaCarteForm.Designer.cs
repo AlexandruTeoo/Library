@@ -45,11 +45,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(150, 45);
+            this.label1.Location = new System.Drawing.Point(120, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(359, 32);
+            this.label1.Size = new System.Drawing.Size(543, 32);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Ce carte doresti sa adaugi, ";
+            this.label1.Text = "Introdu datele pe care dorești să le adaugi\r\n";
             // 
             // textBoxCategorie
             // 
@@ -114,7 +114,7 @@
             this.buttonAdaugaCartea.Name = "buttonAdaugaCartea";
             this.buttonAdaugaCartea.Size = new System.Drawing.Size(185, 57);
             this.buttonAdaugaCartea.TabIndex = 28;
-            this.buttonAdaugaCartea.Text = "Adauga Cartea";
+            this.buttonAdaugaCartea.Text = "Adaugă Cartea";
             this.buttonAdaugaCartea.UseVisualStyleBackColor = true;
             this.buttonAdaugaCartea.Click += new System.EventHandler(this.buttonAdaugaCartea_click);
             // 
@@ -124,7 +124,7 @@
             this.Inapoi.Name = "Inapoi";
             this.Inapoi.Size = new System.Drawing.Size(185, 62);
             this.Inapoi.TabIndex = 29;
-            this.Inapoi.Text = "Inapoi la Pagina Administratorului";
+            this.Inapoi.Text = "Înapoi la Pagina Administratorului";
             this.Inapoi.UseVisualStyleBackColor = true;
             this.Inapoi.Click += new System.EventHandler(this.buttonInapoi_click);
             // 
@@ -144,7 +144,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 20);
             this.label2.TabIndex = 30;
-            this.label2.Text = "Carti Adaugate";
+            this.label2.Text = "Cărți Adăugate";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // AdaugaCarteForm

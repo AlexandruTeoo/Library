@@ -10,6 +10,7 @@ namespace ProiectIP
 {
     public class LoanDAO
     {
+        #region GetLoans
         public static List<Loan> GetLoans(int accId)
         {
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
@@ -39,7 +40,8 @@ namespace ProiectIP
                 return loans;
             }
         }
-
+        #endregion
+        #region GetAllLoans
         public static List<Loan> GetAllLoans()
         {
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
@@ -72,7 +74,8 @@ namespace ProiectIP
   
             }
         }
-
+        #endregion
+        #region ApproveLoan
         public static void ApproveLoan(int loanId)
         {
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
@@ -85,7 +88,8 @@ namespace ProiectIP
                 command.ExecuteReader();
             }
         }
-
+        #endregion
+        #region AddLoan
         public static void AddLoan(Loan loan)
         {
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
@@ -101,5 +105,6 @@ namespace ProiectIP
                 command.ExecuteReader();
             }
         }
+        #endregion
     }
 }

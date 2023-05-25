@@ -65,7 +65,7 @@
             this.AddToWishlist.Name = "AddToWishlist";
             this.AddToWishlist.Size = new System.Drawing.Size(142, 51);
             this.AddToWishlist.TabIndex = 2;
-            this.AddToWishlist.Text = "Adauga in Wishlist";
+            this.AddToWishlist.Text = "Adaugă in Wishlist";
             this.AddToWishlist.UseVisualStyleBackColor = true;
             this.AddToWishlist.Click += new System.EventHandler(this.AddtoWishlist_Click);
             // 
@@ -84,7 +84,7 @@
             this.Carti.Name = "Carti";
             this.Carti.Size = new System.Drawing.Size(142, 51);
             this.Carti.TabIndex = 4;
-            this.Carti.Text = "Carti";
+            this.Carti.Text = "Cărți";
             this.Carti.UseVisualStyleBackColor = true;
             this.Carti.Click += new System.EventHandler(this.buttonShowBooks_click);
             // 
@@ -104,7 +104,7 @@
             this.Imprumuta.Name = "Imprumuta";
             this.Imprumuta.Size = new System.Drawing.Size(142, 51);
             this.Imprumuta.TabIndex = 6;
-            this.Imprumuta.Text = "Imprumuta";
+            this.Imprumuta.Text = "Împrumută";
             this.Imprumuta.UseVisualStyleBackColor = true;
             this.Imprumuta.Click += new System.EventHandler(this.buttonImprumuta_Click);
             // 
@@ -114,7 +114,7 @@
             this.removeWishlist.Name = "removeWishlist";
             this.removeWishlist.Size = new System.Drawing.Size(142, 51);
             this.removeWishlist.TabIndex = 7;
-            this.removeWishlist.Text = "Sterge din Wishlist";
+            this.removeWishlist.Text = "Șterge din Wishlist";
             this.removeWishlist.UseVisualStyleBackColor = true;
             this.removeWishlist.Click += new System.EventHandler(this.removeWishlist_Click);
             // 
@@ -124,7 +124,7 @@
             this.showLoans.Name = "showLoans";
             this.showLoans.Size = new System.Drawing.Size(142, 51);
             this.showLoans.TabIndex = 8;
-            this.showLoans.Text = "Arata Imprumuturile";
+            this.showLoans.Text = "Arată Împrumuturile";
             this.showLoans.UseVisualStyleBackColor = true;
             this.showLoans.Click += new System.EventHandler(this.showLoans_Click);
             // 

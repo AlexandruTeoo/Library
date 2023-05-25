@@ -83,7 +83,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 32);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Parola";
+            this.label2.Text = "Parolă";
             // 
             // Inregistrare
             // 
@@ -91,7 +91,7 @@
             this.Inregistrare.Name = "Inregistrare";
             this.Inregistrare.Size = new System.Drawing.Size(185, 62);
             this.Inregistrare.TabIndex = 5;
-            this.Inregistrare.Text = "Inregistrare";
+            this.Inregistrare.Text = "Înregistrare";
             this.Inregistrare.UseVisualStyleBackColor = true;
             this.Inregistrare.Click += new System.EventHandler(this.Inregistrare_Click);
             // 
@@ -103,7 +103,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(160, 44);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Nu ai un cont? \r\nInregistreza-te aici!";
+            this.label3.Text = "Nu ai un cont? \r\nÎnregistreză-te aici!";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonDespre
@@ -114,6 +114,7 @@
             this.buttonDespre.TabIndex = 7;
             this.buttonDespre.Text = "Despre";
             this.buttonDespre.UseVisualStyleBackColor = true;
+            this.buttonDespre.Click += new System.EventHandler(this.buttonDespre_Click);
             // 
             // LogIn
             // 

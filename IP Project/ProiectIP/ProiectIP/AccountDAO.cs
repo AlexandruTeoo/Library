@@ -12,6 +12,7 @@ namespace ProiectIP
 {
     public class AccountDAO
     {
+        #region GetAccount
         public static Account GetAccount(string username, string password)
         {
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
@@ -44,7 +45,8 @@ namespace ProiectIP
                 return null;
             }
         }
-
+        #endregion
+        #region InsertAccount
         public static void InsertAccount(Account account)
         {
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
@@ -60,5 +62,6 @@ namespace ProiectIP
                 command.ExecuteReader(); 
             }
         }
+        #endregion
     }
 }

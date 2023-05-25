@@ -8,10 +8,12 @@ namespace ProiectIP
 {
     public class Wishlist
     {
+        #region Getters and Setters
         public int _wishlistId { get; set; }
         public int _isbn { get; set; }
         public int _accountId { get; set; }
-
+        #endregion
+        #region Constructors
         public Wishlist() { }   
         public Wishlist(int isbn, int id)
         {
@@ -24,5 +26,6 @@ namespace ProiectIP
             _isbn = w._isbn;
             _accountId = w._accountId;
         }
+        #endregion
     }
 }

@@ -8,6 +8,7 @@ namespace ProiectIP
 {
     public class Account
     {
+        #region Getters and Setters
         public int _id { get; set; }
         public string _username { get; set; }
         public string _password { get; set; }
@@ -20,7 +21,8 @@ namespace ProiectIP
         public string _phoneNumber { get; set; }
         public int _accountType { get; set; }
         public int _blackListed { get; set; }
-
+        #endregion
+        #region Constructors
         public Account()
         {
 
@@ -55,5 +57,6 @@ namespace ProiectIP
             _accountType = accountType;
             _blackListed = blackListed;
         }
+        #endregion
     }
 }

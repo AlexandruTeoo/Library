@@ -47,7 +47,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(161, 32);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Ati selectat ";
+            this.label1.Text = "Ați selectat ";
             // 
             // Categorie
             // 
@@ -112,7 +112,7 @@
             this.Inapoi.Name = "Inapoi";
             this.Inapoi.Size = new System.Drawing.Size(185, 62);
             this.Inapoi.TabIndex = 30;
-            this.Inapoi.Text = "Inapoi la Pagina Administratorului";
+            this.Inapoi.Text = "Înapoi la Pagina Administratorului";
             this.Inapoi.UseVisualStyleBackColor = true;
             this.Inapoi.Click += new System.EventHandler(this.Inapoi_Click);
             // 
@@ -122,7 +122,7 @@
             this.buttonModifica.Name = "buttonModifica";
             this.buttonModifica.Size = new System.Drawing.Size(185, 62);
             this.buttonModifica.TabIndex = 31;
-            this.buttonModifica.Text = "Modifica";
+            this.buttonModifica.Text = "Modifică";
             this.buttonModifica.UseVisualStyleBackColor = true;
             this.buttonModifica.Click += new System.EventHandler(this.buttonModifica_Click);
             // 

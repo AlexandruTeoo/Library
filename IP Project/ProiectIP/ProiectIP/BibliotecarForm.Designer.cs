@@ -45,7 +45,7 @@
             this.Modifica.Name = "Modifica";
             this.Modifica.Size = new System.Drawing.Size(142, 51);
             this.Modifica.TabIndex = 1;
-            this.Modifica.Text = "Modifica Carte";
+            this.Modifica.Text = "Modifică Carte";
             this.Modifica.UseVisualStyleBackColor = true;
             this.Modifica.Click += new System.EventHandler(this.buttonModifyDetailsBook_Click);
             // 
@@ -55,7 +55,7 @@
             this.Sterge.Name = "Sterge";
             this.Sterge.Size = new System.Drawing.Size(142, 51);
             this.Sterge.TabIndex = 2;
-            this.Sterge.Text = "Sterge Carte";
+            this.Sterge.Text = "Șterge Carte";
             this.Sterge.UseVisualStyleBackColor = true;
             this.Sterge.Click += new System.EventHandler(this.buttonDeleteBook_click);
             // 
@@ -74,7 +74,7 @@
             this.Carti.Name = "Carti";
             this.Carti.Size = new System.Drawing.Size(142, 51);
             this.Carti.TabIndex = 5;
-            this.Carti.Text = "Carti";
+            this.Carti.Text = "Cărți";
             this.Carti.UseVisualStyleBackColor = true;
             this.Carti.Click += new System.EventHandler(this.buttonShowBooks_click);
             // 
@@ -84,7 +84,7 @@
             this.Imprumuturi.Name = "Imprumuturi";
             this.Imprumuturi.Size = new System.Drawing.Size(142, 51);
             this.Imprumuturi.TabIndex = 6;
-            this.Imprumuturi.Text = "Cereri imprumuturi";
+            this.Imprumuturi.Text = "Cereri Împrumuturi";
             this.Imprumuturi.UseVisualStyleBackColor = true;
             this.Imprumuturi.Click += new System.EventHandler(this.Imprumuturi_Click);
             // 
@@ -94,7 +94,7 @@
             this.adaugaCarte.Name = "adaugaCarte";
             this.adaugaCarte.Size = new System.Drawing.Size(142, 51);
             this.adaugaCarte.TabIndex = 7;
-            this.adaugaCarte.Text = "Adauga Carte";
+            this.adaugaCarte.Text = "Adaugă Carte";
             this.adaugaCarte.UseVisualStyleBackColor = true;
             this.adaugaCarte.Click += new System.EventHandler(this.buttonAdaugaCarte_click);
             // 
@@ -124,7 +124,7 @@
             this.buttonAcceptaImprumut.Name = "buttonAcceptaImprumut";
             this.buttonAcceptaImprumut.Size = new System.Drawing.Size(142, 51);
             this.buttonAcceptaImprumut.TabIndex = 10;
-            this.buttonAcceptaImprumut.Text = "Accepta Imprumut";
+            this.buttonAcceptaImprumut.Text = "AcceptĂ Imprumut";
             this.buttonAcceptaImprumut.UseVisualStyleBackColor = true;
             this.buttonAcceptaImprumut.Click += new System.EventHandler(this.buttonAcceptaImprumut_Click);
             // 

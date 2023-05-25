@@ -19,9 +19,8 @@ namespace ProiectIP
         {
             InitializeComponent();
             _account = account;
-            label1.Text = label1.Text + _account._prenume + "?";
         }
-
+        #region Buttons
         private void buttonAdaugaCartea_click(object sender, EventArgs e)
         {
             Book book = new Book();
@@ -58,5 +57,6 @@ namespace ProiectIP
             bibliotecarForms.Show();
             this.Hide();
         }
+        #endregion
     }
 }

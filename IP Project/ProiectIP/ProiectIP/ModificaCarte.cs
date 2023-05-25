@@ -26,7 +26,7 @@ namespace ProiectIP
             textBoxAutor.Text = _selectedBook._author;
             textBoxCategorie.Text = _selectedBook._category;    
         }
-
+        #region Buttons
         private void Inapoi_Click(object sender, EventArgs e)
         {
             BibliotecarForms bibliotecarForms = new BibliotecarForms(_account);
@@ -50,5 +50,6 @@ namespace ProiectIP
                 MessageBox.Show(ex.Message, "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        #endregion
     }
 }

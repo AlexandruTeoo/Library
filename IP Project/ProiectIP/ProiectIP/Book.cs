@@ -8,12 +8,15 @@ namespace ProiectIP
 {
     public class Book
     {
+        #region Getters and Setters
         public string _title { get; set; }
         public string _author { get; set; }
         public string _category { get; set; }
         public int _stock { get; set; }
         public int _total { get; set; }
         public int _isbn { get; set; }
+        #endregion
+        #region Constructors
         public Book() { }
         public Book(Book b)
         {
@@ -34,7 +37,8 @@ namespace ProiectIP
             _total = total;
             _isbn = isbn;
         }
-
+        #endregion
+        #region ToString
         public override string ToString()
         {
             return "ISBN: " + _isbn +
@@ -44,6 +48,6 @@ namespace ProiectIP
                 " | Stoc: " + _stock +
                 " | Total: " + _total;
         }
-
+        #endregion
     }
 }

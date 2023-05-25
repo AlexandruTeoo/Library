@@ -20,7 +20,7 @@ namespace ProiectIP
         {
             InitializeComponent();
         }
-
+        #region Buttons
         private void backLogIn_Click(object sender, EventArgs e)
         {
             LogIn logIn = new LogIn();
@@ -83,5 +83,6 @@ namespace ProiectIP
                 }
             }
         }
+        #endregion
     }
 }

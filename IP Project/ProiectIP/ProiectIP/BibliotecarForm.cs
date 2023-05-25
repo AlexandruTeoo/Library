@@ -15,17 +15,17 @@ namespace ProiectIP
     public partial class BibliotecarForms : Form
     {
         public Account _account;
-        public bool onLoan = false;
+        public bool isOnLoan = false;
         public BibliotecarForms(Account account)
         {
             _account = account;
             InitializeComponent();
             label1.Text = label1.Text + _account._prenume + "!"; 
         }
-
+        #region Buttons
         private void buttonShowBooks_click(object sender, EventArgs e) // de editat pt forms
         {
-            onLoan = false;
+            isOnLoan = false;
 
             List<Book> books = BookDAO.GetBooks();
 
@@ -38,7 +38,7 @@ namespace ProiectIP
 
         private void buttonDeleteBook_click(object sender, EventArgs e)// de editat pt forms
         {
-            if (onLoan)
+            if (isOnLoan)
                 return;
 
             if (listBoxBibliotecarForm.SelectedItem != null)
@@ -57,22 +57,9 @@ namespace ProiectIP
             }
         }
 
-        private void RefreshBooks()
-        {
-            onLoan = false;
-            // Ștergeți conținutul din ListBox-ul de Wishlist
-            listBoxBibliotecarForm.Items.Clear();
-            List<Book> books = BookDAO.GetBooks();
-            // Adăugați cărțile din wishlist în ListBox-ul de Wishlist
-            foreach (Book book in books)
-            {
-                listBoxBibliotecarForm.Items.Add(book);
-            }
-        }
-
         private void buttonModifyDetailsBook_Click(object sender, EventArgs e)// de editat pt forms
         {
-            if (onLoan)
+            if (isOnLoan)
                 return;
             if (listBoxBibliotecarForm.SelectedItem != null)
             {
@@ -103,23 +90,11 @@ namespace ProiectIP
 
         private void Imprumuturi_Click(object sender, EventArgs e)
         {
-            onLoan = true;
+            isOnLoan = true;
 
             List<Loan> loans = LoanDAO.GetAllLoans();
 
             listBoxBibliotecarForm.Items.Clear();
-            foreach (Loan loan in loans)
-            {
-                listBoxBibliotecarForm.Items.Add(loan);
-            }
-        }
-        private void RefreshLoans()
-        {
-            onLoan = true;
-            // Ștergeți conținutul din ListBox-ul de Wishlist
-            listBoxBibliotecarForm.Items.Clear();
-            List<Loan> loans = LoanDAO.GetAllLoans();
-            // Adăugați cărțile din wishlist în ListBox-ul de Wishlist
             foreach (Loan loan in loans)
             {
                 listBoxBibliotecarForm.Items.Add(loan);
@@ -128,7 +103,7 @@ namespace ProiectIP
 
         private void buttonAcceptaImprumut_Click(object sender, EventArgs e)
         {
-            if (!onLoan)
+            if (!isOnLoan)
                 return;
 
             if (listBoxBibliotecarForm.SelectedItem != null)
@@ -154,5 +129,32 @@ namespace ProiectIP
                 MessageBox.Show("Selectați o cerere din lista pentru a o accepta!");
             }
         }
+        #endregion
+        #region RefreshList
+        private void RefreshLoans()
+        {
+            isOnLoan = true;
+            // Ștergeți conținutul din ListBox-ul de Wishlist
+            listBoxBibliotecarForm.Items.Clear();
+            List<Loan> loans = LoanDAO.GetAllLoans();
+            // Adăugați cărțile din wishlist în ListBox-ul de Wishlist
+            foreach (Loan loan in loans)
+            {
+                listBoxBibliotecarForm.Items.Add(loan);
+            }
+        }
+        private void RefreshBooks()
+        {
+            isOnLoan = false;
+            // Ștergeți conținutul din ListBox-ul de Wishlist
+            listBoxBibliotecarForm.Items.Clear();
+            List<Book> books = BookDAO.GetBooks();
+            // Adăugați cărțile din wishlist în ListBox-ul de Wishlist
+            foreach (Book book in books)
+            {
+                listBoxBibliotecarForm.Items.Add(book);
+            }
+        }
+        #endregion
     }
 }

@@ -59,7 +59,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(463, 32);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Bun venit pe pagina de inregistrare!";
+            this.label1.Text = "Bun venit pe pagina de înregistrare!";
             // 
             // textBoxUsername
             // 
@@ -88,7 +88,7 @@
             this.Parola.Name = "Parola";
             this.Parola.Size = new System.Drawing.Size(57, 20);
             this.Parola.TabIndex = 3;
-            this.Parola.Text = "Parola";
+            this.Parola.Text = "Parolă";
             this.Parola.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // Nume
@@ -143,7 +143,7 @@
             this.Adresa.Name = "Adresa";
             this.Adresa.Size = new System.Drawing.Size(62, 20);
             this.Adresa.TabIndex = 8;
-            this.Adresa.Text = "Adresa";
+            this.Adresa.Text = "Adresă";
             this.Adresa.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // Oras
@@ -154,7 +154,7 @@
             this.Oras.Name = "Oras";
             this.Oras.Size = new System.Drawing.Size(46, 20);
             this.Oras.TabIndex = 9;
-            this.Oras.Text = "Oras";
+            this.Oras.Text = "Oraș";
             this.Oras.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // Telefon
@@ -238,7 +238,7 @@
             this.backLogIn.Name = "backLogIn";
             this.backLogIn.Size = new System.Drawing.Size(185, 62);
             this.backLogIn.TabIndex = 19;
-            this.backLogIn.Text = "Inapoi la LogIn";
+            this.backLogIn.Text = "Înapoi la LogIn";
             this.backLogIn.UseVisualStyleBackColor = true;
             this.backLogIn.Click += new System.EventHandler(this.backLogIn_Click);
             // 
@@ -248,7 +248,7 @@
             this.buttonInregistrare.Name = "buttonInregistrare";
             this.buttonInregistrare.Size = new System.Drawing.Size(185, 57);
             this.buttonInregistrare.TabIndex = 20;
-            this.buttonInregistrare.Text = "Inregistrare";
+            this.buttonInregistrare.Text = "Înregistrare";
             this.buttonInregistrare.UseVisualStyleBackColor = true;
             this.buttonInregistrare.Click += new System.EventHandler(this.buttonInregistrare_Click);
             // 
