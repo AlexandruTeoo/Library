@@ -124,7 +124,7 @@
             this.buttonAcceptaImprumut.Name = "buttonAcceptaImprumut";
             this.buttonAcceptaImprumut.Size = new System.Drawing.Size(142, 51);
             this.buttonAcceptaImprumut.TabIndex = 10;
-            this.buttonAcceptaImprumut.Text = "AcceptĂ Imprumut";
+            this.buttonAcceptaImprumut.Text = "Acceptă Imprumut";
             this.buttonAcceptaImprumut.UseVisualStyleBackColor = true;
             this.buttonAcceptaImprumut.Click += new System.EventHandler(this.buttonAcceptaImprumut_Click);
             // 
