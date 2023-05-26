@@ -10,12 +10,12 @@ namespace ProiectIP
     public class Loan
     {
         #region Getters and Setters
-        public int _loanId { get; set; }
-        public int _accountId { get; set; }
-        public int _isbn { get; set; }
-        public DateTime _issuedDate { get; set; }
-        public DateTime _returnedDate { get; set; }
-        public int _accepted { get; set; }
+        public int LoanId { get; set; }
+        public int AccountId { get; set; }
+        public int ISBN { get; set; }
+        public DateTime IssuedDate { get; set; }
+        public DateTime ReturnedDate { get; set; }
+        public int Accepted { get; set; }
         #endregion
         #region Constructors
         public Loan()
@@ -24,33 +24,33 @@ namespace ProiectIP
         }
         public Loan(Loan l)
         {
-            _loanId = l._loanId;
-            _accountId = l._accountId;
-            _isbn = l._isbn;
-            _issuedDate = l._issuedDate;
-            _returnedDate = l._returnedDate;
-            _accepted = l._accepted;
+            LoanId = l.LoanId;
+            AccountId = l.AccountId;
+            ISBN = l.ISBN;
+            IssuedDate = l.IssuedDate;
+            ReturnedDate = l.ReturnedDate;
+            Accepted = l.Accepted;
         }
 
         public Loan(int loanId, int accountId, int isbn, DateTime issuedDate, DateTime returnedDate, int accepted)
         {
-            _loanId = loanId;
-            _accountId = accountId;
-            _isbn = isbn;
-            _issuedDate = issuedDate;
-            _returnedDate = returnedDate;
-            _accepted = accepted;
+            LoanId = loanId;
+            AccountId = accountId;
+            ISBN = isbn;
+            IssuedDate = issuedDate;
+            ReturnedDate = returnedDate;
+            Accepted = accepted;
         }
         #endregion
         #region ToString
         public override string ToString()
         {
-            return "Loan ID: " + _loanId +
-                " | Cont ID: " + _accountId +
-                " | Carte ISBN: " + _isbn +
-                " | Data Imprumut: " + _issuedDate +
-                " | Data Restituire: " + _returnedDate +
-                " | Acceptat: " + _accepted;
+            return "Loan ID: " + LoanId +
+                " | Cont ID: " + AccountId +
+                " | Carte ISBN: " + ISBN +
+                " | Data Imprumut: " + IssuedDate +
+                " | Data Restituire: " + ReturnedDate +
+                " | Acceptat: " + Accepted;
         }
         #endregion
     }

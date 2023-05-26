@@ -96,8 +96,8 @@ namespace ProiectIP
             {
                 String sql;
 
-                sql = "BEGIN \n insert_loan(" + loan._accountId + "," +
-                        loan._isbn +"); \n END;";
+                sql = "BEGIN \n insert_loan(" + loan.AccountId + "," +
+                        loan.ISBN +"); \n END;";
 
                 OracleCommand command = new OracleCommand(sql, connection);
 

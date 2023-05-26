@@ -15,13 +15,13 @@ namespace ProiectIP
 {
     public partial class UtilizatorForm : Form
     {
-        public Account _account;
+        public Account account;
         public bool isOnLoan = false;
         public UtilizatorForm(Account account)
         {
-            _account = account;
+            this.account = account;
             InitializeComponent();
-            label1.Text = label1.Text + _account._username + "!";
+            label1.Text = label1.Text + this.account.Username + "!";
         }
         #region Buttons
         private void AddtoWishlist_Click(object sender, EventArgs e)
@@ -33,14 +33,14 @@ namespace ProiectIP
             {
                 Book selectedBook = (Book)listBoxUtilizatorForm.SelectedItem;
                 Wishlist wishlist = new Wishlist();
-                wishlist._accountId = _account._id;
-                wishlist._isbn = selectedBook._isbn;
+                wishlist.AccountId = account.Id;
+                wishlist.ISBN = selectedBook.ISBN;
 
-                List<Book> wishlistedBooks = WishlistDAO.GetWishlist(_account._id);
+                List<Book> wishlistedBooks = WishlistDAO.GetWishlist(account.Id);
                 bool ok = false;
                 foreach(Book book in wishlistedBooks)
                 {
-                    if (book._isbn == selectedBook._isbn)
+                    if (book.ISBN == selectedBook.ISBN)
                         ok = true;
                 }
 
@@ -68,8 +68,8 @@ namespace ProiectIP
 
             Loan loan = new Loan();
             Book selectedBook = (Book)listBoxUtilizatorForm.SelectedItem;
-            loan._accountId = _account._id;
-            loan._isbn = selectedBook._isbn;
+            loan.AccountId = account.Id;
+            loan.ISBN = selectedBook.ISBN;
 
             try
             {
@@ -86,7 +86,6 @@ namespace ProiectIP
                 else
                 {
                     MessageBox.Show(ex.Message, "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    
                 }
             }
         }
@@ -95,7 +94,7 @@ namespace ProiectIP
         {
             isOnLoan = false;
 
-            List<Book> wishlist = WishlistDAO.GetWishlist(_account._id);
+            List<Book> wishlist = WishlistDAO.GetWishlist(account.Id);
             if (wishlist.Count > 0)
             {
                 listBoxUtilizatorForm.Items.Clear();
@@ -138,8 +137,8 @@ namespace ProiectIP
             {
                 Book selectedBook = (Book)listBoxUtilizatorForm.SelectedItem;
                 Wishlist wishlist = new Wishlist();
-                wishlist._accountId = _account._id;
-                wishlist._isbn = selectedBook._isbn;
+                wishlist.AccountId = account.Id;
+                wishlist.ISBN = selectedBook.ISBN;
                 WishlistDAO.DeleteBookWishlist(wishlist);
                 //wishlist.Remove(selectedBook);
                 MessageBox.Show("Carte eliminată din Wishlist!");
@@ -159,7 +158,7 @@ namespace ProiectIP
             isOnLoan = true;
 
             listBoxUtilizatorForm.Items.Clear();
-            List<Loan> loans = LoanDAO.GetLoans(_account._id);
+            List<Loan> loans = LoanDAO.GetLoans(account.Id);
             foreach (Loan loan in loans)
             {
                 listBoxUtilizatorForm.Items.Add(loan);
@@ -173,7 +172,7 @@ namespace ProiectIP
 
             // Ștergeți conținutul din ListBox-ul de Wishlist
             listBoxUtilizatorForm.Items.Clear();
-            List<Book> wishlist = WishlistDAO.GetWishlist(_account._id);
+            List<Book> wishlist = WishlistDAO.GetWishlist(account.Id);
             // Adăugați cărțile din wishlist în ListBox-ul de Wishlist
             foreach (Book book in wishlist)
             {

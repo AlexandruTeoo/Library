@@ -47,8 +47,8 @@ namespace ProiectIP
                 String sql;
 
                 sql = "BEGIN \n insert_wishlist(" +
-                        wishlist._accountId + "," +
-                        wishlist._isbn + "); \n END;";
+                        wishlist.AccountId + "," +
+                        wishlist.ISBN + "); \n END;";
 
                 OracleCommand command = new OracleCommand(sql, connection);
 
@@ -64,7 +64,7 @@ namespace ProiectIP
             {
                 String sql;
 
-                sql = "DELETE FROM WISHLIST WHERE account_id ='" + wishlist._accountId + "' AND carte_isbn = '" + wishlist._isbn + "'";
+                sql = "DELETE FROM WISHLIST WHERE account_id ='" + wishlist.AccountId + "' AND carte_isbn = '" + wishlist.ISBN + "'";
 
                 OracleCommand command = new OracleCommand(sql, connection);
 

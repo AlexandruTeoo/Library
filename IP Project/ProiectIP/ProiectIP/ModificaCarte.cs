@@ -21,10 +21,10 @@ namespace ProiectIP
             _account = account;
             _selectedBook = book;
             InitializeComponent();
-            label1.Text = label1.Text + "'" +_selectedBook._title + "'";
-            textBoxTitle.Text = _selectedBook._title;
-            textBoxAutor.Text = _selectedBook._author;
-            textBoxCategorie.Text = _selectedBook._category;    
+            label1.Text = label1.Text + "'" +_selectedBook.Title + "'";
+            textBoxTitle.Text = _selectedBook.Title;
+            textBoxAutor.Text = _selectedBook.Author;
+            textBoxCategorie.Text = _selectedBook.Category;    
         }
         #region Buttons
         private void Inapoi_Click(object sender, EventArgs e)
@@ -36,9 +36,9 @@ namespace ProiectIP
 
         private void buttonModifica_Click(object sender, EventArgs e)
         {
-            _selectedBook._title = textBoxTitle.Text;
-            _selectedBook._author = textBoxAutor.Text;
-            _selectedBook._category = textBoxCategorie.Text;
+            _selectedBook.Title = textBoxTitle.Text;
+            _selectedBook.Author = textBoxAutor.Text;
+            _selectedBook.Category = textBoxCategorie.Text;
 
             try
             {

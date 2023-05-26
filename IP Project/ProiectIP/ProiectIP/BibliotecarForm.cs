@@ -20,7 +20,7 @@ namespace ProiectIP
         {
             _account = account;
             InitializeComponent();
-            label1.Text = label1.Text + _account._prenume + "!"; 
+            label1.Text = label1.Text + _account.Prenume + "!"; 
         }
         #region Buttons
         private void buttonShowBooks_click(object sender, EventArgs e) // de editat pt forms
@@ -111,7 +111,7 @@ namespace ProiectIP
                 Loan selectedLoan = (Loan)listBoxBibliotecarForm.SelectedItem;
                 try
                 {
-                    LoanDAO.ApproveLoan(selectedLoan._loanId);
+                    LoanDAO.ApproveLoan(selectedLoan.LoanId);
                     MessageBox.Show("Cerere aprobata cu succes!");
                     RefreshLoans();
                 }

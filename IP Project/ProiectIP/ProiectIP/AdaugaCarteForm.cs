@@ -25,9 +25,9 @@ namespace ProiectIP
         {
             Book book = new Book();
 
-            book._title = textBoxTitle.Text;
-            book._author = textBoxAutor.Text;
-            book._category = textBoxCategorie.Text;
+            book.Title = textBoxTitle.Text;
+            book.Author = textBoxAutor.Text;
+            book.Category = textBoxCategorie.Text;
             int cartiAdaugate = 0;
 
             if (int.TryParse(textBoxCartiAdaugate.Text, out cartiAdaugate))

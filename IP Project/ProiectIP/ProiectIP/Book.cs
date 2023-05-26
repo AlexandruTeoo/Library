@@ -9,44 +9,44 @@ namespace ProiectIP
     public class Book
     {
         #region Getters and Setters
-        public string _title { get; set; }
-        public string _author { get; set; }
-        public string _category { get; set; }
-        public int _stock { get; set; }
-        public int _total { get; set; }
-        public int _isbn { get; set; }
+        public string Title { get; set; }
+        public string Author { get; set; }
+        public string Category { get; set; }
+        public int Stock { get; set; }
+        public int Total { get; set; }
+        public int ISBN { get; set; }
         #endregion
         #region Constructors
         public Book() { }
         public Book(Book b)
         {
-            _title = b._title;
-            _author = b._author;
-            _category = b._category;
-            _stock = b._stock;
-            _total = b._total;
-            _isbn = b._isbn;
+            Title = b.Title;
+            Author = b.Author;
+            Category = b.Category;
+            Stock = b.Stock;
+            Total = b.Total;
+            ISBN = b.ISBN;
         }
 
         public Book(int isbn, string title, string author, string category, int stock, int total)
         {
-            _title = title;
-            _author = author;
-            _category = category;
-            _stock = stock;
-            _total = total;
-            _isbn = isbn;
+            Title = title;
+            Author = author;
+            Category = category;
+            Stock = stock;
+            Total = total;
+            ISBN = isbn;
         }
         #endregion
         #region ToString
         public override string ToString()
         {
-            return "ISBN: " + _isbn +
-                " | Titlu: " + _title +
-                " | Autor " + _author +
-                " | Categorie: " + _category +
-                " | Stoc: " + _stock +
-                " | Total: " + _total;
+            return "ISBN: " + ISBN +
+                " | Titlu: " + Title +
+                " | Autor " + Author +
+                " | Categorie: " + Category +
+                " | Stoc: " + Stock +
+                " | Total: " + Total;
         }
         #endregion
     }

@@ -9,18 +9,18 @@ namespace ProiectIP
     public class Account
     {
         #region Getters and Setters
-        public int _id { get; set; }
-        public string _username { get; set; }
-        public string _password { get; set; }
-        public string _nume { get; set; }
-        public string _prenume { get; set; }
-        public string _cnp { get; set; }
-        public string _email { get; set; }
-        public string _address { get; set; }
-        public string _city { get; set; }
-        public string _phoneNumber { get; set; }
-        public int _accountType { get; set; }
-        public int _blackListed { get; set; }
+        public int Id { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Nume { get; set; }
+        public string Prenume { get; set; }
+        public string CNP { get; set; }
+        public string Email { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string PhoneNumber { get; set; }
+        public int AccountType { get; set; }
+        public int BlackListed { get; set; }
         #endregion
         #region Constructors
         public Account()
@@ -29,33 +29,33 @@ namespace ProiectIP
         }
         public Account(Account a)
         {
-            _username = a._username;
-            _password = a._password;
-            _nume = a._nume;
-            _prenume = a._prenume;
-            _cnp = a._cnp;
-            _email = a._email;
-            _address = a._address;
-            _city = a._city;
-            _phoneNumber = a._phoneNumber;
-            _accountType = a._accountType;
-            _blackListed = a._blackListed;
+            Username = a.Username;
+            Password = a.Password;
+            Nume = a.Nume;
+            Prenume = a.Prenume;
+            CNP = a.CNP;
+            Email = a.Email;
+            Address = a.Address;
+            City = a.City;
+            PhoneNumber = a.PhoneNumber;
+            AccountType = a.AccountType;
+            BlackListed = a.BlackListed;
         }
 
         public Account(int id, string username, string password, string nume, string prenume, string cnp, string email, string address, string city, string phoneNumber, int accountType, int blackListed)
         {
-            _id = id;
-            _username = username;
-            _password = password;
-            _nume = nume;
-            _prenume = prenume;
-            _cnp = cnp;
-            _email = email;
-            _address = address;
-            _city = city;
-            _phoneNumber = phoneNumber;
-            _accountType = accountType;
-            _blackListed = blackListed;
+            Id = id;
+            Username = username;
+            Password = password;
+            Nume = nume;
+            Prenume = prenume;
+            CNP = cnp;
+            Email = email;
+            Address = address;
+            City = city;
+            PhoneNumber = phoneNumber;
+            AccountType = accountType;
+            BlackListed = blackListed;
         }
         #endregion
     }

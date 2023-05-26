@@ -32,13 +32,13 @@ namespace ProiectIP
                 MessageBox.Show("Utilizator incorect!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (account._accountType == 0)
+            if (account.AccountType == 0)
             {
                 UtilizatorForm utilizatorForm = new UtilizatorForm(account);
                 utilizatorForm.Show();
                 this.Hide();
             }
-            if (account._accountType == 1)
+            if (account.AccountType == 1)
             {
                 BibliotecarForms bibliotecarForm = new BibliotecarForms(account);
                 bibliotecarForm.Show();

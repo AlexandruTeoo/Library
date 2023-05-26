@@ -32,22 +32,22 @@ namespace ProiectIP
         { 
             Account account = new Account();
 
-            account._username = textBoxUsername.Text;
-            account._password = textBoxParola.Text;
-            account._nume = textBoxNume.Text;
-            account._prenume = textBoxPrenume.Text;
-            account._cnp = textBoxCNP.Text;
-            account._email = textBoxEmail.Text;
-            account._address = textBoxAdresa.Text;
-            account._city = textBoxOras.Text;
-            account._phoneNumber = textBoxTelefon.Text;
+            account.Username = textBoxUsername.Text;
+            account.Password = textBoxParola.Text;
+            account.Nume = textBoxNume.Text;
+            account.Prenume = textBoxPrenume.Text;
+            account.CNP = textBoxCNP.Text;
+            account.Email = textBoxEmail.Text;
+            account.Address = textBoxAdresa.Text;
+            account.City = textBoxOras.Text;
+            account.PhoneNumber = textBoxTelefon.Text;
 
-            if(account._cnp.Length != 13)
+            if(account.CNP.Length != 13)
             {
                 MessageBox.Show("CNP invalid", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (account._phoneNumber.Length != 10)
+            if (account.PhoneNumber.Length != 10)
             {
                 MessageBox.Show("Numar de telefon invalid", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

@@ -46,7 +46,7 @@ namespace ProiectIP
             {
                 String sql;
 
-                sql = "DELETE FROM CARTI WHERE isbn = '" + book._isbn + "'";
+                sql = "DELETE FROM CARTI WHERE isbn = '" + book.ISBN + "'";
 
                 OracleCommand command = new OracleCommand(sql, connection);
 
@@ -61,7 +61,7 @@ namespace ProiectIP
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
             {
                 String sql;
-                sql = "BEGIN \n insert_carte('" + book._title + "', '" + book._author + "', '" + book._category + "'," +
+                sql = "BEGIN \n insert_carte('" + book.Title + "', '" + book.Author + "', '" + book.Category + "'," +
                     " ' " + count +  "'); \n END;";
 
                 OracleCommand command = new OracleCommand(sql, connection);
@@ -77,10 +77,10 @@ namespace ProiectIP
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
             {
                 String sql;
-                sql = "BEGIN \n modificare_carte('" + book._isbn 
-                    + "', '" + book._title 
-                    + "', '" + book._author 
-                    + "','" + book._category + "'); \n END;";
+                sql = "BEGIN \n modificare_carte('" + book.ISBN 
+                    + "', '" + book.Title 
+                    + "', '" + book.Author 
+                    + "','" + book.Category + "'); \n END;";
 
                 OracleCommand command = new OracleCommand(sql, connection);
                 command.Connection.Open();

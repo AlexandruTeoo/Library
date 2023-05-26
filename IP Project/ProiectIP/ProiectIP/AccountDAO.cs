@@ -52,9 +52,9 @@ namespace ProiectIP
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
             {
                 String sql;
-                sql = "BEGIN \n insert_account('" + account._username + "', '" + account._password + "', '" + account._nume + "'," +
-                    " ' " + account._prenume + "', '" + account._cnp + "', ' " + account._email + "'," +
-                " ' " + account._address + "', '" + account._city + "', '" + account._phoneNumber + "', 0, 0); \n END;";
+                sql = "BEGIN \n insert_account('" + account.Username + "', '" + account.Password + "', '" + account.Nume + "'," +
+                    " ' " + account.Prenume + "', '" + account.CNP + "', ' " + account.Email + "'," +
+                " ' " + account.Address + "', '" + account.City + "', '" + account.PhoneNumber + "', 0, 0); \n END;";
 
                 OracleCommand command = new OracleCommand(sql, connection);
                 command.Connection.Open();
