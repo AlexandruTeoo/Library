@@ -27,7 +27,7 @@ namespace ProiectIP
         {
 
         }
-        public Account(Account a)
+        public Account(Account a) // constructor
         {
             Username = a.Username;
             Password = a.Password;
@@ -42,6 +42,7 @@ namespace ProiectIP
             BlackListed = a.BlackListed;
         }
 
+        // constructor
         public Account(int id, string username, string password, string nume, string prenume, string cnp, string email, string address, string city, string phoneNumber, int accountType, int blackListed)
         {
             Id = id;

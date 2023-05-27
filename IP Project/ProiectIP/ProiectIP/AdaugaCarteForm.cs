@@ -21,7 +21,7 @@ namespace ProiectIP
             _account = account;
         }
         #region Buttons
-        private void buttonAdaugaCartea_click(object sender, EventArgs e)
+        private void buttonAdaugaCartea_click(object sender, EventArgs e) // adauga carte in baza de date
         {
             Book book = new Book();
 
@@ -51,7 +51,7 @@ namespace ProiectIP
             }
         }
 
-        private void buttonInapoi_click(object sender, EventArgs e)
+        private void buttonInapoi_click(object sender, EventArgs e) // butonul Inapoi intoarce bibliotecarul pe pagina principala al adminului
         {
             BibliotecarForms bibliotecarForms = new BibliotecarForms(_account);
             bibliotecarForms.Show();

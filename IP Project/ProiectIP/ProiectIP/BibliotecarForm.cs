@@ -23,7 +23,7 @@ namespace ProiectIP
             label1.Text = label1.Text + _account.Prenume + "!"; 
         }
         #region Buttons
-        private void buttonShowBooks_click(object sender, EventArgs e) // de editat pt forms
+        private void buttonShowBooks_click(object sender, EventArgs e) // afiseaza cartile
         {
             isOnLoan = false;
 
@@ -36,7 +36,7 @@ namespace ProiectIP
             }
         }
 
-        private void buttonDeleteBook_click(object sender, EventArgs e)// de editat pt forms
+        private void buttonDeleteBook_click(object sender, EventArgs e) // sterge o carte din biblioteca
         {
             if (isOnLoan)
                 return;
@@ -57,7 +57,7 @@ namespace ProiectIP
             }
         }
 
-        private void buttonModifyDetailsBook_Click(object sender, EventArgs e)// de editat pt forms
+        private void buttonModifyDetailsBook_Click(object sender, EventArgs e) // modifica o carte din biblioteca
         {
             if (isOnLoan)
                 return;
@@ -74,21 +74,21 @@ namespace ProiectIP
             }
         }
 
-        private void buttonDeconectare_Click(object sender, EventArgs e)
+        private void buttonDeconectare_Click(object sender, EventArgs e) // deconecteaza bibliotecarul de la cont
         {
             LogIn logIn = new LogIn();
             logIn.Show();
             this.Hide();
         }
 
-        private void buttonAdaugaCarte_click(object sender, EventArgs e)
+        private void buttonAdaugaCarte_click(object sender, EventArgs e) // bibliotecarul poate adauga o carte in biblioteca
         {
             AdaugaCarteForm adaugaCarte = new AdaugaCarteForm(_account);
             adaugaCarte.Show();
             this.Hide();
         }
 
-        private void Imprumuturi_Click(object sender, EventArgs e)
+        private void Imprumuturi_Click(object sender, EventArgs e) // vizualizare imprumuturi
         {
             isOnLoan = true;
 
@@ -101,7 +101,7 @@ namespace ProiectIP
             }
         }
 
-        private void buttonAcceptaImprumut_Click(object sender, EventArgs e)
+        private void buttonAcceptaImprumut_Click(object sender, EventArgs e) // bibliotecarul accepta cererile de imprumut facute de catre utilizatori 
         {
             if (!isOnLoan)
                 return;
@@ -119,7 +119,7 @@ namespace ProiectIP
                 {
                     if(ex.Number == 20050)
                     {
-                        MessageBox.Show("Stoc insuficient!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Stoc insuficient!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning); // nu sunt suficiente carti in biblioteca
                     }
                     MessageBox.Show(ex.Message, "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }

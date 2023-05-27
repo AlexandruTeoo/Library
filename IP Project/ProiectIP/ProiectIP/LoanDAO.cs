@@ -16,7 +16,7 @@ namespace ProiectIP
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
             {
                 String sql;
-                sql = "Select * from LOAN WHERE account_id = '" + accId + "'";
+                sql = "Select * from LOAN WHERE account_id = '" + accId + "'"; // selecteaza din loan toate conturile care au id-ul dat ca si parametru
 
                 OracleCommand command = new OracleCommand(sql, connection);
 
@@ -47,7 +47,7 @@ namespace ProiectIP
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
             {
                 String sql;
-                sql = "Select * from LOAN where accepted = 0";
+                sql = "Select * from LOAN where accepted = 0"; // selecteaza toate imprumuturile 
 
                 OracleCommand command = new OracleCommand(sql, connection);
 
@@ -81,7 +81,7 @@ namespace ProiectIP
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
             {
                 String sql;
-                sql = "BEGIN \n accept_loan(" + loanId + "); \n END;";
+                sql = "BEGIN \n accept_loan(" + loanId + "); \n END;"; // accepta imprumutul cu id-ul (imprumutului) dat ca si parametru
                 OracleCommand command = new OracleCommand(sql, connection);
 
                 command.Connection.Open();
@@ -97,7 +97,7 @@ namespace ProiectIP
                 String sql;
 
                 sql = "BEGIN \n insert_loan(" + loan.AccountId + "," +
-                        loan.ISBN +"); \n END;";
+                        loan.ISBN +"); \n END;"; // insereaza imprumutul in baza de date
 
                 OracleCommand command = new OracleCommand(sql, connection);
 

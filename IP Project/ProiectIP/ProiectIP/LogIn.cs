@@ -20,7 +20,7 @@ namespace ProiectIP
             InitializeComponent();
         }
         #region Buttons
-        private void buttonConectare_Click(object sender, EventArgs e)
+        private void buttonConectare_Click(object sender, EventArgs e) // conecteaza user-ul 
         {
             string username = textBox1.Text;
             string parola = textBox2.Text;
@@ -29,33 +29,33 @@ namespace ProiectIP
 
             if(account == null)
             {
-                MessageBox.Show("Utilizator incorect!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Utilizator incorect!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning); // cont scris gresit sau inexistent
                 return;
             }
             if (account.AccountType == 0)
             {
-                UtilizatorForm utilizatorForm = new UtilizatorForm(account);
+                UtilizatorForm utilizatorForm = new UtilizatorForm(account); // user 
                 utilizatorForm.Show();
                 this.Hide();
             }
             if (account.AccountType == 1)
             {
-                BibliotecarForms bibliotecarForm = new BibliotecarForms(account);
+                BibliotecarForms bibliotecarForm = new BibliotecarForms(account); // bibliotecar
                 bibliotecarForm.Show();
                 this.Hide();
             }
         }
 
-        private void Inregistrare_Click(object sender, EventArgs e)
+        private void Inregistrare_Click(object sender, EventArgs e) // acceseaza forms-ul de inregistrare
         {
             Inregistrare inregistare = new Inregistrare();
             inregistare.Show();
             this.Hide();
         }
 
-        private void buttonDespre_Click(object sender, EventArgs e)
+        private void buttonDespre_Click(object sender, EventArgs e) // informatii despre proiect
         {
-            MessageBox.Show("                   Proiect realizat de Radu Dumitriu și Atanase Alexandru \n\n" +
+            MessageBox.Show("                   Proiect realizat de Radu Dumitriu și Atanase Alexandru-Teodor \n\n" +
                 "                                   Tema proiectului:Evidența Biblioteca \n\n" +
                 "Descriere:     Proiectul constă în dezvoltarea unei interfețe grafice pentru administrarea cărţilor dintr-o bibliotecă, " +
                 "cu posibilitatea de a împrumuta. Împrumutul se face pe baza informațiilor cărții (ISBN, titlu, gen, autor, editura) " +

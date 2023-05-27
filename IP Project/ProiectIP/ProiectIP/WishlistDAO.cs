@@ -15,7 +15,7 @@ namespace ProiectIP
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
             {
                 String sql;
-                sql = "SELECT * FROM CARTI c JOIN WISHLIST w ON w.carte_isbn = c.isbn WHERE w.account_id ='" + accountId + "'";
+                sql = "SELECT * FROM CARTI c JOIN WISHLIST w ON w.carte_isbn = c.isbn WHERE w.account_id ='" + accountId + "'"; // afiseaza cartile din wishlist
 
                 OracleCommand command = new OracleCommand(sql, connection);
 
@@ -48,7 +48,7 @@ namespace ProiectIP
 
                 sql = "BEGIN \n insert_wishlist(" +
                         wishlist.AccountId + "," +
-                        wishlist.ISBN + "); \n END;";
+                        wishlist.ISBN + "); \n END;"; // insereaza in wishlist isbn-ul cartii si id-ul utilizatorului care o doreste
 
                 OracleCommand command = new OracleCommand(sql, connection);
 
@@ -64,7 +64,7 @@ namespace ProiectIP
             {
                 String sql;
 
-                sql = "DELETE FROM WISHLIST WHERE account_id ='" + wishlist.AccountId + "' AND carte_isbn = '" + wishlist.ISBN + "'";
+                sql = "DELETE FROM WISHLIST WHERE account_id ='" + wishlist.AccountId + "' AND carte_isbn = '" + wishlist.ISBN + "'"; // sterge din wishlist cartea
 
                 OracleCommand command = new OracleCommand(sql, connection);
 

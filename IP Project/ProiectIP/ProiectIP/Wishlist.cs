@@ -14,14 +14,14 @@ namespace ProiectIP
         public int AccountId { get; set; }
         #endregion
         #region Constructors
-        public Wishlist() { }   
-        public Wishlist(int isbn, int id)
+        public Wishlist() { }    // constructor
+        public Wishlist(int isbn, int id) // constructor
         {
             ISBN = isbn;
             AccountId = id;
         }
 
-        public Wishlist(Wishlist w)
+        public Wishlist(Wishlist w) // constructor
         {
             ISBN = w.ISBN;
             AccountId = w.AccountId;

@@ -24,7 +24,7 @@ namespace ProiectIP
             label1.Text = label1.Text + this.account.Username + "!";
         }
         #region Buttons
-        private void AddtoWishlist_Click(object sender, EventArgs e)
+        private void AddtoWishlist_Click(object sender, EventArgs e) // adauga cartea in wishlist
         {
             if (isOnLoan)
                 return;
@@ -47,12 +47,12 @@ namespace ProiectIP
                  // Verificați dacă elementul selectat este deja în wishlist
                 if (ok==true)
                 {
-                    MessageBox.Show("Cartea este deja în Wishlist!");
+                    MessageBox.Show("Cartea este deja în Wishlist!"); // carte deja introdusa in wishlist
                 }
                 else
                 {
                     WishlistDAO.AddBookWishlist(wishlist);
-                    MessageBox.Show("Carte adăugata în Wishlist!");
+                    MessageBox.Show("Carte adăugata în Wishlist!"); // carte introdusa in wishlist cu succes
                 }
             }
             else
@@ -61,7 +61,7 @@ namespace ProiectIP
             }
         }
 
-        private void buttonImprumuta_Click(object sender, EventArgs e)// de editat pt forms
+        private void buttonImprumuta_Click(object sender, EventArgs e)  // trimite o cerere de imprumut
         {
             if (isOnLoan)
                 return;
@@ -90,7 +90,7 @@ namespace ProiectIP
             }
         }
 
-        private void buttonShowWishlist_click(object sender, EventArgs e)// de editat pt forms
+        private void buttonShowWishlist_click(object sender, EventArgs e)// afiseaza cartile pe care utilizatorul le are in wishlist
         {
             isOnLoan = false;
 
@@ -109,7 +109,7 @@ namespace ProiectIP
             }
         }
 
-        private void buttonShowBooks_click(object sender, EventArgs e)// de editat pt forms
+        private void buttonShowBooks_click(object sender, EventArgs e) // afiseaza cartile
         {
             isOnLoan=false;
 
@@ -121,14 +121,14 @@ namespace ProiectIP
             }
         }
 
-        private void buttonDeconectare_Click(object sender, EventArgs e)
+        private void buttonDeconectare_Click(object sender, EventArgs e) // utilizatorul se deconecteaza de la cont
         {
             LogIn logIn = new LogIn();
             logIn.Show();
             this.Hide();
         }
 
-        private void removeWishlist_Click(object sender, EventArgs e)
+        private void removeWishlist_Click(object sender, EventArgs e) // sterge din wishlist
         {
             if (isOnLoan)
                 return;
@@ -152,8 +152,7 @@ namespace ProiectIP
             }
         }
 
-
-        private void showLoans_Click(object sender, EventArgs e)
+        private void showLoans_Click(object sender, EventArgs e) // arata imprumuturile
         {
             isOnLoan = true;
 

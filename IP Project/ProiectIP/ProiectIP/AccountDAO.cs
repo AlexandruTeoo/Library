@@ -15,18 +15,21 @@ namespace ProiectIP
         #region GetAccount
         public static Account GetAccount(string username, string password)
         {
-            using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
+            using (OracleConnection connection = new OracleConnection(Database.GetConnectionString())) // conexiune baza de date
             {
                 String sql;
 
-                sql = "SELECT * FROM ACCOUNTS WHERE username='" + username + "' AND parola='" + password + "'";
+                sql = "SELECT * FROM ACCOUNTS WHERE username='" + username + "' AND parola='" + password + "'"; // selecteaza toate conturile care au username-ul si
+                                                                                                                // parola egale cu parametrii (username, password)
+                // Creăm un obiect OracleCommand pentru a executa instrucțiunea SQL
                 OracleCommand command = new OracleCommand(sql, connection);
 
-                command.Connection.Open();
+                command.Connection.Open(); // Deschidem conexiunea către baza de date utilizând obiectul OracleCommand
                 OracleDataReader dataReader = command.ExecuteReader();
 
                 if (dataReader.Read())
                 {
+                    // Citim valorile din rândul curent al rezultatelor și le asignăm variabilelor corespunzătoare
                     Account account = new Account(dataReader.GetInt32(0),
                         dataReader.GetString(1),
                         dataReader.GetString(2),
@@ -42,7 +45,7 @@ namespace ProiectIP
                         );
                     return account;
                 }
-                return null;
+                return null; // Dacă nu există niciun rând în rezultate, se returnează null
             }
         }
         #endregion
@@ -52,14 +55,15 @@ namespace ProiectIP
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
             {
                 String sql;
+                // Construim instrucțiunea SQL pentru a insera un nou cont în baza de date
                 sql = "BEGIN \n insert_account('" + account.Username + "', '" + account.Password + "', '" + account.Nume + "'," +
                     " ' " + account.Prenume + "', '" + account.CNP + "', ' " + account.Email + "'," +
                 " ' " + account.Address + "', '" + account.City + "', '" + account.PhoneNumber + "', 0, 0); \n END;";
 
-                OracleCommand command = new OracleCommand(sql, connection);
-                command.Connection.Open();
+                OracleCommand command = new OracleCommand(sql, connection); // Creăm un obiect OracleCommand pentru a executa instrucțiunea SQL
+                command.Connection.Open(); // Deschidem conexiunea către baza de date utilizând obiectul OracleCommand
 
-                command.ExecuteReader(); 
+                command.ExecuteReader(); // Execută instrucțiunea SQL folosind ExecuteReader pentru a insera contul în baza de date
             }
         }
         #endregion

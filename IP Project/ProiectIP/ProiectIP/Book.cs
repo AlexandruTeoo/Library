@@ -18,7 +18,7 @@ namespace ProiectIP
         #endregion
         #region Constructors
         public Book() { }
-        public Book(Book b)
+        public Book(Book b) // constructor
         {
             Title = b.Title;
             Author = b.Author;
@@ -28,7 +28,7 @@ namespace ProiectIP
             ISBN = b.ISBN;
         }
 
-        public Book(int isbn, string title, string author, string category, int stock, int total)
+        public Book(int isbn, string title, string author, string category, int stock, int total) // constructor
         {
             Title = title;
             Author = author;
@@ -39,7 +39,7 @@ namespace ProiectIP
         }
         #endregion
         #region ToString
-        public override string ToString()
+        public override string ToString() // suprascrierea metodei ToString()
         {
             return "ISBN: " + ISBN +
                 " | Titlu: " + Title +

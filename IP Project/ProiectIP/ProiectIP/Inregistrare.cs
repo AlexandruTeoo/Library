@@ -21,14 +21,14 @@ namespace ProiectIP
             InitializeComponent();
         }
         #region Buttons
-        private void backLogIn_Click(object sender, EventArgs e)
+        private void backLogIn_Click(object sender, EventArgs e) // butonul intoare utilizatorul pe pagina de autentificare
         {
             LogIn logIn = new LogIn();
             logIn.Show();
             this.Hide();
         }
 
-        private void buttonInregistrare_Click(object sender, EventArgs e)
+        private void buttonInregistrare_Click(object sender, EventArgs e) // inregistreaza utilizatorul in baza de date
         { 
             Account account = new Account();
 
@@ -44,19 +44,19 @@ namespace ProiectIP
 
             if(account.CNP.Length != 13)
             {
-                MessageBox.Show("CNP invalid", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("CNP invalid", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning); // CNP introdus gresit
                 return;
             }
             if (account.PhoneNumber.Length != 10)
             {
-                MessageBox.Show("Numar de telefon invalid", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Numar de telefon invalid", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning); // numar de telefon gresit
                 return;
             }
 
             try
             {
                 AccountDAO.InsertAccount(account);
-                MessageBox.Show("Utilizator inserat cu succes!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Utilizator inserat cu succes!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning); // utilizator introdus
                 LogIn logare = new LogIn();
                 logare.Show();
                 this.Hide();
@@ -66,16 +66,16 @@ namespace ProiectIP
                 switch(ex.Number)
                 {
                     case 20001:
-                        MessageBox.Show("Email deja existent!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Email deja existent!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning); // email deja existent
                         break;
                     case 20002:
-                        MessageBox.Show("Username deja existent!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Username deja existent!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning); // username deja existent
                         break;
                     case 20003:
-                        MessageBox.Show("CNP deja existent!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("CNP deja existent!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning); // CNP deja existent
                         break;
                     case 20004:
-                        MessageBox.Show("Numar de telefon deja existent!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Numar de telefon deja existent!", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning); // numar de telefon deja existent
                         break;
                     default:
                         MessageBox.Show(ex.Message, "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);

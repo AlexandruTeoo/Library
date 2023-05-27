@@ -18,11 +18,11 @@ namespace ProiectIP
         public int Accepted { get; set; }
         #endregion
         #region Constructors
-        public Loan()
+        public Loan()  // constructor
         {
 
         }
-        public Loan(Loan l)
+        public Loan(Loan l) // constructor
         {
             LoanId = l.LoanId;
             AccountId = l.AccountId;
@@ -32,7 +32,7 @@ namespace ProiectIP
             Accepted = l.Accepted;
         }
 
-        public Loan(int loanId, int accountId, int isbn, DateTime issuedDate, DateTime returnedDate, int accepted)
+        public Loan(int loanId, int accountId, int isbn, DateTime issuedDate, DateTime returnedDate, int accepted) // constructor
         {
             LoanId = loanId;
             AccountId = accountId;
