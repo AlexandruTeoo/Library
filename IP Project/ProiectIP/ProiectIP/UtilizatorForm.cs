@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using AccountLibrary;
+using BookLibrary;
+using LoanLibrary;
+using WishlistLibrary;
 
 namespace ProiectIP
 {

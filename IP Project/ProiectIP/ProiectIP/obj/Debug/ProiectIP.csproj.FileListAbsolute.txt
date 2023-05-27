@@ -103,3 +103,17 @@ C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\obj\Deb
 C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\obj\Debug\ProiectIP.ModificaCarte.resources
 D:\AC\IP\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\obj\Debug\ProiectIP.AdaugaCarteForm.resources
 D:\AC\IP\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\obj\Debug\ProiectIP.ModificaCarte.resources
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\AccountLibrary.dll
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\DatabaseLibrary.dll
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\AccountLibrary.pdb
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\AccountLibrary.dll.config
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\DatabaseLibrary.pdb
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\BookLibrary.dll
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\BookLibrary.pdb
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\BookLibrary.dll.config
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\LoanLibrary.dll
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\LoanLibrary.pdb
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\LoanLibrary.dll.config
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\WishlistLibrary.dll
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\WishlistLibrary.pdb
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\WishlistLibrary.dll.config

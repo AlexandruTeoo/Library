@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using AccountLibrary;
 
 namespace ProiectIP
 {

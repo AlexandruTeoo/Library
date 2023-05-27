@@ -3,6 +3,9 @@ using Moq;
 using ProiectIP;
 using System;
 using System.Collections.Generic;
+using DatabaseLibrary;
+using BookLibrary;
+using AccountLibrary;
 
 namespace UnitTest
 {

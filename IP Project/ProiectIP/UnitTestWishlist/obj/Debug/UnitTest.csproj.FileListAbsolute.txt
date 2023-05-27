@@ -1,0 +1,2 @@
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\UnitTestWishlist\obj\Debug\UnitTest.csproj.AssemblyReference.cache
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\UnitTestWishlist\obj\Debug\UnitTest.csproj.CoreCompileInputs.cache

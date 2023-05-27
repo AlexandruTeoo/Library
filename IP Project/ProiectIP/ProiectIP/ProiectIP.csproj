@@ -35,6 +35,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AccountLibrary">
+      <HintPath>..\..\AccountLibrary\bin\Debug\AccountLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="BookLibrary">
+      <HintPath>..\..\BookLibrary\bin\Debug\BookLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="DatabaseLibrary">
+      <HintPath>..\..\AccountLibrary\bin\Debug\DatabaseLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="LoanLibrary">
+      <HintPath>..\..\LoanLibrary\bin\Debug\LoanLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -77,10 +89,11 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WishlistLibrary">
+      <HintPath>..\..\WishlistLibrary\bin\Debug\WishlistLibrary.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs" />
-    <Compile Include="AccountDAO.cs" />
     <Compile Include="AdaugaCarteForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,17 +106,12 @@
     <Compile Include="BibliotecarForm.Designer.cs">
       <DependentUpon>BibliotecarForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Book.cs" />
-    <Compile Include="BookDAO.cs" />
-    <Compile Include="Database.cs" />
     <Compile Include="Inregistrare.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inregistrare.Designer.cs">
       <DependentUpon>Inregistrare.cs</DependentUpon>
     </Compile>
-    <Compile Include="Loan.cs" />
-    <Compile Include="LoanDAO.cs" />
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,8 +132,6 @@
     <Compile Include="UtilizatorForm.Designer.cs">
       <DependentUpon>UtilizatorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Wishlist.cs" />
-    <Compile Include="WishlistDAO.cs" />
     <EmbeddedResource Include="AdaugaCarteForm.resx">
       <DependentUpon>AdaugaCarteForm.cs</DependentUpon>
     </EmbeddedResource>

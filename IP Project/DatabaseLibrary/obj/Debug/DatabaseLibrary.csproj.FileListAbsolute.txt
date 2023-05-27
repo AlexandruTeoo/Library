@@ -1,0 +1,6 @@
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\DatabaseLibrary\bin\Debug\DatabaseLibrary.dll
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\DatabaseLibrary\bin\Debug\DatabaseLibrary.pdb
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\DatabaseLibrary\obj\Debug\DatabaseLibrary.csproj.AssemblyReference.cache
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\DatabaseLibrary\obj\Debug\DatabaseLibrary.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\DatabaseLibrary\obj\Debug\DatabaseLibrary.dll
+C:\Users\User\Documents\GitHub\IP-Project\IP Project\DatabaseLibrary\obj\Debug\DatabaseLibrary.pdb
