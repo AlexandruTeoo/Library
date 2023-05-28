@@ -117,7 +117,7 @@ namespace UnitTest
             try
             {
                 AccountDAO.InsertAccount(_account);
-                Assert.AreEqual("1", "1", "Cont inserat cu succes");
+                Assert.AreEqual("testUsername", _account.Username, "Cont inserat cu succes");
             }
             catch (Exception ex)
             {
@@ -156,23 +156,15 @@ namespace UnitTest
         {
             try
             {
+                Book book = BookDAO.GetBook(_book.Title, _book.Author);
+                Account account = AccountDAO.GetAccount(_account.Username, _account.Password);
+
+                _loan.ISBN = book.ISBN;
+                _loan.AccountId = account.Id;
+
+                Console.WriteLine (_loan);
                 LoanDAO.AddLoan(_loan);
-                Assert.AreEqual("1", "1", "Carte inserata");
-            }
-            catch (Exception ex)
-            {
-                Assert.Fail(ex.Message);
-            }
-        }
-
-        [TestMethod]
-        public void ApproveLoanTest()
-        {
-            try
-            {
-                LoanDAO.ApproveLoan(_loan.LoanId);
-
-                Assert.AreEqual(1, _loan.Accepted, "Preluarea imprumuturilor au fost efectuate cu succes");
+                Assert.AreEqual("1", "1", "Imprumut inserat");
             }
             catch (Exception ex)
             {
@@ -189,7 +181,7 @@ namespace UnitTest
 
                 Assert.AreNotEqual(null, loans, "Imprumutul a fost prelucrat");
                 Assert.AreEqual(_loan.LoanId, loans[0].LoanId, "Preluarea imprumutului a fost efectuata cu succes");
-                
+
                 _loan = loans[0];
             }
             catch (Exception ex)
@@ -217,10 +209,35 @@ namespace UnitTest
         }
 
         [TestMethod]
+        public void ApproveLoanTest()
+        {
+            try
+            {
+                LoanDAO.ApproveLoan(_loan.LoanId);
+
+                Assert.AreEqual(1, _loan.Accepted, "Preluarea imprumuturilor au fost efectuate cu succes");
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+        }
+
+        [TestMethod]
         public void AddBookWishlistTest()
         {
             try
             {
+
+
+                Book book = BookDAO.GetBook(_book.Title, _book.Author);
+                Account account = AccountDAO.GetAccount(_account.Username, _account.Password);
+
+                _wishlist.ISBN = book.ISBN;
+                _wishlist.AccountId = account.Id;
+                Console.WriteLine(_wishlist);
+                WishlistDAO.AddBookWishlist(_wishlist);
+
                 WishlistDAO.AddBookWishlist(_wishlist);
                 Assert.AreEqual("1", "1", "Cont inserat cu succes");
             }
@@ -255,8 +272,11 @@ namespace UnitTest
             try
             {
                 WishlistDAO.DeleteBookWishlist(_wishlist);
+                //Assert.IsNull(_wishlist);
 
-                Assert.IsNull(_wishlist);
+                List<Book> wishlist = WishlistDAO.GetWishlist(_account.Id);
+                bool bookExistsInWishlist = (_wishlist.ISBN == wishlist[0].ISBN);
+                Assert.IsFalse(bookExistsInWishlist, "Cartea a fost stearsa din wishlist");
             }
             catch (Exception ex)
             {
@@ -271,7 +291,11 @@ namespace UnitTest
             {
                 BookDAO.DeleteBook(_book);
 
-                Assert.IsNull(_wishlist);
+                //Assert.IsNull(_wishlist);
+
+                Book book = BookDAO.GetBook(_book.Title, _book.Author);
+                bool bookExistsInLibrary = (book == _book);
+                Assert.IsFalse(bookExistsInLibrary, "Cartea a fost stearsa");
             }
             catch (Exception ex)
             {

@@ -72,9 +72,9 @@ namespace AccountLibrary
             {
                 String sql;
                 // Construim instrucțiunea SQL pentru a insera un nou cont în baza de date
-                sql = "BEGIN \n insert_account('" + account.Username + "', '" + account.Password + "', '" + account.Nume + "'," +
-                    " ' " + account.Prenume + "', '" + account.CNP + "', ' " + account.Email + "'," +
-                " ' " + account.Address + "', '" + account.City + "', '" + account.PhoneNumber + "', 0, 0); \n END;";
+                sql = "BEGIN \n insert_account('" + account.Username + "','" + account.Password + "','" + account.Nume + "'," +
+                    "'" + account.Prenume + "','" + account.CNP + "','" + account.Email + "'," +
+                "'" + account.Address + "','" + account.City + "','" + account.PhoneNumber + "', 0, 0); \n END;";
 
                 OracleCommand command = new OracleCommand(sql, connection); // Creăm un obiect OracleCommand pentru a executa instrucțiunea SQL
                 command.Connection.Open(); // Deschidem conexiunea către baza de date utilizând obiectul OracleCommand
