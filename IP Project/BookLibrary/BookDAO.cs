@@ -67,7 +67,7 @@ namespace BookLibrary
             {
                 String sql, Output = "";
                 // Construim instrucțiunea SQL pentru a selecta toate cartile din baza de date
-                sql = "Select * from CARTI WHERE title = '" + title + "' AND autor = '" + author + "'";
+                sql = "Select * from CARTI WHERE titlu = '" + title + "' AND autor = '" + author + "'";
                 OracleCommand command = new OracleCommand(sql, connection);
 
                 command.Connection.Open(); // Deschidem conexiunea către baza de date utilizând obiectul OracleCommand
@@ -124,7 +124,7 @@ namespace BookLibrary
         }
         #endregion
         #region ModifyBook
-        public static void  ModifyBook(Book book)
+        public static void ModifyBook(Book book)
         {
             using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
             {

@@ -71,7 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WishlistTest.cs" />
+    <Compile Include="UnitTestLibrary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -79,9 +79,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProiectIP\ProiectIP.csproj">
-      <Project>{af4d35ef-bc94-4689-bc88-cf6a324bd5b7}</Project>
-      <Name>ProiectIP</Name>
+    <ProjectReference Include="..\..\LoanLibrary\LoanLibrary.csproj">
+      <Project>{b2ddd57b-c7bf-406b-b59b-9fc59591866d}</Project>
+      <Name>LoanLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WishlistLibrary\WishlistLibrary.csproj">
+      <Project>{d8022406-28b4-4f48-b91c-0911c72d5d7c}</Project>
+      <Name>WishlistLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
