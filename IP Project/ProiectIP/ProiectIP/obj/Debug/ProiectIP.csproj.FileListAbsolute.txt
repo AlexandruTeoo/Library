@@ -117,3 +117,17 @@ C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Deb
 C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\WishlistLibrary.dll
 C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\WishlistLibrary.pdb
 C:\Users\User\Documents\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\WishlistLibrary.dll.config
+D:\AC\IP\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\AccountLibrary.dll
+D:\AC\IP\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\BookLibrary.dll
+D:\AC\IP\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\DatabaseLibrary.dll
+D:\AC\IP\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\LoanLibrary.dll
+D:\AC\IP\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\WishlistLibrary.dll
+D:\AC\IP\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\AccountLibrary.pdb
+D:\AC\IP\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\AccountLibrary.dll.config
+D:\AC\IP\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\BookLibrary.pdb
+D:\AC\IP\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\BookLibrary.dll.config
+D:\AC\IP\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\DatabaseLibrary.pdb
+D:\AC\IP\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\LoanLibrary.pdb
+D:\AC\IP\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\LoanLibrary.dll.config
+D:\AC\IP\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\WishlistLibrary.pdb
+D:\AC\IP\GitHub\IP-Project\IP Project\ProiectIP\ProiectIP\bin\Debug\WishlistLibrary.dll.config

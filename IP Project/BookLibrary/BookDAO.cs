@@ -1,10 +1,28 @@
-﻿using Oracle.ManagedDataAccess.Client;
+﻿/**************************************************************************
+ *                                                                        *
+ *  File:        BookLibrary.dll                                               *
+ *  Copyright:   (c) 2023, Florin Leon                                    *
+ *  E-mail:      florin.leon@academic.tuiasi.ro                           *
+ *  Website:     http://florinleon.byethost24.com/lab_ip.html             *
+ *  Description: BookDAO ()                                          *
+ *                                                                        *
+ *                                                                        *
+ *  This code and information is provided "as is" without warranty of     *
+ *  any kind, either expressed or implied, including but not limited      *
+ *  to the implied warranties of merchantability or fitness for a         *
+ *  particular purpose. You are free to use this source code in your      *
+ *  applications as long as the original copyright notice is included.    *
+ *                                                                        *
+ **************************************************************************/
+
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DatabaseLibrary;
+using System.Web;
 
 namespace BookLibrary
 {
@@ -40,6 +58,36 @@ namespace BookLibrary
                 }
                 Console.WriteLine(books);
                 return books;
+            }
+        }
+        #endregion
+        #region GetBook
+        public static Book GetBook(string titlu, string autor)
+        {
+            using (OracleConnection connection = new OracleConnection(Database.GetConnectionString()))
+            {
+                String sql, Output = "";
+                // Construim instrucțiunea SQL pentru a selecta toate cartile din baza de date
+                sql = "Select * from CARTI WHERE titlu = '" + titlu + "' and autor = '" + autor + "'";
+                OracleCommand command = new OracleCommand(sql, connection);
+
+                command.Connection.Open(); // Deschidem conexiunea către baza de date utilizând obiectul OracleCommand
+
+                OracleDataReader dataReader = command.ExecuteReader(); // Execută instrucțiunea SQL folosind ExecuteReader pentru a insera contul în baza de date
+
+                if (dataReader.Read())
+                {
+                    // Citim valorile din rândul curent al rezultatelor și le asignăm variabilelor corespunzătoare
+                    Book book = new Book(dataReader.GetInt32(0),
+                                        dataReader.GetString(1),
+                                        dataReader.GetString(2),
+                                        dataReader.GetString(3),
+                                        dataReader.GetInt32(4),
+                                        dataReader.GetInt32(5));
+
+                    return book;
+                }
+                return null;
             }
         }
         #endregion
