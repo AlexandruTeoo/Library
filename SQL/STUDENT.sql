@@ -81,6 +81,8 @@ CREATE OR REPLACE PACKAGE custom_exceptions AS
     email_duplicate_exception EXCEPTION;
     username_duplicate_exception EXCEPTION;
     stoc_insuficient_exception EXCEPTION;
+    cnp_duplicate_exception EXCEPTION;
+    nr_tel_duplicate_exception EXCEPTION;
 END custom_exceptions;
 /
 -------------------------------------------------------------Functii Insert------------------------------------------------------------------------
@@ -103,6 +105,18 @@ AS
         COMMIT;
     END;
     /
+    
+CREATE OR REPLACE PROCEDURE modificare_carte(p_isbn int, p_titlu varchar2, p_autor varchar2,p_categorie varchar2)
+AS
+    BEGIN
+        UPDATE CARTI
+        SET titlu = p_titlu,
+            autor = p_autor,
+            categorie = p_categorie
+        WHERE isbn = p_isbn;
+    END;
+    /
+
  
  CREATE OR REPLACE PROCEDURE insert_account(p_username varchar2, p_parola varchar2, p_nume varchar2, p_prenume varchar2,
  p_cnp varchar2, p_email varchar2, p_adresa varchar2, p_oras varchar2, p_numar_telefon varchar2,
@@ -121,6 +135,18 @@ AS
         IF v_counter = 1 THEN
             raise custom_exceptions.email_duplicate_exception;
         END IF;
+        
+        ------------------------Exceptie CNP-------------------------------
+        SELECT COUNT(*) INTO v_counter FROM ACCOUNTS WHERE CNP = p_cnp;
+        IF v_counter = 1 THEN
+            raise custom_exceptions.cnp_duplicate_exception;
+        END IF;
+        ------------------------Execptie Telefon---------------------------
+        SELECT COUNT(*) INTO v_counter FROM ACCOUNTS WHERE numar_telefon = p_numar_telefon;
+        IF v_counter = 1 THEN
+            raise custom_exceptions.nr_tel_duplicate_exception;
+        END IF;
+        
         INSERT INTO ACCOUNTS VALUES(GET_ACCOUNT_ID.nextval, p_username, p_parola, p_nume, p_prenume, 
         p_cnp, p_email, p_adresa, p_oras, p_numar_telefon, p_tip_cont_admin, p_black_listed);
         COMMIT;
@@ -130,8 +156,12 @@ AS
         raise_application_error(-20001, 'Email deja existent!' || p_email);
     WHEN custom_exceptions.username_duplicate_exception THEN
         raise_application_error(-20002, 'Username deja existent!' || p_username);
+    WHEN custom_exceptions.cnp_duplicate_exception THEN
+        raise_application_error(-20003, 'CNP deja existent!' || p_cnp);
+    WHEN custom_exceptions.nr_tel_duplicate_exception THEN
+        raise_application_error(-20004, 'Numar de telefon deja existent!' || p_numar_telefon); 
     WHEN OTHERS THEN
-        raise_application_error(-21000, 'S-a produs o exceptie la inserarea unui cont!');
+        raise_application_error(-20100, 'S-a produs o exceptie la inserarea unui cont!');
         
     END;
     /
@@ -156,8 +186,9 @@ CREATE OR REPLACE PROCEDURE delete_loan(p_loan_id int)
  AS
     v_carte_isbn NUMBER;
     v_stoc NUMBER;
+    v_accepted NUMBER;
     BEGIN
-    
+    v_accepted := 0;
     SELECT carte_isbn INTO v_carte_isbn FROM LOAN WHERE loan_id = p_loan_id;
     SELECT stoc INTO v_stoc FROM CARTI WHERE isbn = v_carte_isbn;  
     
@@ -165,19 +196,22 @@ CREATE OR REPLACE PROCEDURE delete_loan(p_loan_id int)
         UPDATE loan SET accepted=1, data_imprumut=SYSDATE, data_restituire=SYSDATE+14 WHERE loan_id = p_loan_id;
         UPDATE carti SET stoc=v_stoc-1 WHERE isbn = v_carte_isbn;
         v_stoc := v_stoc-1;
+        v_accepted := 1;
     END IF;
     
     IF v_stoc = 0 THEN
         DELETE FROM loan WHERE carte_isbn = v_carte_isbn AND accepted = 0;
-        raise custom_exceptions.stoc_insuficient_exception;
+        IF v_accepted = 0 THEN
+            raise custom_exceptions.stoc_insuficient_exception;
+        END IF;
     END IF;
         COMMIT;
         
         EXCEPTION
     WHEN  custom_exceptions.stoc_insuficient_exception THEN
-        raise_application_error(-20003, 'Stoc insuficient!' || v_stoc);
+        raise_application_error(-20050, 'Stoc insuficient!' || v_stoc);
     WHEN OTHERS THEN
-        raise_application_error(-21001, 'S-a produs o eroare la ACCEPT_LOAN');
+        raise_application_error(-20101, 'S-a produs o eroare la ACCEPT_LOAN');
         
     END;
     /     
@@ -212,9 +246,18 @@ CREATE OR REPLACE PROCEDURE delete_black_listed(p_account_id int)
         UPDATE accounts SET black_listed=0 WHERE account_id=p_account_id;
         COMMIT;
     END;
-    /       
- 
- 
+    /   
+    
+CREATE OR REPLACE PROCEDURE delete_book(p_isbn int)
+ AS
+    BEGIN
+        DELETE FROM WISHLIST WHERE carte_isbn = p_isbn;
+        DELETE FROM LOAN WHERE carte_isbn = p_isbn;
+        DELETE FROM CARTI WHERE isbn = p_isbn;
+        COMMIT;
+    END;
+    / 
+  
  --------------------------------------------------------Inserari in tabele----------------------------------------------------------------------
  
  BEGIN 
@@ -226,13 +269,34 @@ CREATE OR REPLACE PROCEDURE delete_black_listed(p_account_id int)
  END;
  /
  
- BEGIN 
-    insert_account('radumitriu', 'suntsmecher', 'Dumitriu', 'Radu', '5010303270824', 'radumitritiu@yahoo.com',
-    'Jud Neamt', 'Roman', '0744897953', 1, 0);
-    insert_account('mihainejne', 'estismecher', 'Nejneriu', 'Mihai', '5010303270825', 'mihainejne@gmail.com',
-    'Jud Bacau', 'Bacau', '0744897954', 0, 0);
+ BEGIN
+    modificare_carte(3,'Din cer au cazut 4 mere', 'Narin Abgarian', 'Drama');
  END;
  /
+ 
+    BEGIN 
+    insert_account('radumitriu', 'suntsmecher', 'Dumitriu', 'Radu', '5010303270824', 'radumitritiu@yahoo.com',
+    'Jud Neamt', 'Roman', '0744897953', 1, 0);
+    END;
+    /
+    
+    BEGIN
+        insert_account('mihainejne', 'estismecher', 'Nejneriu', 'Mihai', '5010303270825', 'mihainejne@gmail.com',
+    'Jud Bacau', 'Bacau', '0744897954', 0, 0);
+    END;
+    /
+    
+    BEGIN
+        insert_account('admin', 'admin', 'Dumitri', 'Marcel', '5010303270823', 'radumitritiu77@yahoo.com',
+    'Jud Neamt', 'Roman', '0743897954', 1, 0);
+    END;
+    /
+    
+    BEGIN
+        insert_account('user', 'user', 'Lolo', 'Mircea', '5010303270821', 'mihainejneeee@gmail.com',
+    'Jud Bacau', 'Bacau', '0741893954', 0, 0);
+     END;
+     /
  
  BEGIN 
     insert_loan(1,1);
@@ -245,7 +309,9 @@ CREATE OR REPLACE PROCEDURE delete_black_listed(p_account_id int)
     insert_wishlist(2,1);
  END;
  /
-        
+
+
+
 
 
 
