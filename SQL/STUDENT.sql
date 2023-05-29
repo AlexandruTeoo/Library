@@ -275,19 +275,19 @@ CREATE OR REPLACE PROCEDURE delete_book(p_isbn int)
  /
  
     BEGIN 
-    insert_account('radumitriu', 'suntsmecher', 'Dumitriu', 'Radu', '5010303270824', 'radumitritiu@yahoo.com',
+    insert_account('radu', 'parola', 'Dumitriu', 'Radu', '5010303270100', 'radumitritiu@yahoo.com',
     'Jud Neamt', 'Roman', '0744897953', 1, 0);
     END;
     /
     
     BEGIN
-        insert_account('mihainejne', 'estismecher', 'Nejneriu', 'Mihai', '5010303270825', 'mihainejne@gmail.com',
+        insert_account('teo', 'parola', 'Atanase', 'Alexandru', '5010303270825', 'teoooo@gmail.com',
     'Jud Bacau', 'Bacau', '0744897954', 0, 0);
     END;
     /
     
     BEGIN
-        insert_account('admin', 'admin', 'Dumitri', 'Marcel', '5010303270823', 'radumitritiu77@yahoo.com',
+        insert_account('admin', 'admin', 'Vlad', 'Marcel', '5010303270823', 'radumitritiu77@yahoo.com',
     'Jud Neamt', 'Roman', '0743897954', 1, 0);
     END;
     /
@@ -309,11 +309,3 @@ CREATE OR REPLACE PROCEDURE delete_book(p_isbn int)
     insert_wishlist(2,1);
  END;
  /
-
-
-
-
-
-
-
-
